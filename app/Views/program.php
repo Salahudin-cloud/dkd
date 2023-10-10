@@ -43,10 +43,10 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-cases mb-40">
                             <div class="cases-img">
-                                <img src="assets/img/dkd/infaq_subuh.png" alt="">
+                                <img src="<?php echo base_url() . 'assets/img/dkd/infaq_subuh.png' ?>" alt="">
                             </div>
                             <div class="cases-caption">
-                                <h3><a href="serbu_sedekah_rutin.php">Serbu Sedekah Rutin Subuh</a></h3>
+                                <h3><a href="#">Serbu Sedekah Rutin Subuh</a></h3>
                                 <!-- Progress Bar -->
                                 <div class="single-skill mb-15">
                                     <div class="bar-progress">
@@ -69,7 +69,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-cases mb-40">
                             <div class="cases-img">
-                                <img src="assets/img/dkd/patungan_pesantren.png" alt="">
+                                <img src="<?php echo base_url() . 'assets/img/dkd/patungan_pesantren.png' ?>" alt="">
                             </div>
                             <div class="cases-caption">
                                 <h3><a href="#">Patungan Bangun Pesantren </a></h3>
@@ -95,7 +95,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-cases mb-40">
                             <div class="cases-img">
-                                <img src="assets/img/dkd/sedekah.jpg" alt="">
+                                <img src="<?php echo base_url() . 'assets/img/dkd/sedekah.jpg' ?>" alt="">
                             </div>
                             <div class="cases-caption">
                                 <h3><a href="#">Sedekah Itu Memudahkan</a></h3>
@@ -121,7 +121,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-cases mb-40">
                             <div class="cases-img">
-                                <img src="assets/img/dkd/zakat_mal.png" alt="">
+                                <img src="<?php echo base_url() . 'assets/img/dkd/zakat_mal.png' ?>" alt="">
                             </div>
                             <div class="cases-caption">
                                 <h3><a href="#">Zakat Maal Sucikan Harta</a></h3>
@@ -147,7 +147,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-cases mb-40">
                             <div class="cases-img">
-                                <img src="assets/img/dkd/palestina.png" alt="">
+                                <img src="<?php echo base_url() . 'assets/img/dkd/palestina.png' ?>" alt="">
                             </div>
                             <div class="cases-caption">
                                 <h3><a href="#">Peduli Palestina</a></h3>
@@ -173,7 +173,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-cases mb-40">
                             <div class="cases-img">
-                                <img src="assets/img/dkd/sedekah_santri.png" alt="">
+                                <img src="<?php echo base_url() . 'assets/img/dkd/sedekah_santri.png' ?>" alt="">
                             </div>
                             <div class="cases-caption">
                                 <h3><a href="#">Sedekah Beras Santri</a></h3>
@@ -199,7 +199,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-cases mb-40">
                             <div class="cases-img">
-                                <img src="assets/img/dkd/ustad.png" alt="">
+                                <img src="<?php echo base_url() . 'assets/img/dkd/ustad.png' ?>" alt="">
                             </div>
                             <div class="cases-caption">
                                 <h3><a href="#">Jariyah Bangun Rumah Ustad</a></h3>
@@ -225,7 +225,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-cases mb-40">
                             <div class="cases-img">
-                                <img src="assets/img/dkd/tebar_alquran.png" alt="">
+                                <img src="<?php echo base_url() . 'assets/img/dkd/tebar_alquran.png' ?>" alt="">
                             </div>
                             <div class="cases-caption">
                                 <h3><a href="#">Jariyah Tebar Al-Qur'an</a></h3>
@@ -251,7 +251,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-cases mb-40">
                             <div class="cases-img">
-                                <img src="assets/img/dkd/yatim.png" alt="">
+                                <img src="<?php echo base_url() . 'assets/img/dkd/yatim.png' ?>" alt="">
                             </div>
                             <div class="cases-caption">
                                 <h3><a href="#">Kado CInta Yatim</a></h3>
@@ -277,7 +277,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-cases mb-40">
                             <div class="cases-img">
-                                <img src="assets/img/dkd/puasa.png" alt="">
+                                <img src="<?php echo base_url() . 'assets/img/dkd/puasa.png' ?>" alt="">
                             </div>
                             <div class="cases-caption">
                                 <h3><a href="#">Paket Buka Puasa Ramadhan</a></h3>
