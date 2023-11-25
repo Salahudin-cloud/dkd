@@ -18,9 +18,9 @@
                                       <nav>
                                           <ul id="navigation">
                                               <li><a href="<?php echo site_url('/') ?>">Home</a></li>
-                                              <li><a href="<?php echo site_url('/about') ?>">Tentang</a></li>
+                                              <li><a href="<?php echo site_url('/tentang') ?>">Tentang</a></li>
                                               <li><a href="<?php echo site_url('/program') ?>">Program</a></li>
-                                              <li><a href="events.php">Event</a></li>
+                                              <li><a href="<?php echo site_url('/event') ?>">Event</a></li>
                                               <li><a href="blog.php">Blog</a></li>
                                               <li><a href="contact.php">Kontak</a></li>
                                           </ul>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -384,6 +385,7 @@
     <div id="back-top">
         <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
     </div>
+
 
     <!-- JS here -->
     <?php include('imports/frontend/js.php')  ?>
