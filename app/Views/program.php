@@ -46,7 +46,7 @@
                                 <img src="<?php echo base_url() . 'assets/img/dkd/infaq_subuh.png' ?>" alt="">
                             </div>
                             <div class="cases-caption">
-                                <h3><a href="#">Serbu Sedekah Rutin Subuh</a></h3>
+                                <h3><a href="<?php echo site_url('/detail_program')?>">Serbu Sedekah Rutin Subuh</a></h3>
                                 <!-- Progress Bar -->
                                 <div class="single-skill mb-15">
                                     <div class="bar-progress">

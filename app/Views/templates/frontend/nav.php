@@ -21,8 +21,8 @@
                                               <li><a href="<?php echo site_url('/tentang') ?>">Tentang</a></li>
                                               <li><a href="<?php echo site_url('/program') ?>">Program</a></li>
                                               <li><a href="<?php echo site_url('/event') ?>">Event</a></li>
-                                              <li><a href="blog.php">Blog</a></li>
-                                              <li><a href="contact.php">Kontak</a></li>
+                                              <li><a href="<?php echo site_url('/blog') ?>">Blog</a></li>
+                                              <li><a href="<?php echo site_url('/kontak') ?>">Kontak</a></li>
                                           </ul>
                                       </nav>
                                   </div>

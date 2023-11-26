@@ -54,10 +54,10 @@
                         <div class="single-job-items mb-30">
                             <div class="job-items">
                                 <div class="company-img">
-                                    <a href="#"><img src="<?php echo base_url() . 'assets/img/dkd/event/doa_bersama.jpg' ?>" alt="" height="178" width="174"></a>
+                                    <a href="<?php echo site_url('/detail_event') ?>"><img src="<?php echo base_url() . 'assets/img/dkd/event/doa_bersama.jpg' ?>" alt="" height="178" width="174"></a>
                                 </div>
                                 <div class="job-tittle">
-                                    <a href="doa_bersama.php">
+                                    <a href="<?php echo site_url('/detail_event') ?>">
                                         <h4>Doa Bersama 500 Anak Yatim</h4>
                                     </a>
                                     <ul>

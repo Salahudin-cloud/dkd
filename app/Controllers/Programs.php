@@ -9,4 +9,9 @@ class Programs extends BaseController
     {
         return view('program');
     }
+
+    public function detailProgram()
+    {
+        return view('detail_program');
+    }
 }
