@@ -5,7 +5,6 @@
               <div class="row">
                   <div class="col-sm-12">
                       <div class="copyright-box">
-
                           <p class="text-light">Bersama kita mewujudkan masa depan cerah bagi anak-anak. Donasimu berarti dunia bagi mereka.</p>
                           <p class="my-text">
                               &copy; <script>

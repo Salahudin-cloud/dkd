@@ -7,15 +7,15 @@
     <title>LAZ DKD</title>
 
     <!-- include css file -->
-    <?php include('imports/frontend/css.php') ?>
+    <?php include(APPPATH . 'Views/imports/frontend/css.php') ?>
 </head>
 
 <body>
     <!-- ? Preloader Start -->
-    <?php include('templates/frontend/pre.php') ?>
+    <?php include(APPPATH . 'Views/templates/frontend/pre.php') ?>
     <!-- Preloader Start -->
     <!-- Header Start -->
-    <?php include('templates/frontend/nav.php') ?>
+    <?php include(APPPATH . 'Views/templates/frontend/nav.php') ?>
     <!-- header end -->
     <main>
         <!--? Hero Start -->
@@ -43,7 +43,7 @@
                             <!-- blog 1  -->
                             <article class="blog_item">
                                 <div class="blog_item_img">
-                                    <img class="card-img rounded-0" src="<?php echo base_url() . 'assets/img/blog/1.jpg' ?>" alt="" />
+                                    <img class="card-img rounded-0" src="<?php echo base_url() . 'assets/frontend/img/blog/1.jpg' ?>" alt="" />
                                     <a href="<" class="blog_item_date">
                                         <h3>15</h3>
                                         <p>Jan</p>
@@ -75,7 +75,7 @@
                             <!-- nlog 2  -->
                             <article class="blog_item">
                                 <div class="blog_item_img">
-                                    <img class="card-img rounded-0" src="<?php echo base_url() . 'assets/img/blog/2.jpg' ?>" alt="" />
+                                    <img class="card-img rounded-0" src="<?php echo base_url() . 'assets/frontend/img/blog/2.jpg' ?>" alt="" />
                                     <a href="#" class="blog_item_date">
                                         <h3>15</h3>
                                         <p>Jan</p>
@@ -112,7 +112,7 @@
                             <!-- blog 3  -->
                             <article class="blog_item">
                                 <div class="blog_item_img">
-                                    <img class="card-img rounded-0" src="<?php echo base_url() . 'assets/img/blog/3.jpg' ?>" alt="" />
+                                    <img class="card-img rounded-0" src="<?php echo base_url() . 'assets/frontend/img/blog/3.jpg' ?>" alt="" />
                                     <a href="#" class="blog_item_date">
                                         <h3>15</h3>
                                         <p>Jan</p>
@@ -176,7 +176,7 @@
                             <!-- blog 5 -->
                             <article class="blog_item">
                                 <div class="blog_item_img">
-                                    <img class="card-img rounded-0" src="<?php echo base_url() . 'assets/img/blog/5.jpg' ?>" alt="" />
+                                    <img class="card-img rounded-0" src="<?php echo base_url() . 'assets/frontend/img/blog/5.jpg' ?>" alt="" />
                                     <a href="#" class="blog_item_date">
                                         <h3>15</h3>
                                         <p>Jan</p>
@@ -229,7 +229,7 @@
                     </div>
 
                     <!-- sidebar start  -->
-                    <?php include('templates/frontend/sidebar_blog.php')  ?>
+                    <?php include(APPPATH . 'Views/templates/frontend/sidebar_blog.php')  ?>
                     <!-- sidebar end -->
                 </div>
             </div>
@@ -239,7 +239,7 @@
 
 
     <!-- footer  start  -->
-    <?php include('templates/frontend/foot.php') ?>
+    <?php include(APPPATH . 'Views/templates/frontend/foot.php') ?>
     <!-- footer end -->
 
 
@@ -249,7 +249,7 @@
     </div>
 
     <!-- JS here -->
-    <?php include('imports/frontend/js.php')  ?>
+    <?php include(APPPATH . 'Views/imports/frontend/js.php')  ?>
 </body>
 
 </html>

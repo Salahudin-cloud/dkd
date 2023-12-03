@@ -51,7 +51,7 @@
                 Blog Terbaru
             </h3>
             <div class="media post_item">
-                <img src="<?php echo base_url() . 'assets/img/post/post1.jpg' ?>" alt="post" width="90" height="90" />
+                <img src="<?php echo base_url() . 'assets/frontend/img/post/post1.jpg' ?>" alt="post" width="90" height="90" />
                 <div class="media-body">
                     <a href="blog_details.html">
                         <h3 style="color: #2d2d2d">
@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="media post_item">
-                <img src="<?php echo base_url() . 'assets/img/blog/2.jpg' ?>" alt="post" width="90" height="90" />
+                <img src="<?php echo base_url() . 'assets/frontend/img/blog/2.jpg' ?>" alt="post" width="90" height="90" />
                 <div class="media-body">
                     <a href="blog_details.html">
                         <h3 style="color: #2d2d2d">Khataman 30 Juz Santri Rumah Qur'an</h3>
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="media post_item">
-                <img src="<?php echo base_url() . 'assets/img/post/post3.jpg' ?>" alt="post" width="90" height="90" />
+                <img src="<?php echo base_url() . 'assets/frontend/img/post/post3.jpg' ?>" alt="post" width="90" height="90" />
                 <div class="media-body">
                     <a href="blog_details.html">
                         <h3 style="color: #2d2d2d">Masyarakat Sambut Ust Faizar di Magelang</h3>
@@ -80,7 +80,7 @@
                 </div>
             </div>
             <div class="media post_item">
-                <img src="<?php echo base_url()  . 'assets/img/post/post4.jpg' ?>" alt="post" width="90" height="90" />
+                <img src="<?php echo base_url()  . 'assets/frontend/img/post/post4.jpg' ?>" alt="post" width="90" height="90" />
                 <div class="media-body">
                     <a href="blog_details.html">
 

@@ -10,16 +10,16 @@
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url() . 'assets/img/dkd/logo/laz.png' ?>" />
 
     <!-- include css file -->
-    <?php include('imports/frontend/css.php') ?>
+    <?php include(APPPATH . 'Views/imports/frontend/css.php') ?>
 
 </head>
 
 <body>
     <!-- ? Preloader Start -->
-    <?php include('templates/frontend/pre.php') ?>
+    <?php include(APPPATH . 'Views/templates/frontend/pre.php') ?>
     <!-- Preloader Start -->
     <!-- Header start  -->
-    <?php include('templates/frontend/nav.php') ?>
+    <?php include(APPPATH . 'Views/templates/frontend/nav.php') ?>
     <!-- header end -->
     <main>
         <!-- slider Area Start-->
@@ -180,10 +180,10 @@
                         <!-- about-img -->
                         <div class="about-img">
                             <div class="about-font-img d-none d-lg-block">
-                                <img src="<?php echo base_url() . 'assets/img/gallery/about2.png' ?>" alt="" />
+                                <img src="<?php echo base_url() . 'assets/frontend/img/gallery/about2.png' ?>" alt="" />
                             </div>
                             <div class="about-back-img">
-                                <img src="<?php echo base_url() . 'assets/img/gallery/about1.png' ?>" alt="" />
+                                <img src="<?php echo base_url() . 'assets/frontend/img/gallery/about1.png' ?>" alt="" />
                             </div>
                         </div>
                     </div>
@@ -206,7 +206,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="single-team mb-30">
                             <div class="team-img">
-                                <img src="<?php echo base_url() . 'assets/img/gallery/team1.png' ?>" alt="" />
+                                <img src="<?php echo base_url() . 'assets/frontend/img/gallery/team1.png' ?>" alt="" />
                                 <!-- Blog Social -->
                                 <ul class="team-social">
                                     <li>
@@ -229,7 +229,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="single-team mb-30">
                             <div class="team-img">
-                                <img src="<?php echo base_url() . 'assets/img/gallery/team2.png' ?>" alt="" />
+                                <img src="<?php echo base_url() . 'assets/frontend/img/gallery/team2.png' ?>" alt="" />
                                 <!-- Blog Social -->
                                 <ul class="team-social">
                                     <li>
@@ -252,7 +252,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="single-team mb-30">
                             <div class="team-img">
-                                <img src="<?php echo base_url() . 'assets/img/gallery/team3.png' ?>" alt="" />
+                                <img src="<?php echo base_url() . 'assets/frontend/img/gallery/team3.png' ?>" alt="" />
                                 <!-- Blog Social -->
                                 <ul class="team-social">
                                     <li>
@@ -275,7 +275,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="single-team mb-30">
                             <div class="team-img">
-                                <img src="<?php echo base_url() . 'assets/img/gallery/team4.png' ?>" alt="" />
+                                <img src="<?php echo base_url() . 'assets/frontend/img/gallery/team4.png' ?>" alt="" />
                                 <!-- Blog Social -->
                                 <ul class="team-social">
                                     <li>
@@ -310,7 +310,7 @@
                             </div>
                         </div>
                         <div class="col-xl-2 col-lg-3 col-md-4">
-                            <a href="auth/login.php" class="btn white-btn f-right sm-left">Gabung</a>
+                            <a href="" class="btn white-btn f-right sm-left">Gabung</a>
                         </div>
                     </div>
                 </div>
@@ -334,7 +334,7 @@
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
                                 <div class="blog-img">
-                                    <img src="assets/img/gallery/home-blog1.png" alt="" />
+                                    <img src="assets/frontend/img/gallery/home-blog1.png" alt="" />
                                     <!-- Blog date -->
                                     <div class="blog-date text-center">
                                         <span>2</span>
@@ -377,7 +377,7 @@
     </main>
 
     <!-- footer  start  -->
-    <?php include('templates/frontend/foot.php') ?>
+    <?php include(APPPATH . 'Views/templates/frontend/foot.php') ?>
     <!-- footer end -->
 
 
@@ -388,7 +388,7 @@
 
 
     <!-- JS here -->
-    <?php include('imports/frontend/js.php')  ?>
+    <?php include(APPPATH . 'Views/imports/frontend/js.php')  ?>
 
 
 

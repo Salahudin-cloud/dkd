@@ -8,17 +8,17 @@
 
 
     <!-- include css file -->
-    <?php include('imports/frontend/css.php') ?>
+    <?php include(APPPATH . 'Views/imports/frontend/css.php') ?>
 
 </head>
 
 <body>
 
     <!-- ? Preloader Start -->
-    <?php include('templates/frontend/pre.php') ?>
+    <?php include(APPPATH . 'Views/templates/frontend/pre.php') ?>
     <!-- Preloader Start -->
     <!-- Header Start -->
-    <?php include('templates/frontend/nav.php') ?>
+    <?php include(APPPATH . 'Views/templates/frontend/nav.php') ?>
     <!-- header end -->
 
     <main>
@@ -44,7 +44,7 @@
                     <div class="col-lg-8 posts-list">
                         <div class="single-post">
                             <div class="feature-img">
-                                <img class="img-fluid" src="<?php echo base_url() . 'assets/img/blog/1.jpg' ?>" alt="">
+                                <img class="img-fluid" src="<?php echo base_url() . 'assets/frontend/img/blog/1.jpg' ?>" alt="">
                             </div>
                             <div class="blog_details">
                                 <h2 style="color: #2d2d2d;">Agar Hafalan Tidak Cepat Pudar
@@ -99,7 +99,7 @@
                         </div>
                     </div>
                     <!-- sidebar start  -->
-                    <?php include('templates/frontend/sidebar_blog.php') ?>
+                    <?php include(APPPATH . 'Views/templates/frontend/sidebar_blog.php') ?>
                     <!-- sidebar end  -->
                 </div>
             </div>
@@ -108,7 +108,7 @@
     </main>
 
     <!-- footer  start  -->
-    <?php include('templates/frontend/foot.php') ?>
+    <?php include(APPPATH . 'Views/templates/frontend/foot.php') ?>
     <!-- footer end -->
 
 
@@ -118,7 +118,7 @@
     </div>
 
     <!-- JS here -->
-    <?php include('imports/frontend/js.php')  ?>
+    <?php include(APPPATH . 'Views/imports/frontend/js.php')  ?>
 </body>
 
 </html>
