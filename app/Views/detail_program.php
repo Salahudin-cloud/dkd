@@ -7,7 +7,7 @@
     <title>LAZ DKD</title>
 
     <!-- include css file -->
-    <?php include('imports/frontend/css.php') ?>
+    <?php include(APPPATH . 'Views/imports/frontend/css.php') ?>
 
 </head>
 
@@ -15,10 +15,10 @@
 
 
     <!-- ? Preloader Start -->
-    <?php include('templates/frontend/pre.php') ?>
+    <?php include(APPPATH . 'Views/templates/frontend/pre.php') ?>
     <!-- Preloader Start -->
     <!-- Header start  -->
-    <?php include('templates/frontend/nav.php') ?>
+    <?php include(APPPATH . 'Views/templates/frontend/nav.php') ?>
     <!-- header end -->
 
 
@@ -45,7 +45,7 @@
                     <div class="col-md-12">
                         <div class="post-box ">
                             <div class="post-thumb text-center">
-                                <img src="<?php echo base_url() . 'assets/img/dkd/detail_program/1.png' ?>" class="img-fluid  mt-5" alt="">
+                                <img src="<?php echo base_url() . 'assets/frontend/img/dkd/detail_program/1.png' ?>" class="img-fluid  mt-5" alt="">
                             </div>
                             <div class="post-meta">
                                 <h1 class="article-title content font-weight-bold">Sedekah Subuh</h1>
@@ -124,7 +124,7 @@
 
 
     <!-- footer  start  -->
-    <?php include('templates/frontend/foot.php') ?>
+    <?php include(APPPATH . 'Views/templates/frontend/foot.php') ?>
     <!-- footer end -->
 
 
@@ -134,7 +134,7 @@
     </div>
 
     <!-- JS here -->
-    <?php include('imports/frontend/js.php')  ?>
+    <?php include(APPPATH . 'Views/imports/frontend/js.php')  ?>
 
 </body>
 
