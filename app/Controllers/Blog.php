@@ -7,11 +7,7 @@ class Blog extends BaseController
 
     public function index()
     {
-        return view('blog');
+        return view('frontend_pages/blog');
     }
 
-    public function detailBlog()
-    {
-        return view('detail_blog');
-    }
 }

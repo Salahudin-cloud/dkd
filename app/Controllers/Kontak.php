@@ -8,6 +8,6 @@ class Kontak extends BaseController
 
     public function index()
     {
-        return view('kontak');
+        return view('frontend_pages/kontak');
     }
 }

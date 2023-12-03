@@ -7,6 +7,6 @@ class Home extends BaseController
     // frontend landing page 
     public function index(): string
     {
-        return view('index');
+        return view('frontend_pages/index');
     }
 }

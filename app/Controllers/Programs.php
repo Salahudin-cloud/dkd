@@ -7,7 +7,7 @@ class Programs extends BaseController
 
     public function index()
     {
-        return view('program');
+        return view('frontend_pages/program');
     }
 
     public function detailProgram()

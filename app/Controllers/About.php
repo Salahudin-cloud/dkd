@@ -7,6 +7,6 @@ class About extends BaseController
 
     public function index(): string
     {
-        return view('about');
+        return view('frontend_pages/about');
     }
 }

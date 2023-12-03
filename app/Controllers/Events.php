@@ -6,11 +6,7 @@ class Events extends BaseController
 {
     public function index()
     {
-        return view('events');
+        return view('frontend_pages/events');
     }
 
-    public function detailEvents()
-    {
-        return view('detail_events');
-    }
 }
