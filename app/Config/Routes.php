@@ -6,8 +6,17 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-// frontend render page
 
+// Login 
+
+$routes->get('/login', 'Login::index');
+// validasi pengguna 
+$routes->post('/auth', 'Login::validasi');
+
+// register 
+$routes->get('/register', 'Register::index');
+
+// frontend render page
 // frontend page : index
 $routes->get('/', 'Home::index');
 

@@ -8,7 +8,7 @@
                           <!-- Logo -->
                           <div class="col-xl-2 col-lg-2">
                               <div class="logo">
-                                  <a href="index.php"><img src="<?php echo base_url() . 'assets/frontend/img/logo/lazz.png' ?>" alt="" /></a>
+                                  <a href="<?php echo site_url('/') ?>"><img src="<?php echo base_url() . 'assets/frontend/img/logo/lazz.png' ?>" alt="" /></a>
                               </div>
                           </div>
                           <div class="col-xl-10 col-lg-10">
@@ -28,7 +28,7 @@
                                   </div>
                                   <!-- Header-btn -->
                                   <div class="header-right-btn d-none d-lg-block ml-20">
-                                      <a href="auth/login.php" class="btn header-btn">Donate</a>
+                                      <a href="<?php echo site_url('/login') ?>" class="btn header-btn">Donate</a>
                                   </div>
                               </div>
                           </div>
