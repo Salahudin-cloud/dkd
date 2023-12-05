@@ -60,7 +60,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="small-box bg-warning">
                                 <div class="inner">
-                                    <h3>100</h3>
+                                    <h3><?php echo $jumlah_pengguna; ?></h3>
                                     <p>Users</p>
                                 </div>
                                 <div class="icon">
@@ -96,28 +96,21 @@
                                                 <th width="10%">Nama</th>
                                                 <th width="1%">:</th>
                                                 <td>
-                                                    <p>Admin</p>
+                                                    <p><?php echo session()->get('nama') ?></p>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th width="10%">Username</th>
                                                 <th width="1%">:</th>
                                                 <td>
-                                                    <p>Admin</p>
+                                                    <p><?php echo session()->get('username') ?></p>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th width="10%">Hak Akses</th>
                                                 <th width="1%">:</th>
                                                 <td>
-                                                    <p>admin</p>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th width="10%">Status</th>
-                                                <th width="1%">:</th>
-                                                <td>
-                                                    <p>Active</p>
+                                                    <p><?php echo session()->get('role') ?></p>
                                                 </td>
                                             </tr>
                                         </table>

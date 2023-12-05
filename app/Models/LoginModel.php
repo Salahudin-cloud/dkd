@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PenggunaModel extends Model
+class LoginModel extends Model
 {
     // dedfine table name 
     protected $table = 'pengguna';

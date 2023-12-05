@@ -52,6 +52,7 @@ $routes->get('/dashboard', 'DashboardAdmin::index');
 
 // backend page : users management
 $routes->get('/users_management', 'UserManagementAdmin::index');
+$routes->get('/tambah_pengguna', 'UserManagementAdmin::tambahPenggunaView');
 
 // backend page : kategori
 $routes->get('/kategori', 'KategoriAdmin::index');

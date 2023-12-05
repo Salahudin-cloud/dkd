@@ -41,7 +41,7 @@
                         </div>
                         <div class="card-body">
                             <!-- add userr btn  -->
-                            <a href="">
+                            <a href="<?php echo site_url('tambah_pengguna') ?>">
                                 <button class="btn btn-sm btn-success">
                                     <i class="fas fa-plus"></i> Add User
                                 </button>
@@ -54,24 +54,40 @@
                                         <th>Name</th>
                                         <th>Username</th>
                                         <th>Level</th>
-                                        <th>Status</th>
                                         <th style="width: 15%;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Salahudin</td>
-                                        <td>udin</td>
-                                        <td>User</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <div class="btn-group " role="group" aria-label="Action buttons">
-                                                <a href="" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
-                                                <a href="" onclick="alert('Do you want to delete this user ? ')" class="btn btn-sm btn-danger mr-1"><i class="nav-icon fas fa-trash"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <?php $i = 1; ?>
+                                    <?php foreach ($users as $pengguna) : ?>
+                                        <?php if ($pengguna->role == "admin") : ?>
+                                            <tr>
+                                                <td hidden><?php echo $i++ ?></td>
+                                                <td hidden><?php echo $pengguna->pengguna_nama ?></td>
+                                                <td hidden><?php echo $pengguna->username ?></td>
+                                                <td hidden><?php echo $pengguna->role ?></td>
+                                                <td hidden>
+                                                    <div class="btn-group " role="group" aria-label="Action buttons">
+                                                        <a href="" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
+                                                        <a href="" onclick="alert('Do you want to delete this user ? ')" class="btn btn-sm btn-danger mr-1"><i class="nav-icon fas fa-trash"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        <?php else : ?>
+                                            <tr>
+                                                <td><?php echo $i++ ?></td>
+                                                <td><?php echo $pengguna->pengguna_nama ?></td>
+                                                <td><?php echo $pengguna->username ?></td>
+                                                <td><?php echo $pengguna->role ?></td>
+                                                <td>
+                                                    <div class="btn-group " role="group" aria-label="Action buttons">
+                                                        <a href="" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
+                                                        <a href="" onclick="alert('Do you want to delete this user ? ')" class="btn btn-sm btn-danger mr-1"><i class="nav-icon fas fa-trash"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

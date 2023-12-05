@@ -60,7 +60,7 @@
                     </div>
                 </form>
                 <p class="mb-1 mt-2">
-                    <a href="register.html" class="text-center">Daftar Akun Baru</a>
+                    <a href="<?php echo site_url('register') ?>" class="text-center">Daftar Akun Baru</a>
                 </p>
             </div>
         </div>

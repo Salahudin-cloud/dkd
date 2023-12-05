@@ -18,8 +18,8 @@
                 <a href="<?php echo site_url('login') ?>" class="h1"><b>Login</b></a>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">Masuk Untuk memulai</p>
-                <form action="<?php echo site_url('auth')?>" method="post">
+                <p class="login-box-msg">Regstrasi Pengguna Baru</p>
+                <form action="<?php echo site_url('auth') ?>" method="post">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Username" name="username" autocomplete="nope" required>
                         <div class="input-group-append">
@@ -39,14 +39,11 @@
                     <div class="row">
                         <!-- /.col -->
                         <div class="col-4 ">
-                            <button type="submit" class="btn btn-primary btn-block">Masuk</button>
+                            <button type="submit" class="btn btn-success btn-block">Masuk</button>
                         </div>
                         <!-- /.col -->
                     </div>
                 </form>
-                <p class="mb-1 mt-2">
-                    <a href="register.html" class="text-center">Daftar Akun Baru</a>
-                </p>
             </div>
         </div>
     </div>

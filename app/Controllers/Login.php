@@ -3,15 +3,15 @@
 
 namespace App\Controllers;
 
-use App\Models\PenggunaModel;
+use App\Models\LoginModel;
 
 class Login extends BaseController
 {
 
-    protected $penggunaModel;
+    protected $loginModel;
     public function __construct()
     {
-        $this->penggunaModel = new PenggunaModel();
+        $this->loginModel = new LoginModel();
     }
 
     public function index()
@@ -43,7 +43,7 @@ class Login extends BaseController
 
         // validasi form input 
         //query pengguna berdasakan masukan form 
-        $data = $this->penggunaModel->validateUser($username, $password);
+        $data = $this->loginModel->validateUser($username, $password);
 
         if (!empty($data)) {
             // set cookie 
@@ -52,6 +52,7 @@ class Login extends BaseController
                 "nama" => $data->pengguna_nama,
                 "username" => $data->username,
                 "password" => $data->password,
+                "isLogin" => true
             ]);
 
             // cek role pengguna
