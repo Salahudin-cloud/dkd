@@ -56,3 +56,13 @@ $routes->get('/tambah_pengguna', 'UserManagementAdmin::tambahPenggunaView');
 
 // backend page : kategori
 $routes->get('/kategori', 'KategoriAdmin::index');
+// backend page : kategori tambah 
+$routes->get('/kategori_tambah', 'KategoriTambahAdmin::index');
+// backend proces : kategori tambah 
+$routes->post('/kategori_tambah_process', 'KategoriTambahAdmin::processTambahKategori');
+// backend page : kategori update 
+$routes->get('/kategori_update/(:any)', 'KategoriUpdateAdmin::index/$1');
+// backend process : kategori update 
+$routes->put('kategori_update_process/(:any)', 'KategoriUpdateAdmin::processUpdateKategori/$1');
+// backend process : delete kategori 
+$routes->delete('kategori_delete/(:any)', 'KategoriAdmin::delKategori/$1');

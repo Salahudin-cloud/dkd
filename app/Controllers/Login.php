@@ -48,7 +48,7 @@ class Login extends BaseController
         if (!empty($data)) {
             // set cookie 
             $session->set([
-                "id" => $data->id_pengguna,
+                "id" => $data->pengguna_id,
                 "nama" => $data->pengguna_nama,
                 "username" => $data->username,
                 "password" => $data->password,

@@ -37,7 +37,6 @@
                                 <i class="fas fa-user" style="font-size: 1.5rem;"></i>
                                 Tambah Akun Pengguna Baru
                             </h1>
-
                         </div>
                         <div class="card-body">
                             <!-- alert notification -->

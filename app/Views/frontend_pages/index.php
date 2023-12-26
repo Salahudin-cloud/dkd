@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -334,7 +333,7 @@
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
                                 <div class="blog-img">
-                                    <img src="assets/frontend/img/gallery/home-blog1.png" alt="" />
+                                    <img src="<?php echo base_url() . 'assets/frontend/img/gallery/home-blog1.png' ?>" alt="" />
                                     <!-- Blog date -->
                                     <div class="blog-date text-center">
                                         <span>2</span>
@@ -354,7 +353,7 @@
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
                                 <div class="blog-img">
-                                    <img src="assets/img/post/post1.jpg" alt="" />
+                                    <img src="<?php echo base_url() . 'assets/frontend/img/post/post1.jpg' ?>" alt="" />
                                     <!-- Blog date -->
                                     <div class="blog-date text-center">
                                         <span>24</span>
