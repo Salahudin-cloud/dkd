@@ -26,17 +26,16 @@
 
 
         <div class="content-wrapper">
-            <!-- navbar -->
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Kategori</h1>
+                            <h1 class="m-0">Artikel</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="<?php echo base_url('dashboard') ?>">Home</a></li>
-                                <li class="breadcrumb-item active">Daftar Kategori</li>
+                                <li class="breadcrumb-item"><a href="<?php echo site_url('dashboard') ?>">Home</a></li>
+                                <li class="breadcrumb-item active">Daftar Artikel</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -50,40 +49,53 @@
                         <div class="card-header">
                             <h1 class="card-title ">
                                 <i class="fas fa-layer-group" style="font-size: 1.5rem;"></i>
-                                <strong style="font-size: 1.5rem;"> Daftar Kategori</strong>
+                                <strong style="font-size: 1.5rem;"> Daftar Artikel</strong>
                             </h1>
                         </div>
                         <div class="card-body">
-                            <a href="<?php echo site_url('kategori_tambah') ?>">
+                            <!-- button add artikel -->
+                            <a href="<?php echo site_url('artikel_tambah') ?>">
                                 <button class="btn btn-sm btn-success">
-                                    <i class="fas fa-plus"></i> Tambah Kategori
+                                    <i class="fas fa-plus"></i> Tambah Artikel
                                 </button>
                             </a>
-                            <!-- Show list of category -->
+                            <!-- Show list of artikel -->
                             <table class="table table-bordered table-hover mt-2">
                                 <thead>
                                     <tr>
                                         <th style="width: 1%;">NO</th>
-                                        <th>Nama Kategori</th>
-                                        <th>Slug Kategori</th>
-                                        <th style="width: 10%;">Action</th>
+                                        <th>Tanggal</th>
+                                        <th>Judul Artikel</th>
+                                        <th>Kategori Artikel</th>
+                                        <th style="width: 10%;">Cover</th>
+                                        <th>Status</th>
+                                        <th style="width: 15%;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 1; ?>
-                                    <?php foreach ($kategori as $data) : ?>
+                                    <?php $i = 1 ?>
+                                    <?php foreach ($artikel as $data) : ?>
                                         <tr>
-                                            <td><?php echo $i++ ?></td>
+                                            <td><?php echo $i++; ?></td>
+                                            <td><?php echo date('d/m/y', strtotime($data->artikel_tanggal)) ?></td>
+                                            <td><?php echo $data->artikel_judul ?></td>
                                             <td><?php echo $data->kategori_nama ?></td>
-                                            <td><?php echo $data->kategori_slug ?></td>
+                                            <td><img width="100%" class="img-responsive" src="<?php echo base_url() . 'assets/images/' . $data->artikel_cover; ?>"></td>
                                             <td>
-                                                <div class="btn-group" role="group" aria-label="Action buttons">
-                                                    <a href="<?php echo site_url('/kategori_update' . '/' . $data->kategori_id) ?>" class="btn btn-sm btn-warning"><i class="nav-icon fas fa-edit"></i></a>
-                                                    <form action="<?php echo site_url('kategori_delete/' . $data->kategori_id) ?>" method="POST">
+                                                <?php if ($data->artikel_status === "publikasi") : ?>
+                                                    <span class="badge badge-success">Publikasi</span>
+                                                <?php else : ?>
+                                                    <span class="badge badge-danger">Draft</span>
+                                                <?php endif; ?>
+                                            </td>
+
+                                            <td>
+                                                <div class="btn-group " role="group" aria-label="Action buttons">
+                                                    <a href="" class="btn btn-sm btn-success mr-1" target="_blank"><i class="nav-icon fas fa-eye"></i></a>
+                                                    <a href="<?php echo site_url() ?>" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
+                                                    <form action="<?php echo site_url() ?>" method="POST">
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <button class="btn btn-sm btn-danger" type="submit">
-                                                            <i class="nav-icon fas fa-trash-alt"></i>
-                                                        </button>
+                                                        <button type="submit" class="btn btn-sm btn-danger mr-1" onclick="return confirm('Are sure delete this article ? ')"><i class="nav-icon fas fa-trash"></i></button>
                                                     </form>
                                                 </div>
                                             </td>
@@ -101,6 +113,7 @@
 
         <!-- control siidebar -->
         <?php include(APPPATH  . 'Views/templates/backend/control_sidebar.php') ?>
+
 
     </div>
     <!-- reuired file js  -->

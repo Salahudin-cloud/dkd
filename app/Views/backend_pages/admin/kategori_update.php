@@ -54,8 +54,8 @@
                     <div class="card card-dark">
                         <div class="card-header">
                             <h1 class="card-title ">
-                                <i class="fas fa-user" style="font-size: 1.5rem;"></i>
-                                Update Kategori
+                                <i class="fas fa-layer-group" style="font-size: 1.5rem;"></i>
+                                <strong style="font-size: 1.5rem;"> Update Kategori</strong>
                             </h1>
                         </div>
                         <div class="card-body">

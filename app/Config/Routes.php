@@ -66,3 +66,7 @@ $routes->get('/kategori_update/(:any)', 'KategoriUpdateAdmin::index/$1');
 $routes->put('kategori_update_process/(:any)', 'KategoriUpdateAdmin::processUpdateKategori/$1');
 // backend process : delete kategori 
 $routes->delete('kategori_delete/(:any)', 'KategoriAdmin::delKategori/$1');
+// backend : artikel 
+$routes->get('/artikel', 'ArtikelAdmin::index');
+// backend : artikel tambah 
+$routes->get('/artikel_tambah', 'ArtikelTambahAdmin::index');
