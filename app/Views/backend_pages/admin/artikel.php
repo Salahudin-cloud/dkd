@@ -80,7 +80,7 @@
                                             <td><?php echo date('d/m/y', strtotime($data->artikel_tanggal)) ?></td>
                                             <td><?php echo $data->artikel_judul ?></td>
                                             <td><?php echo $data->kategori_nama ?></td>
-                                            <td><img width="100%" class="img-responsive" src="<?php echo base_url() . 'assets/images/' . $data->artikel_cover; ?>"></td>
+                                            <td><img width="100%" class="img-responsive" src="<?php echo base_url() . 'assets/img/artikel/' . $data->artikel_cover; ?>"></td>
                                             <td>
                                                 <?php if ($data->artikel_status === "publikasi") : ?>
                                                     <span class="badge badge-success">Publikasi</span>

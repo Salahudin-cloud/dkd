@@ -70,3 +70,5 @@ $routes->delete('kategori_delete/(:any)', 'KategoriAdmin::delKategori/$1');
 $routes->get('/artikel', 'ArtikelAdmin::index');
 // backend : artikel tambah 
 $routes->get('/artikel_tambah', 'ArtikelTambahAdmin::index');
+// backend : artikel tambah process 
+$routes->post('/artikel_tambah_process', 'ArtikelTambahAdmin::processTambah');

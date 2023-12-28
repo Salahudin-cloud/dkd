@@ -5,7 +5,7 @@ namespace App\Models;
 use CodeIgniter\Model;
 
 
-class ArtikelAdminModel extends Model
+class ArtikelTambahAdminModel extends Model
 {
     protected $table = 'artikel';
 
@@ -21,4 +21,17 @@ class ArtikelAdminModel extends Model
     ];
 
 
+    public function getArtikelByJudul($judul)
+    {
+        return $this->db->table('artikel')
+            ->where('artikel_judul', $judul)
+            ->get()
+            ->getResult();
+    }
+
+    public function addArtikelBaru($data)
+    {
+        return $this->db->table('artikel')
+            ->insert($data);
+    }
 }

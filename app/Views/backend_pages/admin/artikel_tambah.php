@@ -32,6 +32,13 @@
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1 class="m-0">Artikel</h1>
+                            <div class="mt-2">
+                                <a href="<?php echo site_url('artikel') ?>">
+                                    <button class="btn btn-sm btn-success">
+                                        <i class="fas fa-arrow-left"></i> Kembali
+                                    </button>
+                                </a>
+                            </div>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -60,12 +67,12 @@
                                     <ul>
                                         <!-- it will show error for every field -->
                                         <?php foreach (session('errors') as $error) : ?>
-                                            <li><?php echo str_replace('article_', '', $error) ?></li>
+                                            <li> <?php echo $error; ?></li>
                                         <?php endforeach; ?>
                                     </ul>
                                 </div>
                             <?php endif; ?>
-                            <form action="<?php echo site_url('prosestambahartikel') ?>" method="post" enctype="multipart/form-data">
+                            <form action="<?php echo site_url('artikel_tambah_process') ?>" method="post" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">

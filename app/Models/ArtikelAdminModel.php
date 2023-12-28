@@ -22,8 +22,12 @@ class ArtikelAdminModel extends Model
 
     public function getSemuaArtikel()
     {
-        return $this->db->table('artikel')
+        $builder = $this->db->table('artikel');
+        $result = $builder->select('*')
+            ->select('kategori.kategori_nama')
+            ->join('kategori', 'kategori.kategori_id = artikel.kategori_id')
             ->get()
             ->getResult();
+        return $result;
     }
 }

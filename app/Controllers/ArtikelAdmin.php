@@ -15,6 +15,11 @@ class ArtikelAdmin extends BaseController
 
     public function index()
     {
+        // ceck status login
+        $session = session();
+        if (!$session->get('isLogin')) {
+            return redirect()->to('/');
+        }
         $data['artikel'] = $this->artikelAdminModel->getSemuaArtikel();
         return view('backend_pages/admin/artikel', $data);
     }
