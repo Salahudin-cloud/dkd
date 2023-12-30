@@ -72,3 +72,7 @@ $routes->get('/artikel', 'ArtikelAdmin::index');
 $routes->get('/artikel_tambah', 'ArtikelTambahAdmin::index');
 // backend : artikel tambah process 
 $routes->post('/artikel_tambah_process', 'ArtikelTambahAdmin::processTambah');
+//backend : artikel update 
+$routes->get('artikel_update/(:any)', 'ArtikelUpdateAdmin::index/$1');
+// backend : artikel update  process 
+$routes->put('artikel_update_process/(:any)', 'ArtikelUpdateAdmin::processUpdate/$1');

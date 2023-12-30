@@ -82,8 +82,8 @@
                                             <td><?php echo $data->kategori_nama ?></td>
                                             <td><img width="100%" class="img-responsive" src="<?php echo base_url() . 'assets/img/artikel/' . $data->artikel_cover; ?>"></td>
                                             <td>
-                                                <?php if ($data->artikel_status === "publikasi") : ?>
-                                                    <span class="badge badge-success">Publikasi</span>
+                                                <?php if ($data->artikel_status === "publish") : ?>
+                                                    <span class="badge badge-success">Publish</span>
                                                 <?php else : ?>
                                                     <span class="badge badge-danger">Draft</span>
                                                 <?php endif; ?>
@@ -91,11 +91,16 @@
 
                                             <td>
                                                 <div class="btn-group " role="group" aria-label="Action buttons">
-                                                    <a href="" class="btn btn-sm btn-success mr-1" target="_blank"><i class="nav-icon fas fa-eye"></i></a>
-                                                    <a href="<?php echo site_url() ?>" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
+                                                    <a href="" class="btn btn-sm btn-success mr-1" target="_blank"><i class="nav-icon fas fa-eye"></i>
+                                                    </a>
+                                                    <a href="<?php echo site_url('artikel_update/' . $data->artikel_id) ?>" class="btn btn-sm btn-warning mr-1">
+                                                        <i class="nav-icon fas fa-edit"></i>
+                                                    </a>
                                                     <form action="<?php echo site_url() ?>" method="POST">
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="submit" class="btn btn-sm btn-danger mr-1" onclick="return confirm('Are sure delete this article ? ')"><i class="nav-icon fas fa-trash"></i></button>
+                                                        <button type="submit" class="btn btn-sm btn-danger mr-1" onclick="return confirm('Are sure delete this article ? ')">
+                                                            <i class="nav-icon fas fa-trash"></i>
+                                                        </button>
                                                     </form>
                                                 </div>
                                             </td>

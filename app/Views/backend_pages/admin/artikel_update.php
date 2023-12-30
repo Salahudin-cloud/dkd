@@ -43,7 +43,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="<?php echo base_url('artikel') ?>">Artikel</a></li>
-                                <li class="breadcrumb-item active">Tambah Artikel</li>
+                                <li class="breadcrumb-item active">Update Artikel</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -58,7 +58,7 @@
                             <!-- title  -->
                             <h1 class="card-title ">
                                 <i class="fas fa-newspaper" style="font-size: 1.5rem;"></i>
-                                <strong style="font-size: 1.5rem;">Tambah Artikel</strong>
+                                <strong style="font-size: 1.5rem;">Update Artikel</strong>
                             </h1>
                         </div>
                         <div class="card-body">
@@ -72,12 +72,13 @@
                                     </ul>
                                 </div>
                             <?php endif; ?>
-                            <form action="<?php echo site_url('artikel_tambah_process') ?>" method="post" enctype="multipart/form-data">
+                            <form action="<?php echo site_url('artikel_update_process/' . $artikel->artikel_id) ?>" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="_method" value="PUT">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="article_title">Artikel Judul</label>
-                                            <input type="text" class="form-control" id="artikel_judul" name="artikel_judul" placeholder="Masukan Judul">
+                                            <input type="text" class="form-control" id="artikel_judul" name="artikel_judul" placeholder="Masukan Judul" value="<?php echo $artikel->artikel_judul ?>">
                                         </div>
 
                                         <div class="form-group">
@@ -94,10 +95,8 @@
                                             <select class="form-control" id="kategori_id" name="kategori_id">
                                                 <option value="" selected disabled> -- pilih kategori --</option>
                                                 <?php foreach ($kategori as $kate) : ?>
-                                                    <option value="<?= $kate->kategori_id ?>">
-                                                        <?= $kate->kategori_nama ?>
-                                                    </option>
-                                                <?php endforeach; ?>
+                                                    <option value="<?= $kate->kategori_id ?>" <?php echo ($kate->kategori_id == $artikel->kategori_id) ? 'selected' : ''; ?>><?= $kate->kategori_nama ?>
+                                                    <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -105,8 +104,12 @@
                                             <input type="file" class="form-control-file" id="artikel_cover" name="artikel_cover">
                                         </div>
                                         <div class="d-flex justify-content-end flex-column">
-                                            <button class="btn btn-primary mb-2" type="submit" name="artikel_status" value="draft">Draft</button>
-                                            <button class="btn btn-success" type="submit" name="artikel_status" value="publish">Publish</button>
+                                            <button class="btn btn-primary mb-2" type="submit" name="artikel_status" value="draft">
+                                                Draft
+                                            </button>
+                                            <button class="btn btn-success" type="submit" name="artikel_status" value="publish">
+                                                Publish
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -130,6 +133,7 @@
 
     <script>
         $(document).ready(function() {
+            var initialValue = <?php echo json_encode($artikel->artikel_konten); ?>;
             $('#_content').summernote({
                 height: 300,
                 toolbar: [
@@ -147,6 +151,8 @@
                     }
                 }
             });
+            // Set initial value
+            $('#_content').summernote('code', initialValue);
         });
     </script>
 </body>

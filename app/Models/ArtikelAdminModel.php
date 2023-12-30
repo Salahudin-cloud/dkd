@@ -26,6 +26,7 @@ class ArtikelAdminModel extends Model
         $result = $builder->select('*')
             ->select('kategori.kategori_nama')
             ->join('kategori', 'kategori.kategori_id = artikel.kategori_id')
+            ->orderBy('artikel_tanggal', 'DESC')
             ->get()
             ->getResult();
         return $result;
