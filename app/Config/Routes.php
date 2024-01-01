@@ -26,6 +26,8 @@ $routes->get('/tentang', 'About::index');
 // frontend page : program
 $routes->get('/program', 'Programs::index');
 
+
+
 // frontend page : detail program 
 $routes->get('/detail_program', 'DetailPrograms::index');
 
@@ -66,6 +68,7 @@ $routes->get('/kategori_update/(:any)', 'KategoriUpdateAdmin::index/$1');
 $routes->put('kategori_update_process/(:any)', 'KategoriUpdateAdmin::processUpdateKategori/$1');
 // backend process : delete kategori 
 $routes->delete('kategori_delete/(:any)', 'KategoriAdmin::delKategori/$1');
+
 // backend : artikel 
 $routes->get('/artikel', 'ArtikelAdmin::index');
 // backend : artikel tambah 
@@ -76,3 +79,11 @@ $routes->post('/artikel_tambah_process', 'ArtikelTambahAdmin::processTambah');
 $routes->get('artikel_update/(:any)', 'ArtikelUpdateAdmin::index/$1');
 // backend : artikel update  process 
 $routes->put('artikel_update_process/(:any)', 'ArtikelUpdateAdmin::processUpdate/$1');
+//backend : artikel delete process 
+$routes->delete('artikel_delete/(:any)', 'ArtikelDeleteAdmin::deleteArtikel/$1');
+
+
+// backend : program 
+$routes->get('/programs', 'ProgramAdmin::index');
+//backend : program tambah 
+$routes->get('programs_tambah', 'ProgramTambahAdmin::index');

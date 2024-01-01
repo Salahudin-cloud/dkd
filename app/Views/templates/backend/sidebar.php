@@ -53,10 +53,10 @@
                 </li>
                 <!-- Donasi  -->
                 <li class="nav-item ">
-                    <a href="<?php echo site_url('') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-hand-holding-usd"></i>
+                    <a href="<?php echo site_url('programs') ?>" class="nav-link">
+                        <i class="nav-icon fas fa-flag"></i>
                         <p>
-                            Donasi
+                            Program
                         </p>
                     </a>
                 </li>

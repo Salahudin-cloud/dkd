@@ -30,12 +30,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Artikel</h1>
+                            <h1 class="m-0">Program</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="<?php echo site_url('dashboard') ?>">Home</a></li>
-                                <li class="breadcrumb-item active">Daftar Artikel</li>
+                                <li class="breadcrumb-item active">Daftar Program</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -48,15 +48,15 @@
                     <div class="card card-dark">
                         <div class="card-header">
                             <h1 class="card-title ">
-                                <i class="fas fa-layer-group" style="font-size: 1.5rem;"></i>
-                                <strong style="font-size: 1.5rem;"> Daftar Artikel</strong>
+                                <i class="fas fa-layer-flag" style="font-size: 1.5rem;"></i>
+                                <strong style="font-size: 1.5rem;"> Daftar Program</strong>
                             </h1>
                         </div>
                         <div class="card-body">
                             <!-- button add artikel -->
-                            <a href="<?php echo site_url('artikel_tambah') ?>">
+                            <a href="<?php echo site_url('programs_tambah') ?>">
                                 <button class="btn btn-sm btn-success">
-                                    <i class="fas fa-plus"></i> Tambah Artikel
+                                    <i class="fas fa-plus"></i> Tambah Program
                                 </button>
                             </a>
                             <!-- Show list of artikel -->
@@ -64,39 +64,26 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 1%;">NO</th>
-                                        <th>Tanggal</th>
-                                        <th>Judul Artikel</th>
-                                        <th>Kategori Artikel</th>
-                                        <th style="width: 10%;">Cover</th>
-                                        <th>Status</th>
+                                        <th>Nama Program</th>
+                                        <th>Cover</th>
                                         <th style="width: 15%;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $i = 1 ?>
-                                    <?php foreach ($artikel as $data) : ?>
+                                    <?php foreach ($program as $data) : ?>
                                         <tr>
                                             <td><?php echo $i++; ?></td>
-                                            <td><?php echo date('d/m/y', strtotime($data->artikel_tanggal)) ?></td>
-                                            <td><?php echo $data->artikel_judul ?></td>
-                                            <td><?php echo $data->kategori_nama ?></td>
-                                            <td><img width="100%" class="img-responsive" src="<?php echo base_url() . 'assets/img/artikel/' . $data->artikel_cover; ?>"></td>
-                                            <td>
-                                                <?php if ($data->artikel_status === "publish") : ?>
-                                                    <span class="badge badge-success">Publish</span>
-                                                <?php else : ?>
-                                                    <span class="badge badge-danger">Draft</span>
-                                                <?php endif; ?>
-                                            </td>
-
+                                            <td><?php echo $data->program_judul ?></td>
+                                            <td><?php echo $data->program_cover ?></td>
                                             <td>
                                                 <div class="btn-group " role="group" aria-label="Action buttons">
                                                     <a href="" class="btn btn-sm btn-success mr-1" target="_blank"><i class="nav-icon fas fa-eye"></i>
                                                     </a>
-                                                    <a href="<?php echo site_url('artikel_update/' . $data->artikel_id) ?>" class="btn btn-sm btn-warning mr-1">
+                                                    <a href="<?php echo site_url() ?>" class="btn btn-sm btn-warning mr-1">
                                                         <i class="nav-icon fas fa-edit"></i>
                                                     </a>
-                                                    <form action="<?php echo site_url('artikel_delete/' . $data->artikel_id) ?>" method="POST">
+                                                    <form action="<?php echo site_url() ?>" method="POST">
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <button type="submit" class="btn btn-sm btn-danger mr-1" onclick="return confirm('Apa kamu yakin untuk menghapus artikel ini?')">
                                                             <i class="nav-icon fas fa-trash"></i>
