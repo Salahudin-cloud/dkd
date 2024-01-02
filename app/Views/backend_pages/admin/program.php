@@ -65,7 +65,9 @@
                                     <tr>
                                         <th style="width: 1%;">NO</th>
                                         <th>Nama Program</th>
-                                        <th>Cover</th>
+                                        <th>Uang Terkumpul</th>
+                                        <th>Target Program</th>
+                                        <th style="width: 50%;">Cover</th>
                                         <th style="width: 15%;">Action</th>
                                     </tr>
                                 </thead>
@@ -75,7 +77,9 @@
                                         <tr>
                                             <td><?php echo $i++; ?></td>
                                             <td><?php echo $data->program_judul ?></td>
-                                            <td><?php echo $data->program_cover ?></td>
+                                            <td>Rp.<?php echo $data->program_terkumpul ?></td>
+                                            <td>Rp.<?php echo $data->program_target ?></td>
+                                            <td><img width="10%" class="img-responsive" src="<?php echo base_url() . 'assets/img/program/' . $data->program_cover; ?>"></td>
                                             <td>
                                                 <div class="btn-group " role="group" aria-label="Action buttons">
                                                     <a href="" class="btn btn-sm btn-success mr-1" target="_blank"><i class="nav-icon fas fa-eye"></i>

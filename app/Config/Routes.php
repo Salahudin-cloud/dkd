@@ -87,3 +87,5 @@ $routes->delete('artikel_delete/(:any)', 'ArtikelDeleteAdmin::deleteArtikel/$1')
 $routes->get('/programs', 'ProgramAdmin::index');
 //backend : program tambah 
 $routes->get('programs_tambah', 'ProgramTambahAdmin::index');
+// backend : program tambah process 
+$routes->post('programs_tambah_process','ProgramTambahAdmin::processTambah');

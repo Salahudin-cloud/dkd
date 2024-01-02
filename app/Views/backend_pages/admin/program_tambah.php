@@ -72,12 +72,12 @@
                                     </ul>
                                 </div>
                             <?php endif; ?>
-                            <form action="<?php echo site_url('') ?>" method="post" enctype="multipart/form-data">
+                            <form action="<?php echo site_url('programs_tambah_process') ?>" method="post" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="program_judul ">Program Judul</label>
-                                            <input type="text" class="form-control" id="program_judul " name="program_judul " placeholder="Masukan Judul">
+                                            <input type="text" class="form-control" id="program_judul " name="program_judul" placeholder="Masukan Judul">
                                         </div>
 
                                         <div class="form-group">
@@ -90,19 +90,20 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="program_target ">Target Program</label>
-                                            <input type="text" class="form-control" id="program_target " name="program_target " placeholder="Rp.">
+                                            <input type="text" class="form-control" id="program_target " name="program_target" placeholder="Rp.">
+                                            <small class="text-danger"><i>Kosongkan jika tidak diisi, akan di beri nilai default</i></small>
                                         </div>
                                         <div class="form-group">
-                                            <label for="program_terkumpul ">Program Terkumpul</label>
-                                            <input type="text" class="form-control" id="program_terkumpul " name="program_terkumpul " placeholder="Rp.">
+                                            <label for="program_terkumpul ">Uang Terkumpul</label>
+                                            <input type="text" class="form-control" id="program_terkumpul " name="program_terkumpul" placeholder="Rp.">
                                         </div>
                                         <div class="form-group">
                                             <label for="program_cover">Cover</label>
                                             <input type="file" class="form-control-file" id="program_cover" name="program_cover">
                                         </div>
                                         <div class="d-flex justify-content-end flex-column">
-                                            <button class="btn btn-primary mb-2" type="submit" name="artikel_status" value="draft">Draft</button>
-                                            <button class="btn btn-success" type="submit" name="artikel_status" value="publish">Publish</button>
+                                            <button class="btn btn-primary mb-2" type="submit" name="program_status" value="draft">Draft</button>
+                                            <button class="btn btn-success" type="submit" name="program_status" value="publish">Publish</button>
                                         </div>
                                     </div>
                                 </div>

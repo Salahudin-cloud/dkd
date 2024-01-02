@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ProgramAdminModel extends Model
+class ProgramTambahAdminModel extends Model
 {
     protected $table = 'program';
 
@@ -17,13 +17,17 @@ class ProgramAdminModel extends Model
         'program_cover'
     ];
 
-
-    public function getSemuaProgram()
+    public function getProgramByJudul($judul)
     {
         return $this->db->table('program')
+            ->where('program_judul', $judul)
             ->get()
             ->getResult();
     }
 
- 
+    public function addProgramBaru($data)
+    {
+        return $this->db->table('program')
+        ->insert($data);
+    }
 }
