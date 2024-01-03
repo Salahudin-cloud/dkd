@@ -88,4 +88,8 @@ $routes->get('/programs', 'ProgramAdmin::index');
 //backend : program tambah 
 $routes->get('programs_tambah', 'ProgramTambahAdmin::index');
 // backend : program tambah process 
-$routes->post('programs_tambah_process','ProgramTambahAdmin::processTambah');
+$routes->post('programs_tambah_process', 'ProgramTambahAdmin::processTambah');
+// backend : program update 
+$routes->get('programs_update/(:any)', 'ProgramUpdateAdmin::index/$1');
+//backend : program update process 
+$routes->put('programs_update/(:any)', 'ProgramUpdateAdmin::updateProgramProcess/$1');

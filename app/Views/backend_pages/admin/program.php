@@ -68,6 +68,7 @@
                                         <th>Uang Terkumpul</th>
                                         <th>Target Program</th>
                                         <th style="width: 50%;">Cover</th>
+                                        <th>Status Program </th>
                                         <th style="width: 15%;">Action</th>
                                     </tr>
                                 </thead>
@@ -81,15 +82,22 @@
                                             <td>Rp.<?php echo $data->program_target ?></td>
                                             <td><img width="10%" class="img-responsive" src="<?php echo base_url() . 'assets/img/program/' . $data->program_cover; ?>"></td>
                                             <td>
+                                                <?php if ($data->program_status === "publish") : ?>
+                                                    <span class="badge badge-success">Publish</span>
+                                                <?php else : ?>
+                                                    <span class="badge badge-danger">Draft</span>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td>
                                                 <div class="btn-group " role="group" aria-label="Action buttons">
                                                     <a href="" class="btn btn-sm btn-success mr-1" target="_blank"><i class="nav-icon fas fa-eye"></i>
                                                     </a>
-                                                    <a href="<?php echo site_url() ?>" class="btn btn-sm btn-warning mr-1">
+                                                    <a href="<?php echo site_url('programs_update/' . $data->program_id) ?>" class="btn btn-sm btn-warning mr-1">
                                                         <i class="nav-icon fas fa-edit"></i>
                                                     </a>
                                                     <form action="<?php echo site_url() ?>" method="POST">
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="submit" class="btn btn-sm btn-danger mr-1" onclick="return confirm('Apa kamu yakin untuk menghapus artikel ini?')">
+                                                        <button type="submit" class="btn btn-sm btn-danger mr-1" onclick="return confirm('Apa kamu yakin untuk menghapus program ini?')">
                                                             <i class="nav-icon fas fa-trash"></i>
                                                         </button>
                                                     </form>
