@@ -18,7 +18,7 @@ class ArtikelAdmin extends BaseController
         // ceck status login
         $session = session();
         if (!$session->get('isLogin')) {
-            return redirect()->to('/');
+            return redirect()->to('/login');
         }
         $data['artikel'] = $this->artikelAdminModel->getSemuaArtikel();
         return view('backend_pages/admin/artikel', $data);

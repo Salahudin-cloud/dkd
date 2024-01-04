@@ -60,6 +60,15 @@
                         </p>
                     </a>
                 </li>
+                <!-- Log out  -->
+                <li class="nav-item ">
+                    <a href="<?php echo site_url('logout') ?>" class="nav-link">
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        <p>
+                            Log out
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

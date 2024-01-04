@@ -15,6 +15,11 @@ class ProgramAdmin extends BaseController
 
     public function index()
     {
+        // cek status login 
+        $session = session();
+        if (!$session->get('isLogin')) {
+            return redirect()->to('/login');
+        }
         // get all program 
         $data['program'] = $this->programAdminModel->getSemuaProgram();
         return view('backend_pages/admin/program', $data);

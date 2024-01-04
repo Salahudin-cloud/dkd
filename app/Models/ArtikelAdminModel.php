@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use CodeIgniter\Database\SQLite3\Table;
 use CodeIgniter\Model;
 
 
@@ -30,5 +31,24 @@ class ArtikelAdminModel extends Model
             ->get()
             ->getResult();
         return $result;
+    }
+
+    public function countAllArtikel()
+    {
+        return $this->db->table('artikel')
+            ->countAllResults();
+    }
+
+
+    public function getAllTwoArtikel()
+    {
+        $builder = $this->db->table('artikel')
+            ->select('*')
+            ->select('kategori.kategori_nama')
+            ->join('kategori', 'kategori.kategori_id = artikel.kategori_id')
+            ->limit(2)
+            ->get()
+            ->getResult();
+        return $builder;
     }
 }

@@ -329,46 +329,31 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xl-6 col-lg-6 col-md-6">
-                        <div class="home-blog-single mb-30">
-                            <div class="blog-img-cap">
-                                <div class="blog-img">
-                                    <img src="<?php echo base_url() . 'assets/frontend/img/gallery/home-blog1.png' ?>" alt="" />
-                                    <!-- Blog date -->
-                                    <div class="blog-date text-center">
-                                        <span>2</span>
-                                        <p>Weeks Ago</p>
+                    <?php foreach ($artikel as $data) : ?>
+                        <div class="col-xl-6 col-lg-6 col-md-6">
+                            <div class="home-blog-single mb-30">
+                                <div class="blog-img-cap">
+                                    <div class="blog-img">
+                                        <img src="<?php echo base_url() . 'assets/img/artikel/' . $data->artikel_cover ?>" alt="" />
+                                        <!-- Blog date -->
+                                        <div class="blog-date text-center">
+                                            <?php
+                                            $artikelTanggal = new DateTime($data->artikel_tanggal);
+                                            ?>
+                                            <span><?php echo $artikelTanggal->format('d'); ?></span>
+                                            <p><?php echo $artikelTanggal->format('F Y'); ?></p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="blog-cap">
-                                    <p>Prestasi</p>
-                                    <h3>
-                                        <a href="blog_details.html">Fulan Mendapatkan juara 1 tingakat Kota Magelang</a>
-                                    </h3>
+                                    <div class="blog-cap">
+                                        <p><?php echo $data->kategori_nama; ?></p>
+                                        <h3>
+                                            <a href="blog_details.html"><?php echo $data->artikel_judul; ?></a>
+                                        </h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6">
-                        <div class="home-blog-single mb-30">
-                            <div class="blog-img-cap">
-                                <div class="blog-img">
-                                    <img src="<?php echo base_url() . 'assets/frontend/img/post/post1.jpg' ?>" alt="" />
-                                    <!-- Blog date -->
-                                    <div class="blog-date text-center">
-                                        <span>24</span>
-                                        <p>Now</p>
-                                    </div>
-                                </div>
-                                <div class="blog-cap">
-                                    <p>Sosial</p>
-                                    <h3>
-                                        <a href="blog_details.html">200 Peserta ikut Magelang menghafal</a>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </section>

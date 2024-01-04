@@ -93,3 +93,9 @@ $routes->post('programs_tambah_process', 'ProgramTambahAdmin::processTambah');
 $routes->get('programs_update/(:any)', 'ProgramUpdateAdmin::index/$1');
 //backend : program update process 
 $routes->put('programs_update/(:any)', 'ProgramUpdateAdmin::updateProgramProcess/$1');
+
+
+
+
+// backend : logout 
+$routes->get('logout', 'LogoutAdmin::index');

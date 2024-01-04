@@ -102,8 +102,12 @@
                                             <input type="file" class="form-control-file" id="program_cover" name="program_cover">
                                         </div>
                                         <div class="d-flex justify-content-end flex-column">
-                                            <button class="btn btn-primary mb-2" type="submit" name="program_status" value="draft">Draft</button>
-                                            <button class="btn btn-success" type="submit" name="program_status" value="publish">Publish</button>
+                                            <button class="btn btn-primary mb-2" type="submit" name="program_status" value="draft">
+                                                Draft
+                                            </button>
+                                            <button class="btn btn-success" type="submit" name="program_status" value="publikasi">
+                                                Publish
+                                            </button>
                                         </div>
                                     </div>
                                 </div>

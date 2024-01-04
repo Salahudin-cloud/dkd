@@ -82,7 +82,7 @@
                                             <td>Rp.<?php echo $data->program_target ?></td>
                                             <td><img width="10%" class="img-responsive" src="<?php echo base_url() . 'assets/img/program/' . $data->program_cover; ?>"></td>
                                             <td>
-                                                <?php if ($data->program_status === "publish") : ?>
+                                                <?php if ($data->program_status === "publikasi") : ?>
                                                     <span class="badge badge-success">Publish</span>
                                                 <?php else : ?>
                                                     <span class="badge badge-danger">Draft</span>

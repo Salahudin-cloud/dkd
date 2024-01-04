@@ -38,8 +38,8 @@
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>100</h3>
-                                    <p>Articles</p>
+                                    <h3><?php echo $jumlah_artikel; ?></h3>
+                                    <p>Artikel</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fa fa-file"></i>
@@ -49,11 +49,11 @@
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="small-box bg-success">
                                 <div class="inner">
-                                    <h3>30</h3>
-                                    <p>Pages</p>
+                                    <h3><?php echo $jumlah_program; ?></h3>
+                                    <p>Program</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fa fa-file-alt"></i>
+                                    <i class="fa fa-flag"></i>
                                 </div>
                             </div>
                         </div>
@@ -71,11 +71,11 @@
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="small-box bg-danger">
                                 <div class="inner">
-                                    <h3>20</h3>
-                                    <p>Categories</p>
+                                    <h3><?php echo $jumlah_kategori; ?></h3>
+                                    <p>Kategori</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fa fa-tags"></i>
+                                    <i class="fas fa-layer-group"></i>
                                 </div>
                             </div>
                         </div>

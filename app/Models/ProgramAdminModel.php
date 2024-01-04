@@ -24,6 +24,9 @@ class ProgramAdminModel extends Model
             ->get()
             ->getResult();
     }
-
- 
+    public function countAllProgram()
+    {
+        return $this->db->table('program')
+            ->countAllResults();
+    }
 }

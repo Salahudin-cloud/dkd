@@ -30,4 +30,10 @@ class KategoriAdminModel extends Model
             ->where('kategori_id', $id)
             ->delete();
     }
+
+      public function countAllKategori()
+    {
+        return $this->db->table('kategori')
+            ->countAllResults();
+    }
 }

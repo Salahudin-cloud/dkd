@@ -14,6 +14,11 @@ class ProgramTambahAdmin extends BaseController
     }
     public function index()
     {
+        // cek status login 
+        $session = session();
+        if (!$session->get('isLogin')) {
+            return redirect()->to('/login');
+        }
         return view('backend_pages/admin/program_tambah');
     }
 
