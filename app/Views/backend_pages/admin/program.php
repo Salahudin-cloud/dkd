@@ -95,7 +95,7 @@
                                                     <a href="<?php echo site_url('programs_update/' . $data->program_id) ?>" class="btn btn-sm btn-warning mr-1">
                                                         <i class="nav-icon fas fa-edit"></i>
                                                     </a>
-                                                    <form action="<?php echo site_url() ?>" method="POST">
+                                                    <form action="<?php echo site_url('programs_delete/' . $data->program_id) ?>" method="POST">
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <button type="submit" class="btn btn-sm btn-danger mr-1" onclick="return confirm('Apa kamu yakin untuk menghapus program ini?')">
                                                             <i class="nav-icon fas fa-trash"></i>

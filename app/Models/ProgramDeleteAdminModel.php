@@ -1,10 +1,11 @@
 <?php
 
+
 namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ProgramAdminModel extends Model
+class ProgramDeleteAdminModel extends Model
 {
     protected $table = 'program';
 
@@ -18,24 +19,20 @@ class ProgramAdminModel extends Model
     ];
 
 
-    public function getSemuaProgram()
+
+    public function getProgramById($id)
     {
         return $this->db->table('program')
+            ->where('program_id', $id)
             ->get()
-            ->getResult();
-    }
-    public function countAllProgram()
-    {
-        return $this->db->table('program')
-            ->countAllResults();
+            ->getRow();
     }
 
-    public function getSemuaProgramPublish()
+
+    public function deleteProgramById($id)
     {
         return $this->db->table('program')
-            ->select('*')
-            ->where('program_status', 'publikasi')
-            ->get()
-            ->getResult();
+            ->where('program_id', $id)
+            ->delete();
     }
 }

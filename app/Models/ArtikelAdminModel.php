@@ -44,6 +44,7 @@ class ArtikelAdminModel extends Model
     {
         $builder = $this->db->table('artikel')
             ->select('*')
+            ->where('artikel_status', 'publish')
             ->select('kategori.kategori_nama')
             ->join('kategori', 'kategori.kategori_id = artikel.kategori_id')
             ->limit(2)

@@ -31,12 +31,6 @@ $routes->get('/program', 'Programs::index');
 // frontend page : detail program 
 $routes->get('/detail_program', 'DetailPrograms::index');
 
-// frontend page : events  
-$routes->get('/event', 'Events::index');
-
-// frontend page : detail events 
-$routes->get('/detail_event', 'DetailEvents::index');
-
 // frontend page : blog
 $routes->get('/blog', 'Blog::index');
 
@@ -93,6 +87,8 @@ $routes->post('programs_tambah_process', 'ProgramTambahAdmin::processTambah');
 $routes->get('programs_update/(:any)', 'ProgramUpdateAdmin::index/$1');
 //backend : program update process 
 $routes->put('programs_update/(:any)', 'ProgramUpdateAdmin::updateProgramProcess/$1');
+//backend : program delete process
+$routes->delete('programs_delete/(:any)', 'ProgramDeleteAdmin::deleteProgramAdmin/$1');
 
 
 
