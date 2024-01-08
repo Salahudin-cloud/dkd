@@ -109,7 +109,7 @@ class ArtikelTambahAdmin extends BaseController
                 $this->artikelTambahAdminModel->addArtikelBaru($data);
 
                 // redirec ke daftar list artikel
-                return redirect()->to('artikel');
+                return redirect()->to('artikell');
             } else {
                 $errors['artikel_cover'] = 'Silahkan Pilih gambar untuk  Artikel Cover!';
                 $session->setFlashdata('errors', $errors);

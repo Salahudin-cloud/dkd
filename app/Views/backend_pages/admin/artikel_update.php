@@ -33,7 +33,7 @@
                         <div class="col-sm-6">
                             <h1 class="m-0">Artikel</h1>
                             <div class="mt-2">
-                                <a href="<?php echo site_url('artikel') ?>">
+                                <a href="<?php echo site_url('artikell') ?>">
                                     <button class="btn btn-sm btn-success">
                                         <i class="fas fa-arrow-left"></i> Kembali
                                     </button>
@@ -42,7 +42,7 @@
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="<?php echo base_url('artikel') ?>">Artikel</a></li>
+                                <li class="breadcrumb-item"><a href="<?php echo base_url('artikell') ?>">Artikel</a></li>
                                 <li class="breadcrumb-item active">Update Artikel</li>
                             </ol>
                         </div><!-- /.col -->

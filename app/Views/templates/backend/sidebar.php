@@ -44,7 +44,7 @@
                 </li>
                 <!-- artikel  -->
                 <li class="nav-item ">
-                    <a href="<?php echo site_url('artikel') ?>" class="nav-link">
+                    <a href="<?php echo site_url('artikell') ?>" class="nav-link">
                         <i class="nav-icon fas fa-newspaper"></i>
                         <p>
                             Artikel

@@ -30,6 +30,6 @@ class ArtikelDeleteAdmin extends BaseController
         }
 
         //redirect ke halaman artikel 
-        return redirect()->to('/artikel');
+        return redirect()->to('/artikell');
     }
 }

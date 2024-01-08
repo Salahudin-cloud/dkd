@@ -31,8 +31,8 @@ $routes->get('/program', 'Programs::index');
 // frontend page : detail program 
 $routes->get('/detail_program', 'DetailPrograms::index');
 
-// frontend page : blog
-$routes->get('/blog', 'Blog::index');
+// frontend page : artikel
+$routes->get('/artikel', 'Artikel::index');
 
 // frontend page : detail blog 
 $routes->get('/detail_blog', 'DetailBlog::index');
@@ -64,7 +64,7 @@ $routes->put('kategori_update_process/(:any)', 'KategoriUpdateAdmin::processUpda
 $routes->delete('kategori_delete/(:any)', 'KategoriAdmin::delKategori/$1');
 
 // backend : artikel 
-$routes->get('/artikel', 'ArtikelAdmin::index');
+$routes->get('/artikell', 'ArtikelAdmin::index');
 // backend : artikel tambah 
 $routes->get('/artikel_tambah', 'ArtikelTambahAdmin::index');
 // backend : artikel tambah process 
