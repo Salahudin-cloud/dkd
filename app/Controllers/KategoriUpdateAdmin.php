@@ -2,15 +2,15 @@
 
 namespace App\Controllers;
 
-use App\Models\KategoriUpdateAdminModel;
+use App\Models\KategoriModel;
 
 class KategoriUpdateAdmin extends BaseController
 {
-    protected $kategoriUpdateAdminModel;
+    protected $kategoriModel;
 
     public function __construct()
     {
-        $this->kategoriUpdateAdminModel = new KategoriUpdateAdminModel();
+        $this->kategoriModel = new KategoriModel();
     }
 
     public function index($id)
@@ -21,7 +21,7 @@ class KategoriUpdateAdmin extends BaseController
             return redirect()->to('/');
         }
 
-        $data['kategori'] = $this->kategoriUpdateAdminModel->getSpesificKategori($id);
+        $data['kategori'] = $this->kategoriModel->getSpesificKategori($id);
         return view('backend_pages/admin/kategori_update', $data);
     }
 
@@ -55,7 +55,7 @@ class KategoriUpdateAdmin extends BaseController
             'kategori_slug' =>  strtolower(url_title(json_encode(esc($this->request->getPost('kategori')))))
         ];
         // memasukan data
-        $this->kategoriUpdateAdminModel->updateKategori($id, $data);
+        $this->kategoriModel->updateKategori($id, $data);
 
         // return ke daftar kategori 
         return redirect()->to('kategori');

@@ -3,9 +3,9 @@
 
 namespace App\Controllers;
 
-use App\Models\ArtikelAdminModel;
+use App\Models\ArtikelModel;
 use App\Models\DashboardModel;
-use App\Models\KategoriAdminModel;
+use App\Models\KategoriModel;
 use App\Models\ProgramAdminModel;
 
 class DashboardAdmin extends BaseController
@@ -13,14 +13,14 @@ class DashboardAdmin extends BaseController
 
     protected $dashboardModel;
 
-    protected $artikelAdminModel;
-    protected $kategoriAdminModel;
+    protected $artikelModel;
+    protected $kategoriModel;
     protected $programAdminModel;
     public function __construct()
     {
         $this->dashboardModel = new DashboardModel();
-        $this->artikelAdminModel = new ArtikelAdminModel();
-        $this->kategoriAdminModel = new KategoriAdminModel();
+        $this->artikelModel = new ArtikelModel();
+        $this->kategoriModel = new KategoriModel();
         $this->programAdminModel = new ProgramAdminModel();
     }
     public function index()
@@ -33,8 +33,8 @@ class DashboardAdmin extends BaseController
         // mamasukan jumlah ke dalam varable data
         $data = [
             'jumlah_pengguna' => $this->dashboardModel->getTotalPengguna(),
-            'jumlah_artikel' => $this->artikelAdminModel->countAllArtikel(),
-            'jumlah_kategori' => $this->kategoriAdminModel->countAllKategori(),
+            'jumlah_artikel' => $this->artikelModel->countAllArtikel(),
+            'jumlah_kategori' => $this->kategoriModel->countAllKategori(),
             'jumlah_program'  => $this->programAdminModel->countAllProgram()
         ];
 

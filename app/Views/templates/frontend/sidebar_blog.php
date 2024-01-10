@@ -46,49 +46,30 @@
                 </li>
             </ul>
         </aside>
+        <?php
+
+        use CodeIgniter\I18n\Time; ?>
+
         <aside class="single_sidebar_widget popular_post_widget">
             <h3 class="widget_title" style="color: #2d2d2d">
                 Blog Terbaru
             </h3>
-            <div class="media post_item">
-                <img src="<?php echo base_url() . 'assets/frontend/img/post/post1.jpg' ?>" alt="post" width="90" height="90" />
-                <div class="media-body">
-                    <a href="blog_details.html">
-                        <h3 style="color: #2d2d2d">
-                            200 Peserta Ikut Menghafal
-                        </h3>
-                    </a>
-                    <p>January 12, 2019</p>
+            <?php foreach ($latest_artikel as $data) :  ?>
+                <?php $latestArtikelTanggal = new DateTime($data->artikel_tanggal); ?>
+                <?php $formatDateLatest = $latestArtikelTanggal->format('d-m-Y H:i:s'); ?>
+                <?php $latestArtikel = Time::parse($formatDateLatest, 'Asia/Jakarta'); ?>
+                <div class="media post_item">
+                    <img src="<?php echo base_url() . 'assets/img/artikel/' . $data->artikel_cover ?>" alt="post" width="90" height="90" />
+                    <div class="media-body">
+                        <a href="blog_details.html">
+                            <h3 style="color: #2d2d2d">
+                                <?php echo $data->artikel_judul ?>
+                            </h3>
+                        </a>
+                        <p><?php echo $latestArtikel->toLocalizedString('d MMMM yyyy') ?></p>
+                    </div>
                 </div>
-            </div>
-            <div class="media post_item">
-                <img src="<?php echo base_url() . 'assets/frontend/img/blog/2.jpg' ?>" alt="post" width="90" height="90" />
-                <div class="media-body">
-                    <a href="blog_details.html">
-                        <h3 style="color: #2d2d2d">Khataman 30 Juz Santri Rumah Qur'an</h3>
-                    </a>
-                    <p>02 Hours ago</p>
-                </div>
-            </div>
-            <div class="media post_item">
-                <img src="<?php echo base_url() . 'assets/frontend/img/post/post3.jpg' ?>" alt="post" width="90" height="90" />
-                <div class="media-body">
-                    <a href="blog_details.html">
-                        <h3 style="color: #2d2d2d">Masyarakat Sambut Ust Faizar di Magelang</h3>
-                    </a>
-                    <p>03 Hours ago</p>
-                </div>
-            </div>
-            <div class="media post_item">
-                <img src="<?php echo base_url()  . 'assets/frontend/img/post/post4.jpg' ?>" alt="post" width="90" height="90" />
-                <div class="media-body">
-                    <a href="blog_details.html">
-
-                        <h3 style="color: #2d2d2d">Kolaborasi Pemberdayaan Ekonomi Keluarga</h3>
-                    </a>
-                    <p>01 Hours ago</p>
-                </div>
-            </div>
+            <?php endforeach ?>
         </aside>
     </div>
 </div>

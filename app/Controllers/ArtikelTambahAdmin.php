@@ -2,17 +2,17 @@
 
 namespace App\Controllers;
 
-use App\Models\ArtikelTambahAdminModel;
+use App\Models\ArtikelModel;
 use App\Models\KategoriAdminModel;
 
 class ArtikelTambahAdmin extends BaseController
 {
     protected $kategoriAdminModel;
-    protected $artikelTambahAdminModel;
+    protected $artikelModel;
     public function __construct()
     {
         $this->kategoriAdminModel = new KategoriAdminModel();
-        $this->artikelTambahAdminModel = new ArtikelTambahAdminModel();
+        $this->artikelModel = new ArtikelModel();
     }
     public function index()
     {
@@ -62,7 +62,7 @@ class ArtikelTambahAdmin extends BaseController
 
 
         // mengecek jika judul artikel sudah ada 
-        $judul = $this->artikelTambahAdminModel->getArtikelByJudul(esc($this->request->getPost('article_title')));
+        $judul = $this->artikelModel->getArtikelByJudul(esc($this->request->getPost('article_title')));
 
         if (count($judul) > 0) {
             $errors['artikel_judul'] = 'Judul Artikel Sudah Ada!!';
@@ -106,7 +106,7 @@ class ArtikelTambahAdmin extends BaseController
 
 
                 // memasukan data ke database
-                $this->artikelTambahAdminModel->addArtikelBaru($data);
+                $this->artikelModel->addArtikelBaru($data);
 
                 // redirec ke daftar list artikel
                 return redirect()->to('artikell');

@@ -2,14 +2,14 @@
 
 namespace App\Controllers;
 
-use App\Models\KategoriTambahAdminModel;
+use App\Models\KategoriModel;
 
 class KategoriTambahAdmin extends BaseController
 {
-    protected $kategoriTambahAdminModel;
+    protected $kategoriModel;
     public function __construct()
     {
-        $this->kategoriTambahAdminModel = new KategoriTambahAdminModel();
+        $this->kategoriModel = new KategoriModel();
     }
     public function index()
     {
@@ -53,7 +53,7 @@ class KategoriTambahAdmin extends BaseController
             'kategori_slug' =>  strtolower(url_title(json_encode(esc($this->request->getPost('kategori')))))
         ];
         // memasukan data
-        $this->kategoriTambahAdminModel->insertKategoriBaru($data);
+        $this->kategoriModel->insertKategoriBaru($data);
 
         // return ke daftar kategori 
         return redirect()->to('kategori');

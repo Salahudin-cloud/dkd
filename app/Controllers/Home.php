@@ -2,21 +2,23 @@
 
 namespace App\Controllers;
 
-use App\Models\ArtikelAdminModel;
+use App\Models\ArtikelModel;
+use App\Models\KategoriAdminModel;
 
 class Home extends BaseController
 {
 
-    protected $artikelAdminModel;
+    protected $artikelModel;
+    protected $kategoriAdminModel;
     public function __construct()
     {
-        $this->artikelAdminModel = new ArtikelAdminModel();
+        $this->artikelModel = new ArtikelModel();
     }
     // frontend landing page 
     public function index(): string
     {
         $data = [
-            'artikel' => $this->artikelAdminModel->getAllTwoArtikel()
+            'artikel' => $this->artikelModel->getAllTwoArtikel(),
         ];
         return view('frontend_pages/index', $data);
     }

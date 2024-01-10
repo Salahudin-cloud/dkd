@@ -2,23 +2,23 @@
 
 namespace App\Controllers;
 
-use App\Models\ArtikelDeleteAdminModel;
+use App\Models\ArtikelModel;
 
 class ArtikelDeleteAdmin extends BaseController
 {
-    protected $artikelDeleteAdminModel;
+    protected $artikelModel;
 
     public function __construct()
     {
-        $this->artikelDeleteAdminModel = new ArtikelDeleteAdminModel();
+        $this->artikelModel = new ArtikelModel();
     }
     public function deleteArtikel($id)
     {
         //mendapatkan artikel by id 
-        $artikel = $this->artikelDeleteAdminModel->getArtikelById($id);
+        $artikel = $this->artikelModel->getArtikelById($id);
 
         //melakukan delete data pada database 
-        $this->artikelDeleteAdminModel->deleteArtikelById($id);
+        $this->artikelModel->deleteArtikelById($id);
 
         // melakukan delete data artikel cover pada folder img
         if ($artikel->artikel_cover) {

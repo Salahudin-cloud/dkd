@@ -2,15 +2,15 @@
 
 namespace App\Controllers;
 
-use App\Models\ArtikelAdminModel;
+use App\Models\ArtikelModel;
 
 class ArtikelAdmin extends BaseController
 {
-    protected $artikelAdminModel;
+    protected $artikelModel;
 
     public function __construct()
     {
-        $this->artikelAdminModel = new ArtikelAdminModel();
+        $this->artikelModel = new ArtikelModel();
     }
 
     public function index()
@@ -20,7 +20,7 @@ class ArtikelAdmin extends BaseController
         if (!$session->get('isLogin')) {
             return redirect()->to('/login');
         }
-        $data['artikel'] = $this->artikelAdminModel->getSemuaArtikel();
+        $data['artikel'] = $this->artikelModel->getSemuaArtikel();
         return view('backend_pages/admin/artikel', $data);
     }
 }

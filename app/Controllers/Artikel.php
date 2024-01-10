@@ -18,7 +18,7 @@ class Artikel extends BaseController
 
         $data = [
             'all_artikel' => $this->artikelModel->getSemuaArtikel(),
-            'latest_artikel' => $this->artikelModel->getLatestArtikel()
+            'latest_artikel' => $this->artikelModel->getAllLatestArtikel()
         ];
 
         return view('frontend_pages/artikel', $data);

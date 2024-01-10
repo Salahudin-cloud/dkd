@@ -2,14 +2,14 @@
 
 namespace App\Controllers;
 
-use App\Models\KategoriAdminModel;
+use App\Models\KategoriModel;
 
 class KategoriAdmin extends BaseController
 {
-    protected $kategoriAdminModel;
+    protected $kategoriModel;
     public function __construct()
     {
-        $this->kategoriAdminModel = new KategoriAdminModel();
+        $this->kategoriModel = new KategoriModel();
     }
     public function index()
     {
@@ -18,7 +18,7 @@ class KategoriAdmin extends BaseController
         if (!$session->get('isLogin')) {
             return redirect()->to('/');
         }
-        $data['kategori'] = $this->kategoriAdminModel->getAllKategori();
+        $data['kategori'] = $this->kategoriModel->getAllKategori();
         return view('backend_pages/admin/kategori', $data);
     }
 
@@ -26,7 +26,7 @@ class KategoriAdmin extends BaseController
     // delete kategori 
     public function delKategori($id)
     {
-        $this->kategoriAdminModel->deleteKategori($id);
+        $this->kategoriModel->deleteKategori($id);
 
         // redirec ke daftar kategori 
         return redirect()->to('kategori');

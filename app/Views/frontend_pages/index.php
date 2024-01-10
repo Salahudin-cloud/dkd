@@ -324,12 +324,18 @@
                     <div class="col-xl-5 col-lg-6 col-md-9 col-sm-10">
                         <div class="section-tittle text-center mb-90">
                             <span>Blog Terbaru Kami</span>
-                            <h2>Berita terbaru dari blog terbaru kami</h2>
+                            <h2>Berita terbaru dari artikel terbaru kami</h2>
                         </div>
                     </div>
                 </div>
                 <div class="row">
+                    <?php
+
+                    use CodeIgniter\I18n\Time; ?>
                     <?php foreach ($artikel as $data) : ?>
+                        <?php $tanggal = new DateTime($data->artikel_tanggal) ?>
+                        <?php $formatDate = $tanggal->format('d-m-Y H:i:s') ?>
+                        <?php $time = Time::parse($formatDate, 'Asia/Jakarta'); ?>
                         <div class="col-xl-6 col-lg-6 col-md-6">
                             <div class="home-blog-single mb-30">
                                 <div class="blog-img-cap">
@@ -337,11 +343,8 @@
                                         <img src="<?php echo base_url() . 'assets/img/artikel/' . $data->artikel_cover ?>" alt="" />
                                         <!-- Blog date -->
                                         <div class="blog-date text-center">
-                                            <?php
-                                            $artikelTanggal = new DateTime($data->artikel_tanggal);
-                                            ?>
-                                            <span><?php echo $artikelTanggal->format('d'); ?></span>
-                                            <p><?php echo $artikelTanggal->format('F Y'); ?></p>
+                                            <span><?php echo $time->toLocalizedString('d') ?></span>
+                                            <p><?php echo $time->toLocalizedString('MMM yyyy') ?></p>
                                         </div>
                                     </div>
                                     <div class="blog-cap">

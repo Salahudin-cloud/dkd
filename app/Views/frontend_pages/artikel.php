@@ -46,13 +46,14 @@
                             use CodeIgniter\I18n\Time; ?>
                             <?php foreach ($all_artikel as $data) : ?>
                                 <?php $artikelTanggal = new DateTime($data->artikel_tanggal); ?>
+                                <?php $formatDate = $artikelTanggal->format('d-m-Y H:i:s'); ?>
+                                <?php $time = Time::parse($formatDate, 'Asia/Jakarta'); ?>
                                 <article class="blog_item">
                                     <div class="blog_item_img">
                                         <img class="card-img rounded-0" src="<?php echo base_url() . 'assets/img/artikel/' . $data->artikel_cover ?>" alt="" />
                                         <a href="<" class="blog_item_date  text-center">
-                                            <?php setlocale(LC_TIME, 'id_ID'); ?>
-                                            <span><?php echo date() ?></span>
-                                            <p><?php echo date('F', $artikelTanggal->getTimestamp()); ?></p>
+                                            <span><?php echo $time->toLocalizedString('d') ?></span>
+                                            <p><?php echo $time->toLocalizedString('MMM yyyy') ?></p>
                                         </a>
                                     </div>
                                     <div class="blog_details">

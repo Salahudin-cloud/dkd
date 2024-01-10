@@ -3,16 +3,16 @@
 
 namespace App\Controllers;
 
-use App\Models\ArtikelUpdateAdminModel;
+use App\Models\ArtikelModel;
 use App\Models\KategoriAdminModel;
 
 class ArtikelUpdateAdmin extends BaseController
 {
-    protected $artikelUpdateAdminModel;
+    protected $artikelModel;
     protected $kategoriAdminModel;
     public function __construct()
     {
-        $this->artikelUpdateAdminModel = new ArtikelUpdateAdminModel();
+        $this->artikelModel = new ArtikelModel();
         $this->kategoriAdminModel = new KategoriAdminModel();
     }
 
@@ -24,7 +24,7 @@ class ArtikelUpdateAdmin extends BaseController
             return redirect()->to('/');
         }
         $data = [
-            'artikel' => $this->artikelUpdateAdminModel->getArtikelById($id),
+            'artikel' => $this->artikelModel->getArtikelById($id),
             'kategori' => $this->kategoriAdminModel->getAllKategori()
         ];
 
@@ -82,7 +82,7 @@ class ArtikelUpdateAdmin extends BaseController
                 return redirect()->to('artikel_update/' . $id);
             }
 
-            $oldArtikelCover = $this->artikelUpdateAdminModel->getArticleCoverById($id);
+            $oldArtikelCover = $this->artikelModel->getArticleCoverById($id);
             if (!empty($oldArtikelCover)) {
                 // mendapatkan nama file cover artikel lama
                 $artikelCoverName = $oldArtikelCover->artikel_cover;
@@ -119,7 +119,7 @@ class ArtikelUpdateAdmin extends BaseController
 
 
             // memasukan data ke database
-            $this->artikelUpdateAdminModel->updateArtikel($id, $data);
+            $this->artikelModel->updateArtikel($id, $data);
 
             // redirec ke daftar list artikel
             return redirect()->to('artikell');
@@ -136,7 +136,7 @@ class ArtikelUpdateAdmin extends BaseController
         ];
 
         // memasukan data ke database
-        $this->artikelUpdateAdminModel->updateArtikel($id, $data);
+        $this->artikelModel->updateArtikel($id, $data);
 
         // redirec ke daftar list artikel
         return redirect()->to('artikell');
