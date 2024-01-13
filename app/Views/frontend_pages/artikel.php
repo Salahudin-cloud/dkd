@@ -45,12 +45,12 @@
 
                             use CodeIgniter\I18n\Time; ?>
                             <?php foreach ($all_artikel as $data) : ?>
-                                <?php $artikelTanggal = new DateTime($data->artikel_tanggal); ?>
+                                <?php $artikelTanggal = new DateTime($data['artikel_tanggal']); ?>
                                 <?php $formatDate = $artikelTanggal->format('d-m-Y H:i:s'); ?>
                                 <?php $time = Time::parse($formatDate, 'Asia/Jakarta'); ?>
                                 <article class="blog_item">
                                     <div class="blog_item_img">
-                                        <img class="card-img rounded-0" src="<?php echo base_url() . 'assets/img/artikel/' . $data->artikel_cover ?>" alt="" />
+                                        <img class="card-img rounded-0" src="<?php echo base_url() . 'assets/img/artikel/' . $data['artikel_cover']?>" alt="" />
                                         <a href="<" class="blog_item_date  text-center">
                                             <span><?php echo $time->toLocalizedString('d') ?></span>
                                             <p><?php echo $time->toLocalizedString('MMM yyyy') ?></p>
@@ -59,12 +59,12 @@
                                     <div class="blog_details">
                                         <a class="d-inline-block" href="<?php echo site_url('/detail_blog') ?>">
                                             <h2 class="blog-head" style="color: #2d2d2d">
-                                                <?php echo $data->artikel_judul ?>
+                                                <?php echo $data['artikel_judul'] ?>
                                             </h2>
                                         </a>
                                         <p>
                                             <!-- // Hapus semua tag HTML -->
-                                            <?php $kontenTanpaHTML = strip_tags($data->artikel_konten); ?>
+                                            <?php $kontenTanpaHTML = strip_tags($data['artikel_konten']); ?>
                                             <!-- pecah konten menjadi array kalimat -->
                                             <?php $kotenArray = explode('.', $kontenTanpaHTML) ?>
                                             <!-- ambil 4 kalimat utama  -->
@@ -79,16 +79,16 @@
                                                 <a href="#"><i class="fa fa-user"></i>Author</a>
                                             </li>
                                             <li>
-                                                <a href="#"><i class="fa fa-tag"></i><?php echo $data->kategori_nama ?></a>
+                                                <a href="#"><i class="fa fa-tag"></i><?php echo $data['kategori_nama'] ?></a>
                                             </li>
                                         </ul>
                                     </div>
                                 </article>
                             <?php endforeach; ?>
 
+                            <?php echo $pager->links('default', 'pager')?>
 
-
-                            <nav class="blog-pagination justify-content-center d-flex">
+                            <!-- <nav class="blog-pagination justify-content-center d-flex">
                                 <ul class="pagination">
                                     <li class="page-item">
                                         <a href="#" class="page-link" aria-label="Previous">
@@ -107,7 +107,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </nav>
+                            </nav> -->
                         </div>
                     </div>
 

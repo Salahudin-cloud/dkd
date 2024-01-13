@@ -2,15 +2,15 @@
 
 namespace App\Controllers;
 
-use App\Models\ProgramAdminModel;
+use App\Models\ProgramModel;
 
 class ProgramAdmin extends BaseController
 {
 
-    protected $programAdminModel;
+    protected $programModel;
     public function __construct()
     {
-        $this->programAdminModel = new ProgramAdminModel();
+        $this->programModel = new ProgramModel();
     }
 
     public function index()
@@ -21,7 +21,10 @@ class ProgramAdmin extends BaseController
             return redirect()->to('/login');
         }
         // get all program 
-        $data['program'] = $this->programAdminModel->getSemuaProgram();
+        $data = [
+            'program' => $this->programModel->getSemuaProgramAdmin(),
+            'pager' => $this->programModel->pager
+        ];
         return view('backend_pages/admin/program', $data);
     }
 }

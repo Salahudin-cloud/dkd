@@ -73,16 +73,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 1 ?>
+                                    <?php
+                                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                                    $i = 1 + (5 * ($page - 1)) ?>
                                     <?php foreach ($artikel as $data) : ?>
                                         <tr>
                                             <td><?php echo $i++; ?></td>
-                                            <td><?php echo date('d/m/y', strtotime($data->artikel_tanggal)) ?></td>
-                                            <td><?php echo $data->artikel_judul ?></td>
-                                            <td><?php echo $data->kategori_nama ?></td>
-                                            <td><img width="100%" class="img-responsive" src="<?php echo base_url() . 'assets/img/artikel/' . $data->artikel_cover; ?>"></td>
+                                            <td><?php echo date('d/m/y', strtotime($data['artikel_tanggal'])) ?></td>
+                                            <td><?php echo $data['artikel_judul'] ?></td>
+                                            <td><?php echo $data['kategori_nama'] ?></td>
+                                            <td><img width="100%" class="img-responsive" src="<?php echo base_url() . 'assets/img/artikel/' . $data['artikel_cover']; ?>"></td>
                                             <td>
-                                                <?php if ($data->artikel_status === "publish") : ?>
+                                                <?php if ($data['artikel_status'] === "publish") : ?>
                                                     <span class="badge badge-success">Publish</span>
                                                 <?php else : ?>
                                                     <span class="badge badge-danger">Draft</span>
@@ -93,10 +95,10 @@
                                                 <div class="btn-group " role="group" aria-label="Action buttons">
                                                     <a href="" class="btn btn-sm btn-success mr-1" target="_blank"><i class="nav-icon fas fa-eye"></i>
                                                     </a>
-                                                    <a href="<?php echo site_url('artikel_update/' . $data->artikel_id) ?>" class="btn btn-sm btn-warning mr-1">
+                                                    <a href="<?php echo site_url('artikel_update/' . $data['artikel_id']) ?>" class="btn btn-sm btn-warning mr-1">
                                                         <i class="nav-icon fas fa-edit"></i>
                                                     </a>
-                                                    <form action="<?php echo site_url('artikel_delete/' . $data->artikel_id) ?>" method="POST">
+                                                    <form action="<?php echo site_url('artikel_delete/' . $data['artikel_id']) ?>" method="POST">
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <button type="submit" class="btn btn-sm btn-danger mr-1" onclick="return confirm('Apa kamu yakin untuk menghapus artikel ini?')">
                                                             <i class="nav-icon fas fa-trash"></i>
@@ -108,6 +110,9 @@
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
+                            <div class="pt-2">
+                                <?php echo $pager->links('default', 'pager_admin') ?>
+                            </div>
                         </div>
                     </div>
                 </div>

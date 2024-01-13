@@ -17,10 +17,16 @@ class KategoriModel extends Model
     ];
 
     // get all kategori 
+    public function getAllKategoriAdmin()
+    {
+        return $this->table('kategori');
+    }
+
     public function getAllKategori()
     {
         return $this->db->table('kategori')->get()->getResult();
     }
+
 
     // delete kategori 
     public function deleteKategori($id)

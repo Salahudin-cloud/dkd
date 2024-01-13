@@ -3,15 +3,15 @@
 
 namespace App\Controllers;
 
-use App\Models\ProgramUpdateAdminModel;
+use App\Models\ProgramModel;
 
 class ProgramUpdateAdmin extends BaseController
 {
-    protected $programUpdateAdminModel;
+    protected $programModel;
 
     public function __construct()
     {
-        $this->programUpdateAdminModel = new ProgramUpdateAdminModel();
+        $this->programModel = new ProgramModel();
     }
 
     public function index($id)
@@ -21,7 +21,7 @@ class ProgramUpdateAdmin extends BaseController
         if (!$session->get('isLogin')) {
             return redirect()->to('/login');
         }
-        $data['program'] = $this->programUpdateAdminModel->getProgramById($id);
+        $data['program'] = $this->programModel->getProgramById($id);
         return view('backend_pages/admin/program_update', $data);
     }
     public function updateProgramProcess($id)
@@ -75,7 +75,7 @@ class ProgramUpdateAdmin extends BaseController
                 return redirect()->to('programs_update/' . $id);
             }
 
-            $oldCoverProgram = $this->programUpdateAdminModel->getProgramCoverById($id);
+            $oldCoverProgram = $this->programModel->getProgramCoverById($id);
             if (!empty($oldCoverProgram)) {
                 // mendapatkan nama file cover artikel lama
                 $oldCoverProgramName = $oldCoverProgram->program_cover;
@@ -118,7 +118,7 @@ class ProgramUpdateAdmin extends BaseController
             ];
 
             // memasukan data ke database
-            $this->programUpdateAdminModel->updateProgram($id, $data);
+            $this->programModel->updateProgram($id, $data);
 
             // redirec ke daftar list program
             return redirect()->to('programs');
@@ -141,7 +141,7 @@ class ProgramUpdateAdmin extends BaseController
             ];
 
             // memasukan data ke database
-            $this->programUpdateAdminModel->updateProgram($id, $data);
+            $this->programModel->updateProgram($id, $data);
 
             return redirect()->to('programs');
         }

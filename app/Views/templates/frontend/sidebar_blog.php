@@ -20,30 +20,13 @@
         <aside class="single_sidebar_widget post_category_widget">
             <h4 class="widget_title" style="color: #2d2d2d">Kategori</h4>
             <ul class="list cat-list">
-                <li>
-                    <a href="#" class="d-flex">
-                        <p>Tips</p>
-                        <p>(10)</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="d-flex">
-                        <p>Informasi</p>
-                        <p>(3)</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="d-flex">
-                        <p>Prestasi</p>
-                        <p>(5)</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="d-flex">
-                        <p>Sosial</p>
-                        <p>(7)</p>
-                    </a>
-                </li>
+                <?php foreach ($all_kategori as $data) : ?>
+                    <li>
+                        <a href="#" class="d-flex">
+                            <p><?php echo  $data->kategori_nama ?></p>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
             </ul>
         </aside>
         <?php

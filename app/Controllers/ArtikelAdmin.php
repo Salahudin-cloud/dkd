@@ -20,7 +20,10 @@ class ArtikelAdmin extends BaseController
         if (!$session->get('isLogin')) {
             return redirect()->to('/login');
         }
-        $data['artikel'] = $this->artikelModel->getSemuaArtikel();
+        $data = [
+            'artikel' => $this->artikelModel->getSemuaArtikelAdmin(),
+            'pager' => $this->artikelModel->pager
+        ];
         return view('backend_pages/admin/artikel', $data);
     }
 }

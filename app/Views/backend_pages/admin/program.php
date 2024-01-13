@@ -73,16 +73,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 1 ?>
+                                    <?php
+                                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                                    $i = 1 + (5 * ($page - 1)) ?>
                                     <?php foreach ($program as $data) : ?>
                                         <tr>
                                             <td><?php echo $i++; ?></td>
-                                            <td><?php echo $data->program_judul ?></td>
-                                            <td>Rp.<?php echo $data->program_terkumpul ?></td>
-                                            <td>Rp.<?php echo $data->program_target ?></td>
-                                            <td><img width="10%" class="img-responsive" src="<?php echo base_url() . 'assets/img/program/' . $data->program_cover; ?>"></td>
+                                            <td><?php echo $data['program_judul'] ?></td>
+                                            <td>Rp.<?php echo $data['program_terkumpul'] ?></td>
+                                            <td>Rp.<?php echo $data['program_target'] ?></td>
+                                            <td><img width="10%" class="img-responsive" src="<?php echo base_url() . 'assets/img/program/' . $data['program_cover']; ?>"></td>
                                             <td>
-                                                <?php if ($data->program_status === "publikasi") : ?>
+                                                <?php if ($data['program_status'] === "publikasi") : ?>
                                                     <span class="badge badge-success">Publish</span>
                                                 <?php else : ?>
                                                     <span class="badge badge-danger">Draft</span>
@@ -92,10 +94,10 @@
                                                 <div class="btn-group " role="group" aria-label="Action buttons">
                                                     <a href="" class="btn btn-sm btn-success mr-1" target="_blank"><i class="nav-icon fas fa-eye"></i>
                                                     </a>
-                                                    <a href="<?php echo site_url('programs_update/' . $data->program_id) ?>" class="btn btn-sm btn-warning mr-1">
+                                                    <a href="<?php echo site_url('programs_update/' . $data['program_id']) ?>" class="btn btn-sm btn-warning mr-1">
                                                         <i class="nav-icon fas fa-edit"></i>
                                                     </a>
-                                                    <form action="<?php echo site_url('programs_delete/' . $data->program_id) ?>" method="POST">
+                                                    <form action="<?php echo site_url('programs_delete/' . $data['program_id']) ?>" method="POST">
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <button type="submit" class="btn btn-sm btn-danger mr-1" onclick="return confirm('Apa kamu yakin untuk menghapus program ini?')">
                                                             <i class="nav-icon fas fa-trash"></i>
@@ -107,6 +109,9 @@
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
+                            <div class="pt-2">
+                                <?php echo $pager->links('default', 'pager_admin') ?>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -2,25 +2,24 @@
 
 namespace App\Controllers;
 
-use App\Models\ProgramAdminModel;
-use App\Models\ProgramDeleteAdminModel;
+use App\Models\ProgramModel;
 
 class ProgramDeleteAdmin extends BaseController
 {
-    protected $programDeleteAdminModel;
+    protected $programModel;
 
     public function __construct()
     {
-        $this->programDeleteAdminModel = new ProgramDeleteAdminModel();
+        $this->programModel = new ProgramModel();
     }
 
     public function deleteProgramAdmin($id)
     {
         //mendapatkan program by id 
-        $program = $this->programDeleteAdminModel->getProgramById($id);
+        $program = $this->programModel->getProgramById($id);
 
         //melakukan delete data pada database 
-        $this->programDeleteAdminModel->deleteProgramById($id);
+        $this->programModel->deleteProgramById($id);
 
         // melakukan delete data program cover pada folder img
         if ($program->program_cover) {

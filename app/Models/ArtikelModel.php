@@ -20,16 +20,21 @@ class ArtikelModel extends Model
         'artikel_status'
     ];
 
-
     public function getSemuaArtikel()
     {
-        return $this->db->table('artikel')
-            ->select('*')
-            ->where('artikel_status', 'publish')
-            ->select('kategori.kategori_nama')
+        return $this->table('artikel')
+            ->select('artikel.*, kategori.kategori_nama')
             ->join('kategori', 'kategori.kategori_id = artikel.kategori_id')
-            ->get()
-            ->getResult();
+            ->where('artikel_status', 'publish')
+            ->paginate(3);
+    }
+    public function getSemuaArtikelAdmin()
+    {
+        return $this->table('artikel')
+            ->select('artikel.*, kategori.kategori_nama')
+            ->join('kategori', 'kategori.kategori_id = artikel.kategori_id')
+            ->where('artikel_status', 'publish')
+            ->paginate(5);
     }
 
     public function getAllLatestArtikel()
@@ -48,19 +53,19 @@ class ArtikelModel extends Model
     public function countAllArtikel()
     {
         return $this->db->table('artikel')
-        ->countAllResults();
+            ->countAllResults();
     }
 
 
     public function getAllTwoArtikel()
     {
         $builder = $this->db->table('artikel')
-        ->select('*')
-        ->where('artikel_status', 'publish')
-        ->select('kategori.kategori_nama')
-        ->join('kategori', 'kategori.kategori_id = artikel.kategori_id')
-        ->orderBy('artikel_tanggal', 'DESC')
-        ->limit(2)
+            ->select('*')
+            ->where('artikel_status', 'publish')
+            ->select('kategori.kategori_nama')
+            ->join('kategori', 'kategori.kategori_id = artikel.kategori_id')
+            ->orderBy('artikel_tanggal', 'DESC')
+            ->limit(2)
             ->get()
             ->getResult();
         return $builder;
@@ -70,7 +75,7 @@ class ArtikelModel extends Model
     public function getArtikelById($id)
     {
         return $this->db->table('artikel')
-        ->where('artikel_id', $id)
+            ->where('artikel_id', $id)
             ->get()
             ->getRow();
     }
@@ -78,14 +83,14 @@ class ArtikelModel extends Model
     public function deleteArtikelById($id)
     {
         return $this->db->table('artikel')
-        ->where('artikel_id', $id)
+            ->where('artikel_id', $id)
             ->delete();
     }
 
     public function getArtikelByJudul($judul)
     {
         return $this->db->table('artikel')
-        ->where('artikel_judul', $judul)
+            ->where('artikel_judul', $judul)
             ->get()
             ->getResult();
     }
@@ -93,14 +98,14 @@ class ArtikelModel extends Model
     public function addArtikelBaru($data)
     {
         return $this->db->table('artikel')
-        ->insert($data);
+            ->insert($data);
     }
 
     public function getArticleCoverById($id)
     {
         $query = $this->db->table('artikel')
-        ->select('artikel_cover')
-        ->where('artikel_id', $id)
+            ->select('artikel_cover')
+            ->where('artikel_id', $id)
             ->get();
 
         return $query->getRow();
@@ -109,7 +114,7 @@ class ArtikelModel extends Model
     public function updateArtikel($id, $data)
     {
         return $this->db->table('artikel')
-        ->where('artikel_id', $id)
+            ->where('artikel_id', $id)
             ->update($data);
     }
 }

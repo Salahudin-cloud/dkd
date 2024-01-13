@@ -2,21 +2,21 @@
 
 namespace App\Controllers;
 
-use App\Models\ProgramAdminModel;
+use App\Models\ProgramModel;
 
 class Programs extends BaseController
 {
 
-    protected $programAdminModel;
+    protected $programModel;
     public function __construct()
     {
-        $this->programAdminModel = new ProgramAdminModel();
+        $this->programModel = new ProgramModel();
     }
 
     public function index()
     {
         $data = [
-            'program' => $this->programAdminModel->getSemuaProgramPublish()
+            'program' => $this->programModel->getSemuaProgramPublish()
         ];
         return view('frontend_pages/program', $data);
     }

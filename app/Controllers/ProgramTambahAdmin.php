@@ -3,14 +3,14 @@
 
 namespace App\Controllers;
 
-use App\Models\ProgramTambahAdminModel;
+use App\Models\ProgramModel;
 
 class ProgramTambahAdmin extends BaseController
 {
-    protected $programTambahAdminModel;
+    protected $programModel;
     public function __construct()
     {
-        $this->programTambahAdminModel = new ProgramTambahAdminModel();
+        $this->programModel = new ProgramModel();
     }
     public function index()
     {
@@ -56,7 +56,7 @@ class ProgramTambahAdmin extends BaseController
 
 
         // mengecek jika program sudah ada 
-        $judul = $this->programTambahAdminModel->getProgramByJudul(esc($this->request->getPost('program_judul')));
+        $judul = $this->programModel->getProgramByJudul(esc($this->request->getPost('program_judul')));
 
         if (count($judul) > 0) {
             $errors['program_judul'] = 'Judul Program Sudah Ada!!';
@@ -107,7 +107,7 @@ class ProgramTambahAdmin extends BaseController
 
 
                 // memasukan data ke database
-                $this->programTambahAdminModel->addProgramBaru($data);
+                $this->programModel->addProgramBaru($data);
 
                 // redirec ke daftar list program
                 return redirect()->to('programs');

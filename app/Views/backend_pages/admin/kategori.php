@@ -70,16 +70,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 1; ?>
+                                    <?php $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                                    $i = 1 + (10 * ($page - 1)) ?> ?>
                                     <?php foreach ($kategori as $data) : ?>
                                         <tr>
                                             <td><?php echo $i++ ?></td>
-                                            <td><?php echo $data->kategori_nama ?></td>
-                                            <td><?php echo $data->kategori_slug ?></td>
+                                            <td><?php echo $data['kategori_nama'] ?></td>
+                                            <td><?php echo $data['kategori_slug'] ?></td>
                                             <td>
                                                 <div class="btn-group" role="group" aria-label="Action buttons">
-                                                    <a href="<?php echo site_url('/kategori_update' . '/' . $data->kategori_id) ?>" class="btn btn-sm btn-warning"><i class="nav-icon fas fa-edit"></i></a>
-                                                    <form action="<?php echo site_url('kategori_delete/' . $data->kategori_id) ?>" method="POST">
+                                                    <a href="<?php echo site_url('/kategori_update' . '/' . $data['kategori_id']) ?>" class="btn btn-sm btn-warning"><i class="nav-icon fas fa-edit"></i></a>
+                                                    <form action="<?php echo site_url('kategori_delete/' . $data['kategori_id']) ?>" method="POST">
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <button class="btn btn-sm btn-danger" type="submit">
                                                             <i class="nav-icon fas fa-trash-alt"></i>
@@ -91,6 +92,9 @@
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
+                            <div class="pt-2">
+                                <?php echo $pager->links('default', 'pager_admin') ?>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -7,6 +7,7 @@ use App\Models\ArtikelModel;
 use App\Models\DashboardModel;
 use App\Models\KategoriModel;
 use App\Models\ProgramAdminModel;
+use App\Models\ProgramModel;
 
 class DashboardAdmin extends BaseController
 {
@@ -15,13 +16,13 @@ class DashboardAdmin extends BaseController
 
     protected $artikelModel;
     protected $kategoriModel;
-    protected $programAdminModel;
+    protected $programModel;
     public function __construct()
     {
         $this->dashboardModel = new DashboardModel();
         $this->artikelModel = new ArtikelModel();
         $this->kategoriModel = new KategoriModel();
-        $this->programAdminModel = new ProgramAdminModel();
+        $this->programModel = new ProgramModel();
     }
     public function index()
     {
@@ -35,7 +36,7 @@ class DashboardAdmin extends BaseController
             'jumlah_pengguna' => $this->dashboardModel->getTotalPengguna(),
             'jumlah_artikel' => $this->artikelModel->countAllArtikel(),
             'jumlah_kategori' => $this->kategoriModel->countAllKategori(),
-            'jumlah_program'  => $this->programAdminModel->countAllProgram()
+            'jumlah_program'  => $this->programModel->countAllProgram()
         ];
 
         return view('backend_pages/admin/dashboard', $data);

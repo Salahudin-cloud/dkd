@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ProgramUpdateAdminModel extends Model
+class ProgramModel extends Model
 {
     protected $table = 'program';
 
@@ -18,6 +18,31 @@ class ProgramUpdateAdminModel extends Model
     ];
 
 
+    public function getSemuaProgram()
+    {
+        return $this->db->table('program')
+            ->get()
+            ->getResult();
+    }
+
+    public function getSemuaProgramAdmin()
+    {
+        return $this->table('program')->paginate(5);
+    }
+    public function countAllProgram()
+    {
+        return $this->db->table('program')
+            ->countAllResults();
+    }
+
+    public function getSemuaProgramPublish()
+    {
+        return $this->db->table('program')
+            ->select('*')
+            ->where('program_status', 'publikasi')
+            ->get()
+            ->getResult();
+    }
     public function getProgramById($id)
     {
         return $this->db->table('program')
@@ -26,6 +51,15 @@ class ProgramUpdateAdminModel extends Model
             ->getRow();
     }
 
+
+    public function deleteProgramById($id)
+    {
+        return $this->db->table('program')
+            ->where('program_id', $id)
+            ->delete();
+    }
+
+
     public function getProgramByJudul($judul)
     {
         return $this->db->table('program')
@@ -33,6 +67,13 @@ class ProgramUpdateAdminModel extends Model
             ->get()
             ->getResult();
     }
+
+    public function addProgramBaru($data)
+    {
+        return $this->db->table('program')
+            ->insert($data);
+    }
+
 
     public function updateProgram($id, $data)
     {
