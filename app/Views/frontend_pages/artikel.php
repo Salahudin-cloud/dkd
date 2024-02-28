@@ -50,14 +50,14 @@
                                 <?php $time = Time::parse($formatDate, 'Asia/Jakarta'); ?>
                                 <article class="blog_item">
                                     <div class="blog_item_img">
-                                        <img class="card-img rounded-0" src="<?php echo base_url() . 'assets/img/artikel/' . $data['artikel_cover']?>" alt="" />
+                                        <img class="card-img rounded-0" src="<?php echo base_url() . 'assets/img/artikel/' . $data['artikel_cover'] ?>" alt="" />
                                         <a href="<" class="blog_item_date  text-center">
                                             <span><?php echo $time->toLocalizedString('d') ?></span>
                                             <p><?php echo $time->toLocalizedString('MMM yyyy') ?></p>
                                         </a>
                                     </div>
                                     <div class="blog_details">
-                                        <a class="d-inline-block" href="<?php echo site_url('/detail_blog') ?>">
+                                        <a class="d-inline-block" href="<?php echo site_url('/detail_artikel' . '/' . $data['artikel_slug']) ?>">
                                             <h2 class="blog-head" style="color: #2d2d2d">
                                                 <?php echo $data['artikel_judul'] ?>
                                             </h2>
@@ -86,7 +86,7 @@
                                 </article>
                             <?php endforeach; ?>
 
-                            <?php echo $pager->links('default', 'pager')?>
+                            <?php echo $pager->links('default', 'pager') ?>
 
                             <!-- <nav class="blog-pagination justify-content-center d-flex">
                                 <ul class="pagination">

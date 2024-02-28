@@ -117,4 +117,14 @@ class ArtikelModel extends Model
             ->where('artikel_id', $id)
             ->update($data);
     }
+
+
+    public function getSingleSlug($slug)
+    {
+        return $this->db->table('artikel')
+            ->select('artikel.*, kategori.kategori_nama')
+            ->join('kategori', 'kategori.kategori_id = artikel.kategori_id')
+            ->where('artikel_slug', $slug)
+            ->get()->getRow();
+    }
 }

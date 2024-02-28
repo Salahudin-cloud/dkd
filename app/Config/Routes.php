@@ -34,8 +34,8 @@ $routes->get('/detail_program', 'DetailPrograms::index');
 // frontend page : artikel
 $routes->get('/artikel', 'Artikel::index');
 
-// frontend page : detail blog 
-$routes->get('/detail_blog', 'DetailBlog::index');
+// frontend page : detail artikel 
+$routes->get('/detail_artikel/(:any)', 'DetailArtikel::index/$1');
 
 // // frontend page : kontak
 $routes->get('/kontak', 'Kontak::index');
