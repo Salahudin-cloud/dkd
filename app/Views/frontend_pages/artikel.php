@@ -34,7 +34,6 @@
         </div>
         <!-- Hero End -->
         <!--? Blog Area Start-->
-
         <section class="blog_area section-padding">
             <div class="container">
                 <div class="row">
@@ -51,9 +50,9 @@
                                 <article class="blog_item">
                                     <div class="blog_item_img">
                                         <img class="card-img rounded-0" src="<?php echo base_url() . 'assets/img/artikel/' . $data['artikel_cover'] ?>" alt="" />
-                                        <a href="<" class="blog_item_date  text-center">
+                                        <a href="" style="pointer-events: none; text-decoration: none;" class="blog_item_date  text-center">
                                             <span><?php echo $time->toLocalizedString('d') ?></span>
-                                            <p><?php echo $time->toLocalizedString('MMM yyyy') ?></p>
+                                        <p><?php echo $time->toLocalizedString('MMM yyyy') ?></p>
                                         </a>
                                     </div>
                                     <div class="blog_details">
@@ -62,7 +61,7 @@
                                                 <?php echo $data['artikel_judul'] ?>
                                             </h2>
                                         </a>
-                                        <p>
+                                        <p class="text-justify">
                                             <!-- // Hapus semua tag HTML -->
                                             <?php $kontenTanpaHTML = strip_tags($data['artikel_konten']); ?>
                                             <!-- pecah konten menjadi array kalimat -->
@@ -76,10 +75,12 @@
                                         </p>
                                         <ul class="blog-info-link">
                                             <li>
-                                                <a href="#"><i class="fa fa-user"></i>Author</a>
+                                                <a href="#" style="pointer-events: none; color: gray; text-decoration: none;"><i class=" fa fa-user"></i>Author</a>
                                             </li>
                                             <li>
-                                                <a href="#"><i class="fa fa-tag"></i><?php echo $data['kategori_nama'] ?></a>
+                                                <a href="<?= site_url('artikel' . '/' . $data['kategori_slug']) ?>">
+                                                    <i class="fa fa-tag"></i><?= $data['kategori_nama'] ?>
+                                                </a>
                                             </li>
                                         </ul>
                                     </div>
@@ -87,30 +88,8 @@
                             <?php endforeach; ?>
 
                             <?php echo $pager->links('default', 'pager') ?>
-
-                            <!-- <nav class="blog-pagination justify-content-center d-flex">
-                                <ul class="pagination">
-                                    <li class="page-item">
-                                        <a href="#" class="page-link" aria-label="Previous">
-                                            <i class="ti-angle-left"></i>
-                                        </a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a href="#" class="page-link">1</a>
-                                    </li>
-                                    <li class="page-item active">
-                                        <a href="#" class="page-link">2</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a href="#" class="page-link" aria-label="Next">
-                                            <i class="ti-angle-right"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav> -->
                         </div>
                     </div>
-
                     <!-- sidebar start  -->
                     <?php include(APPPATH . 'Views/templates/frontend/sidebar_blog.php')  ?>
                     <!-- sidebar end -->

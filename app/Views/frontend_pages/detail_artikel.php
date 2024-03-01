@@ -51,9 +51,11 @@
                                     <?php echo $artikel_data->artikel_judul ?>
                                 </h2>
                                 <ul class="blog-info-link mt-3 mb-4">
-                                    <li><a href="#"><i class="fa fa-tag"></i><?php echo $artikel_data->kategori_nama ?></a></li>
+                                    <li><a href="<?php echo base_url() . 'artikel/' . $artikel_data->kategori_slug ?>"><i class="fa fa-tag"></i><?php echo $artikel_data->kategori_nama ?></a></li>
                                 </ul>
-                                <?php echo $artikel_data->artikel_konten ?>
+                                <div class="text-justify">
+                                    <?php echo $artikel_data->artikel_konten ?>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -1,20 +1,17 @@
 <div class="col-lg-4">
     <div class="blog_right_sidebar">
         <aside class="single_sidebar_widget search_widget">
-            <form action="#">
+            <form action="<?php echo site_url('artikel/cari') ?>" method="get">
                 <div class="form-group">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Search Keyword" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'" />
+                        <input type="text" class="form-control" name="q" placeholder="Cari Artikel" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cari Artikel'" />
                         <div class="input-group-append">
-                            <button class="btns" type="button">
+                            <button class="btns" type="submit">
                                 <i class="ti-search"></i>
                             </button>
                         </div>
                     </div>
                 </div>
-                <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">
-                    Cari
-                </button>
             </form>
         </aside>
         <aside class="single_sidebar_widget post_category_widget">
@@ -22,7 +19,7 @@
             <ul class="list cat-list">
                 <?php foreach ($all_kategori as $data) : ?>
                     <li>
-                        <a href="#" class="d-flex">
+                        <a href="<?php echo base_url() . 'artikel/' . $data->kategori_slug; ?>" class="d-flex">
                             <p><?php echo  $data->kategori_nama ?></p>
                         </a>
                     </li>
@@ -44,7 +41,7 @@
                 <div class="media post_item">
                     <img src="<?php echo base_url() . 'assets/img/artikel/' . $data->artikel_cover ?>" alt="post" width="90" height="90" />
                     <div class="media-body">
-                        <a href="blog_details.html">
+                        <a href="<?php echo site_url() . 'detail_artikel' . '/' . $data->artikel_slug; ?>">
                             <h3 style="color: #2d2d2d">
                                 <?php echo $data->artikel_judul ?>
                             </h3>

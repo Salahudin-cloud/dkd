@@ -23,7 +23,7 @@ class ArtikelModel extends Model
     public function getSemuaArtikel()
     {
         return $this->table('artikel')
-            ->select('artikel.*, kategori.kategori_nama')
+            ->select('artikel.*, kategori.*')
             ->join('kategori', 'kategori.kategori_id = artikel.kategori_id')
             ->where('artikel_status', 'publish')
             ->paginate(3);
@@ -122,9 +122,21 @@ class ArtikelModel extends Model
     public function getSingleSlug($slug)
     {
         return $this->db->table('artikel')
-            ->select('artikel.*, kategori.kategori_nama')
+            ->select('artikel.*, kategori.*')
             ->join('kategori', 'kategori.kategori_id = artikel.kategori_id')
             ->where('artikel_slug', $slug)
             ->get()->getRow();
+    }
+
+
+    // query artikel by kategori
+    public function getArtikelByKategori($kategori_slug)
+    {
+        return $this->table('artikel')
+            ->join('kategori', 'artikel.kategori_id = kategori.kategori_id')
+            ->where('artikel.artikel_status', 'publish')
+            ->where('kategori.kategori_slug', $kategori_slug)
+            ->orderBy('artikel.artikel_tanggal', 'DESC')
+            ->paginate(3);
     }
 }
