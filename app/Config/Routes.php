@@ -37,11 +37,11 @@ $routes->get('/artikel', 'Artikel::index');
 // frontend page : detail artikel 
 $routes->get('/detail_artikel/(:any)', 'DetailArtikel::index/$1');
 
-// frontend page : artikel kategori 
-$routes->get('artikel/(:any)', 'ArtikelKategori::index/$1');
-
 //frontend page : artikel cari 
 $routes->get('artikel/cari', 'ArtikelCari::index/$1');
+
+// frontend page : artikel kategori 
+$routes->get('artikel/(:any)', 'ArtikelKategori::index/$1');
 
 // frontend page : kontak
 $routes->get('/kontak', 'Kontak::index');

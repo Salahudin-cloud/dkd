@@ -139,4 +139,19 @@ class ArtikelModel extends Model
             ->orderBy('artikel.artikel_tanggal', 'DESC')
             ->paginate(3);
     }
+
+    public function getArtikelBySearch($key)
+    {
+        $this->builder()
+            ->select('*')
+            ->join('kategori', 'artikel.kategori_id = kategori.kategori_id')
+            ->where('artikel.artikel_status', 'publish')
+            ->like('artikel.artikel_judul', $key, 'both')
+            ->orderBy('artikel.artikel_tanggal', 'DESC');
+
+        return [
+            'artikel' => $this->paginate(3),
+            'pager' => $this->pager
+        ];
+    }
 }
