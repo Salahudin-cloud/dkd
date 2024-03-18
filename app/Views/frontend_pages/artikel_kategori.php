@@ -56,7 +56,7 @@
                                     <article class="blog_item">
                                         <div class="blog_item_img">
                                             <img class="card-img rounded-0" src="<?php echo base_url() . 'assets/img/artikel/' . $data['artikel_cover'] ?>" alt="" />
-                                            <a href="<" class="blog_item_date  text-center">
+                                            <a href="<" class="blog_item_date  text-center" style="pointer-events: none; text-decoration: none;">
                                                 <span><?php echo $time->toLocalizedString('d') ?></span>
                                                 <p><?php echo $time->toLocalizedString('MMM yyyy') ?></p>
                                             </a>

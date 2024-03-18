@@ -15,6 +15,8 @@ $routes->post('/auth', 'Login::validasi');
 
 // register 
 $routes->get('/register', 'Register::index');
+// register process
+$routes->post('register/process', 'Register::registerProcess');
 
 // frontend render page
 // frontend page : index
@@ -29,7 +31,7 @@ $routes->get('/program', 'Programs::index');
 
 
 // frontend page : detail program 
-$routes->get('/detail_program', 'DetailPrograms::index');
+$routes->get('/detail_program/(:any)', 'DetailPrograms::index/$1');
 
 // frontend page : artikel
 $routes->get('/artikel', 'Artikel::index');
@@ -54,7 +56,9 @@ $routes->get('/dashboard', 'DashboardAdmin::index');
 
 // backend page : users management
 $routes->get('/users_management', 'UserManagementAdmin::index');
-$routes->get('/tambah_pengguna', 'UserManagementAdmin::tambahPenggunaView');
+$routes->get('/tambah_pengguna', 'UserManagementTambah::index');
+$routes->post('tambah_pengguna/process', 'UserManagementTambah::tambahProcessProses');
+
 
 // backend page : kategori
 $routes->get('/kategori', 'KategoriAdmin::index');
@@ -97,7 +101,8 @@ $routes->put('programs_update/(:any)', 'ProgramUpdateAdmin::updateProgramProcess
 $routes->delete('programs_delete/(:any)', 'ProgramDeleteAdmin::deleteProgramAdmin/$1');
 
 
-
+// backend page : transaksi
+$routes->get('transaksi', 'Transaksi::index');
 
 // backend : logout 
 $routes->get('logout', 'LogoutAdmin::index');

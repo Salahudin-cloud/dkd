@@ -27,7 +27,21 @@
 
         <div class="content-wrapper">
             <!-- navbar -->
-            <?php include(APPPATH . 'Views/templates/backend/content_header.php') ?>
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">User Management</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="<?php echo base_url('users_management') ?>">User Management</a></li>
+                                <li class="breadcrumb-item active">User Management Tambah</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
@@ -40,28 +54,41 @@
                         </div>
                         <div class="card-body">
                             <!-- alert notification -->
-
+                            <?php
+                            $session = session();
+                            // jiika ada salah satu form tidak diisi
+                            if ($session->getFlashdata('error') == 'failed') {
+                                echo "<div class='alert alert-danger font-weight-bold text-center'>
+                                tolong isi form dengan benar
+                                </div>";
+                            } else if ($session->getFlashdata('error') == 'invalid') {
+                                echo "<div class='alert alert-danger font-weight-bold text-center'>
+                                username sudah tersedia
+                                </div>";
+                            }
+                            ?>
                             <!-- Form add new user accoiunt -->
-                            <form action="<?php echo site_url('account/add/new_account') ?>" method="post">
+                            <form action="<?php echo site_url('tambah_pengguna/process') ?>" method="post">
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="name">Nama</label>
-                                        <input type="text" class="form-control" id="nama" name="nama" value="">
+                                        <input type="text" class="form-control" id="nama" name="nama" value="" maxlength="60">
                                     </div>
                                     <div class="form-group">
                                         <label for="email">Username</label>
-                                        <input type="email" class="form-control" id="username" name="username" value="">
+                                        <input type="text" class="form-control" id="username" name="username" value="" maxlength="20">
                                     </div>
                                     <div class="form-group">
                                         <label for="password">Password</label>
-                                        <input type="password" class="form-control" id="password" name="password" value="">
+                                        <input type="password" class="form-control" id="password" name="password" value="" maxlength="32" minlength="8">
                                     </div>
                                     <div class="form-group">
                                         <label for="user_level">Role :</label>
                                         <select class="form-control" id="user_level" name="user_level">
                                             <option value="" selected disabled> -- Pilh Role --</option>
                                             <option value="admin">Admin</option>
-                                            <option value="author">Pengguna</option>
+                                            <option value="donatur">Donatur</option>
+                                            <option value="direktur">Direktur</option>
                                         </select>
                                     </div>
                                     <button type="submit" class="btn btn-success form-control">Add</button>

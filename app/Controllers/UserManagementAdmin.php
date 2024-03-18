@@ -3,14 +3,14 @@
 
 namespace App\Controllers;
 
-use App\Models\UserManagementModel;
+use App\Models\PenggunaModel;
 
 class UserManagementAdmin extends BaseController
 {
-    protected $userManagementModel;
+    protected $penggunaModel;
     public function __construct()
     {
-        $this->userManagementModel = new UserManagementModel();
+        $this->penggunaModel = new PenggunaModel();
     }
     public function index()
     {
@@ -20,14 +20,11 @@ class UserManagementAdmin extends BaseController
             return redirect()->to('/');
         }
 
-        $data['users'] = $this->userManagementModel->getSemuaPengguna();
+        $data['users'] = $this->penggunaModel->getSemuaPengguna();
 
         return view('backend_pages/admin/user_management', $data);
     }
 
 
-    public function tambahPenggunaView()
-    {
-        return view('backend_pages/admin/user_management_add');
-    }
+
 }

@@ -90,4 +90,14 @@ class ProgramModel extends Model
             ->get()
             ->getRow();
     }
+
+    public function getProgramBySlug($slug)
+    {
+        return $this->db->table('program')
+            ->select('*')
+            ->where('program_slug', $slug)
+            ->get()->getResult();
+    }
+
+
 }

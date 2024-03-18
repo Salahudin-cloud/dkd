@@ -71,7 +71,7 @@
                                 </thead>
                                 <tbody>
                                     <?php $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                                    $i = 1 + (10 * ($page - 1)) ?> ?>
+                                    $i = 1 + (10 * ($page - 1)) ?>
                                     <?php foreach ($kategori as $data) : ?>
                                         <tr>
                                             <td><?php echo $i++ ?></td>

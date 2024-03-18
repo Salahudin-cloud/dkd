@@ -99,6 +99,7 @@ class ProgramTambahAdmin extends BaseController
                     'program_target' => $program_target,
                     'program_terkumpul' => esc($this->request->getPost('program_terkumpul')),
                     'program_judul ' => esc($this->request->getPost('program_judul')),
+                    'program_slug' =>  esc(strtolower(url_title(json_encode($this->request->getPost('program_judul'))))),
                     'program_detail' => esc($this->request->getPost('program_detail')),
                     'program_cover' => $program_cover,
                     'program_status' => $this->request->getPost('program_status')

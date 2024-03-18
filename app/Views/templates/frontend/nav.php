@@ -26,9 +26,15 @@
                                       </nav>
                                   </div>
                                   <!-- Header-btn -->
-                                  <div class="header-right-btn d-none d-lg-block ml-20">
-                                      <a href="<?php echo site_url('/login') ?>" class="btn header-btn">Donate</a>
-                                  </div>
+                                  <?php if ((session()->get('role') === 'donatur') && (session()->get('isLogin'))) : ?>
+                                      <div class="header-right-btn d-none d-lg-block ml-20">
+                                          <a href="<?php echo site_url('/logout') ?>" class="btn header-btn">Logout</a>
+                                      </div>
+                                  <?php else : ?>
+                                      <div class="header-right-btn d-none d-lg-block ml-20">
+                                          <a href="<?php echo site_url('/login') ?>" class="btn header-btn">Login</a>
+                                      </div>
+                                  <?php endif; ?>
                               </div>
                           </div>
                           <!-- Mobile Menu -->

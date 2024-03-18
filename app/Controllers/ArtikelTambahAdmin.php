@@ -3,7 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\ArtikelModel;
-use App\Models\KategoriAdminModel;
+
+use App\Models\KategoriModel;
 
 class ArtikelTambahAdmin extends BaseController
 {
@@ -11,7 +12,7 @@ class ArtikelTambahAdmin extends BaseController
     protected $artikelModel;
     public function __construct()
     {
-        $this->kategoriAdminModel = new KategoriAdminModel();
+        $this->kategoriAdminModel = new KategoriModel();
         $this->artikelModel = new ArtikelModel();
     }
     public function index()

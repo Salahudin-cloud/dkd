@@ -47,7 +47,7 @@
                                     <img src="<?php echo base_url() . 'assets/img/program/' . $data->program_cover ?>" alt="">
                                 </div>
                                 <div class="cases-caption">
-                                    <h3><a href="<?php echo site_url('/detail_program') ?>"><?php echo $data->program_judul ?></a></h3>
+                                    <h3><a href="<?php echo site_url('/detail_program' . '/' . $data->program_slug) ?>"><?php echo $data->program_judul ?></a></h3>
                                     <!-- / progress -->
                                     <div class="prices d-flex justify-content-between">
                                         <p>Terkumpul:<span>Rp. <?php echo number_format((int)$data->program_terkumpul, 0, ',', '.') ?></span></p>

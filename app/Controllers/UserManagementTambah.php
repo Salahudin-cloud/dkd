@@ -1,11 +1,11 @@
 <?php
 
-
 namespace App\Controllers;
 
-use App\Models\PenggunaModel;
+use App\Controllers\BaseController;
 
-class Register extends BaseController
+use App\Models\PenggunaModel;
+class UserManagementTambah extends BaseController
 {
     protected $penggunaModel;
     public function __construct()
@@ -14,10 +14,11 @@ class Register extends BaseController
     }
     public function index()
     {
-        return view('backend_pages/register');
+        return view('backend_pages/admin/user_management_add');
     }
 
-    public function registerProcess()
+
+    public function tambahProcessProses()
     {
         $session = session();
         // menggunakan library validation 
@@ -33,10 +34,9 @@ class Register extends BaseController
         if (!$validate->withRequest($this->request)->run()) {
             // jika validasi gagal 
             $session->setFlashdata('error', 'failed');
-            return redirect()->to('register');
+            return redirect()->to('users_management');
         }
 
-        // mendapatkan data 
         $nama = $this->request->getPost('nama');
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
@@ -44,12 +44,12 @@ class Register extends BaseController
         // check if username exists 
         if (!empty($this->penggunaModel->getPenggunaByUsername($username))) {
             $session->setFlashdata('error', 'invalid');
-            return redirect()->to('/register');
+            return redirect()->to('/tambah_pengguna');
         }
 
         // melaukan penambahan ke database 
         $this->penggunaModel->addPenggunaBaru($nama, $username, $password);
 
-        return redirect()->to('/login');
+        return redirect()->to('/users_management');
     }
 }

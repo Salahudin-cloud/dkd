@@ -51,12 +51,21 @@
                         </p>
                     </a>
                 </li>
-                <!-- Donasi  -->
+                <!--Program Donasi  -->
                 <li class="nav-item ">
                     <a href="<?php echo site_url('programs') ?>" class="nav-link">
                         <i class="nav-icon fas fa-flag"></i>
                         <p>
                             Program
+                        </p>
+                    </a>
+                </li>
+                <!-- Transaksi -->
+                <li class="nav-item ">
+                    <a href="<?php echo site_url('transaksi') ?>" class="nav-link">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <p>
+                            Transaksi
                         </p>
                     </a>
                 </li>

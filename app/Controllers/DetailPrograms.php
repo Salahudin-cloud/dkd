@@ -2,10 +2,22 @@
 
 namespace App\Controllers;
 
+use App\Models\ProgramModel;
+
 class DetailPrograms extends BaseController
 {
-    public function index()
+    protected $programModel;
+
+    public function __construct()
     {
-        return view('frontend_pages/detail_program');
+        $this->programModel = new ProgramModel();
+    }
+    public function index($slug)
+    {
+        $data = [
+            'program' => $this->programModel->getProgramBySlug($slug)
+        ];
+
+        return view('frontend_pages/detail_program', $data);
     }
 }
