@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 
 use App\Models\PenggunaModel;
+
 class UserManagementTambah extends BaseController
 {
     protected $penggunaModel;
@@ -14,6 +15,11 @@ class UserManagementTambah extends BaseController
     }
     public function index()
     {
+        // ceck status login
+        $session = session();
+        if (!$session->get('isLogin')) {
+            return redirect()->to('/login');
+        }
         return view('backend_pages/admin/user_management_add');
     }
 
@@ -27,14 +33,15 @@ class UserManagementTambah extends BaseController
         $validate->setRules([
             'nama' => 'required',
             'username' => 'required|alpha_numeric',
-            'password' => 'required'
+            'password' => 'required',
+            'user_level' => 'required'
         ]);
 
         // menjalankan rule 
         if (!$validate->withRequest($this->request)->run()) {
             // jika validasi gagal 
             $session->setFlashdata('error', 'failed');
-            return redirect()->to('users_management');
+            return redirect()->to('tambah_pengguna');
         }
 
         $nama = $this->request->getPost('nama');

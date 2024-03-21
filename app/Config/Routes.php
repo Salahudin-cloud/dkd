@@ -57,7 +57,9 @@ $routes->get('/dashboard', 'DashboardAdmin::index');
 // backend page : users management
 $routes->get('/users_management', 'UserManagementAdmin::index');
 $routes->get('/tambah_pengguna', 'UserManagementTambah::index');
+$routes->get('update_pengguna/(:any)', 'UserManagementUpdate::index/$1');
 $routes->post('tambah_pengguna/process', 'UserManagementTambah::tambahProcessProses');
+$routes->put('update_pengguna/process/(:any)', 'UserManagementUpdate::updateProces/$1');
 
 
 // backend page : kategori

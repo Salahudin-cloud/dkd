@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use JsonSerializable;
 
 class PenggunaModel extends Model
 {
@@ -54,5 +55,33 @@ class PenggunaModel extends Model
     {
         return $this->db->table('pengguna')
             ->get()->getResult();
+    }
+
+    public function getPenggunaById($id)
+    {
+        return $this->db->table('pengguna')
+            ->where('pengguna_id', $id)
+            ->get()
+            ->getRow();
+    }
+
+    public function updatePenggunaById($id, $nama, $username, $password, $role)
+    {
+        $data = [
+            'pengguna_nama' => $nama,
+            'role' => $role
+        ];
+
+        if (!empty($username)) {
+            $data['username'] = $username;
+        }
+
+        if (!empty($password)) {
+            $data['password'] = md5($password);
+        }
+
+        return $this->db->table('pengguna')
+            ->where('pengguna_id', $id)
+            ->update($data);
     }
 }

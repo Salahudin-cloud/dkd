@@ -72,7 +72,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 1; ?>
+                                    <?php $i = 0; ?>
                                     <?php foreach ($users as $pengguna) : ?>
                                         <?php if ($pengguna->role == "admin") : ?>
                                             <tr>
@@ -95,7 +95,7 @@
                                                 <td><?php echo $pengguna->role ?></td>
                                                 <td>
                                                     <div class="btn-group " role="group" aria-label="Action buttons">
-                                                        <a href="" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
+                                                        <a href="<?php echo base_url() . 'update_pengguna/' . $pengguna->pengguna_id ?>" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
                                                         <a href="" onclick="alert('Apakah anda ingin menghapus pengguna ini ?')" class="btn btn-sm btn-danger mr-1"><i class="nav-icon fas fa-trash"></i></a>
                                                     </div>
                                                 </td>

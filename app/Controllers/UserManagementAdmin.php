@@ -17,7 +17,7 @@ class UserManagementAdmin extends BaseController
         // ceck status login
         $session = session();
         if (!$session->get('isLogin')) {
-            return redirect()->to('/');
+            return redirect()->to('/login');
         }
 
         $data['users'] = $this->penggunaModel->getSemuaPengguna();
