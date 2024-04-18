@@ -83,6 +83,10 @@
                                         <input type="password" class="form-control" id="password" name="password" value="" maxlength="32" minlength="8">
                                     </div>
                                     <div class="form-group">
+                                        <label for="no_wa">No. Whattsap</label>
+                                        <input type="text" class="form-control" id="no_wa" name="no_wa" value="" maxlength="11">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="user_level">Role :</label>
                                         <select class="form-control" id="user_level" name="user_level">
                                             <option value="" selected disabled> -- Pilh Role --</option>

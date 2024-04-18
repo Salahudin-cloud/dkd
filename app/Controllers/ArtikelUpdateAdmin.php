@@ -4,7 +4,7 @@
 namespace App\Controllers;
 
 use App\Models\ArtikelModel;
-use App\Models\KategoriAdminModel;
+use App\Models\KategoriModel;
 
 class ArtikelUpdateAdmin extends BaseController
 {
@@ -13,7 +13,7 @@ class ArtikelUpdateAdmin extends BaseController
     public function __construct()
     {
         $this->artikelModel = new ArtikelModel();
-        $this->kategoriAdminModel = new KategoriAdminModel();
+        $this->kategoriAdminModel = new KategoriModel();
     }
 
     public function index($id)

@@ -29,7 +29,7 @@
 
             ?>
             <div class="card-header text-center">
-                <a href="../../index2.html" class="h1"><b>Login</b></a>
+                <a href="<?php echo site_url('login') ?>" class="h1"><b>Login</b></a>
             </div>
             <div class="card-body">
 
@@ -61,6 +61,9 @@
                 </form>
                 <p class="mb-1 mt-2">
                     <a href="<?php echo site_url('register') ?>" class="text-center">Daftar Akun Baru</a>
+                </p>
+                <p class="mb-1 mt-2">
+                    <a href="<?php echo site_url('/') ?>" class="text-center">Ke Halaman Utama</a>
                 </p>
             </div>
         </div>

@@ -1,5 +1,6 @@
 <?php
 
+use CodeIgniter\Commands\Utilities\Routes;
 use CodeIgniter\Router\RouteCollection;
 
 /**
@@ -60,6 +61,7 @@ $routes->get('/tambah_pengguna', 'UserManagementTambah::index');
 $routes->get('update_pengguna/(:any)', 'UserManagementUpdate::index/$1');
 $routes->post('tambah_pengguna/process', 'UserManagementTambah::tambahProcessProses');
 $routes->put('update_pengguna/process/(:any)', 'UserManagementUpdate::updateProces/$1');
+$routes->delete('delete_pengguna/(:any)', 'UserManagementDelete::index/$1');
 
 
 // backend page : kategori
@@ -105,6 +107,19 @@ $routes->delete('programs_delete/(:any)', 'ProgramDeleteAdmin::deleteProgramAdmi
 
 // backend page : transaksi
 $routes->get('transaksi', 'Transaksi::index');
+$routes->post('transaksi/check/(:any)', 'Transaksi::checkTransaksi/$1');
+
+// frontend : transaksi process
+$routes->post('transaksi_process/process', 'TransaksiDonasi::index');
+
+
 
 // backend : logout 
 $routes->get('logout', 'LogoutAdmin::index');
+
+
+
+// direktur menu : dashboard 
+$routes->get('direktur/dashboard', 'DashboardDirektur::index');
+// direktur menu : transaksi
+$routes->get('direktur/transaksi', 'DashboardTransaksiDirektur::index');

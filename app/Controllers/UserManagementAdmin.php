@@ -21,10 +21,10 @@ class UserManagementAdmin extends BaseController
         }
 
         $data['users'] = $this->penggunaModel->getSemuaPengguna();
+        $data['pager'] = $this->penggunaModel->pager;
+
+
 
         return view('backend_pages/admin/user_management', $data);
     }
-
-
-
 }

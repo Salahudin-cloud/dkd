@@ -26,7 +26,8 @@ class Register extends BaseController
         $validate->setRules([
             'nama' => 'required',
             'username' => 'required|alpha_numeric',
-            'password' => 'required'
+            'password' => 'required',
+            'no_wa' => 'required|max_length[11]'
         ]);
 
         // menjalankan rule 
@@ -40,6 +41,7 @@ class Register extends BaseController
         $nama = $this->request->getPost('nama');
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
+        $no_wa = $this->request->getPost('no_wa');
 
         // check if username exists 
         if (!empty($this->penggunaModel->getPenggunaByUsername($username))) {
@@ -48,7 +50,7 @@ class Register extends BaseController
         }
 
         // melaukan penambahan ke database 
-        $this->penggunaModel->addPenggunaBaru($nama, $username, $password);
+        $this->penggunaModel->addPenggunaBaru($nama, $username, $password, $no_wa);
 
         return redirect()->to('/login');
     }

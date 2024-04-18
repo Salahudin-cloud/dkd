@@ -301,7 +301,7 @@
         <!-- Want To work -->
         <section class="wantToWork-area">
             <div class="container">
-                <div class="wants-wrapper w-padding2 section-bg" data-background="assets/img/gallery/section_bg01.png">
+                <div class="wants-wrapper w-padding2 section-bg" data-background="<?php echo base_url() . 'assets/frontend/img/gallery/section_bg01.png' ?>">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-xl-5 col-lg-9 col-md-8">
                             <div class="wantToWork-caption wantToWork-caption2">
@@ -350,7 +350,7 @@
                                     <div class="blog-cap">
                                         <p><?php echo $data->kategori_nama; ?></p>
                                         <h3>
-                                            <a href="blog_details.html"><?php echo $data->artikel_judul; ?></a>
+                                            <a href="<?php echo site_url('/detail_artikel' . '/' . $data->artikel_slug) ?>"><?php echo $data->artikel_judul; ?></a>
                                         </h3>
                                     </div>
                                 </div>

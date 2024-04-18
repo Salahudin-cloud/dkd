@@ -61,10 +61,10 @@ class Login extends BaseController
                     $session->set('role', 'admin');
                     return redirect()->to('/dashboard');
                     break;
-                // case 'direktur':
-                //     $session->set('role', 'direktur');
-                //     return redirect()->to('/');
-                //     break;
+                case 'direktur':
+                    $session->set('role', 'direktur');
+                    return redirect()->to('direktur/dashboard');
+                    break;
                 default:
                     $session->set('role', 'donatur');
                     return redirect()->to('/');

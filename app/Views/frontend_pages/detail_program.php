@@ -78,40 +78,61 @@
                                         <div class="modal fade " id="transaksiButton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog  modal-dialog-centered">
                                                 <div class="modal-content">
+                                                    <!-- alert notification -->
+                                                    <?php
+                                                    $session = session();
+                                                    // jiika ada salah satu form tidak diisi
+                                                    if ($session->getFlashdata('error') == 'failed') {
+                                                        echo "<div class='alert alert-danger font-weight-bold text-center'>
+                                                        isi nominal dalam ribuan dan lebih dari 0 
+                                                        </div>";
+                                                    } elseif ($session->getFlashdata('error') == 'failed_1') {
+                                                        echo "<div class='alert alert-danger font-weight-bold text-center'>
+                                                        upload bukti transaksi gagal silahkan coba lagi
+                                                        </div>";
+                                                    } elseif ($session->getFlashdata('error') == 'failed_2') {
+                                                        echo "<div class='alert alert-danger font-weight-bold text-center'>
+                                                       hanya format gambar yang diperbolehkan!
+                                                        </div>";
+                                                    }
+                                                    ?>
                                                     <div class="modal-header">
                                                         <h1 class="modal-title" id="transaksiButton">Pembayaran Donasi</h1>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="" method="">
-                                                            <div class="form-group">
-                                                                <label for="name">Nama Donatur</label>
-                                                                <input class="form-control form-control-lg" type="text" placeholder="">
-                                                            </div>
+                                                        <form action="<?php echo site_url('transaksi_process/process') ?>" method="post" enctype="multipart/form-data">
+                                                            <input type="hidden" name="pengguna_id" value="<?php echo session()->get('id') ?>">
                                                             <div class="form-group">
                                                                 <label for="name">Nama Program</label>
-                                                                <input class="form-control form-control-lg" type="text" placeholder="" value="<?php echo $data->program_judul ?>" readonly>
+                                                                <input class="form-control form-control-lg" type="text" placeholder="" value="<?php echo $data->program_judul ?>" name="program_judul" required readonly>
+                                                                <input type="hidden" name="program_id" value="<?php echo $data->program_id ?>">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="name">Nominal</label>
-                                                                <input class="form-control form-control-lg" type="number" placeholder="Rp.">
+                                                                <input class="form-control form-control-lg" name="jumlah_donasi" type="number" placeholder="Rp." required>
                                                             </div>
-                                                            <p>Transfer Ke : </p>
+                                                            <p>Transfer Ke :</p>
                                                             <div class="form-group row">
-                                                                <label for="bni" class="col-form-label col-lg-2">BNI</label>
+                                                                <label for="bank" class="col-form-label col-lg-2">Bank:</label>
                                                                 <div class="col-lg-10">
-                                                                    <input class="form-control form-control-lg" type="text" placeholder="Nomor Rekening BNI" value="4811219005142317" disabled>
+                                                                    <select id="bank" name="metode_pembayaran" required>
+                                                                        <option value="bni">BNI</option>
+                                                                        <option value="bri">BRI</option>
+                                                                    </select>
                                                                 </div>
                                                             </div>
+
                                                             <div class="form-group row">
-                                                                <label for="bri" class="col-form-label col-lg-2">BRI:</label>
+                                                                <label for="account_number" class="col-form-label col-lg-2">Nomor Rekening:</label>
                                                                 <div class="col-lg-10">
-                                                                    <input class="form-control form-control-lg" type="text" placeholder="Nomor Rekening BRI" value="4534780708675768" disabled>
+                                                                    <input id="account_number" class="form-control form-control-lg" type="text" placeholder="Nomor Rekening" disabled>
                                                                 </div>
                                                             </div>
+
                                                             <div class="form-group">
                                                                 <label for="file" class="col-form-label">Bukti Transfer</label>
                                                                 <div class="col-lg-10">
-                                                                    <input type="file" class="form-control-file">
+                                                                    <input type="file" class="form-control-file" name="bukti_transaksi" required>
                                                                 </div>
                                                             </div>
                                                             <button type="submit" class="btn btn-secondary btn-lg btn-block">Donasi</button>
@@ -155,6 +176,25 @@
                 var targetModalId = $(this).attr('data-bs-target');
                 // Show the modal associated with the clicked button
                 $(targetModalId).modal('show');
+            });
+        });
+
+        $(document).ready(function() {
+            $('#bank').change(function() {
+                var bank = $(this).val();
+                var account_number_input = $('#account_number');
+
+                switch (bank) {
+                    case 'bni':
+                        account_number_input.val('4811219005142317');
+                        break;
+                    case 'bri':
+                        account_number_input.val('4534780708675768');
+                        break;
+                    default:
+                        account_number_input.val('');
+                        break;
+                }
             });
         });
     </script>

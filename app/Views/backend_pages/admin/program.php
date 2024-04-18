@@ -92,7 +92,7 @@
                                             </td>
                                             <td>
                                                 <div class="btn-group " role="group" aria-label="Action buttons">
-                                                    <a href="" class="btn btn-sm btn-success mr-1" target="_blank"><i class="nav-icon fas fa-eye"></i>
+                                                    <a href="<?php echo site_url('detail_program/' . $data['program_slug']) ?>" class="btn btn-sm btn-success mr-1" target="_blank"><i class="nav-icon fas fa-eye"></i>
                                                     </a>
                                                     <a href="<?php echo site_url('programs_update/' . $data['program_id']) ?>" class="btn btn-sm btn-warning mr-1">
                                                         <i class="nav-icon fas fa-edit"></i>
