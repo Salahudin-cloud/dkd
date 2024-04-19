@@ -44,4 +44,22 @@ class TransaksiModel extends Model
             ->orderBy('tanggal_transaksi', 'asc')
             ->paginate(5);
     }
+
+    public function getTransaksiByid($id)
+    {
+        return $this->db->table('transaksi')
+            ->select('
+                transaksi.id_transaksi, 
+                transaksi.tanggal_transaksi, 
+                transaksi.nominal_pembayaran, 
+                pengguna.pengguna_nama, 
+                pengguna.nomor_wa, 
+                program.program_judul
+                ')
+            ->join('pengguna', 'pengguna.pengguna_id = transaksi.id_pengguna')
+            ->join('program', 'program.program_id = transaksi.id_program')
+            ->where('id_transaksi', $id)
+            ->get()
+            ->getResult();
+    }
 }

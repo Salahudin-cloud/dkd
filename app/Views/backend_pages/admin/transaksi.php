@@ -83,6 +83,7 @@
                                     $page = isset($_GET['page']) ? $_GET['page'] : 1;
                                     $i = 1 + (5 * ($page - 1)) ?>
                                     <?php foreach ($transaksi_data as $transaksi) : ?>
+
                                         <tr>
                                             <td><?php echo $i++; ?></td>
                                             <td><?php echo $transaksi['id_transaksi'] ?></td>
@@ -107,9 +108,19 @@
                                                             <i class="nav-icon fas fa-check"></i>
                                                         </button>
                                                     </form>
-                                                    <a href="" class="btn btn-sm btn-warning mr-1">
-                                                        <i class="nav-icon fas fa-file-download"></i>
-                                                    </a>
+                                                    
+                                                    <?php $filePath = './assets/invoice_pdf/' . $transaksi['id_transaksi'] . '_' . strtolower(url_title($transaksi['pengguna_nama'])) . '.pdf'; ?>
+
+                                                    <?php if (file_exists($filePath)) : ?>
+                                                        <a href="<?php echo base_url() . 'assets/invoice_pdf/' . $transaksi['id_transaksi'] . '_' . strtolower(url_title($transaksi['pengguna_nama'])) . '.pdf'; ?>" class="btn btn-sm btn-warning mr-1">
+                                                            <i class="nav-icon fas fa-file-download"></i>
+                                                        </a>
+                                                    <?php else : ?>
+                                                        <button class="btn btn-sm btn-warning mr-1" disabled>
+                                                            <i class="nav-icon fas fa-file-download"></i>
+                                                        </button>
+                                                    <?php endif; ?>
+
                                                     <form action="" method="POST">
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <button type="submit" class="btn btn-sm btn-danger mr-1" onclick="return confirm('Apa kamu yakin untuk menghapus artikel ini?')">
