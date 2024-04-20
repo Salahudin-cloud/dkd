@@ -69,6 +69,7 @@
                                     <tr>
                                         <th style="width: 1%;">NO</th>
                                         <th>ID Transaksi</th>
+                                        <th>Tanggal Donasi</th>
                                         <th>Nama Pengguna</th>
                                         <th>Nama Program</th>
                                         <th>Nominal</th>
@@ -87,6 +88,7 @@
                                         <tr>
                                             <td><?php echo $i++; ?></td>
                                             <td><?php echo $transaksi['id_transaksi'] ?></td>
+                                            <td><?php echo $transaksi['tanggal_transaksi'] ?></td>
                                             <td><?php echo $transaksi['pengguna_nama'] ?></td>
                                             <td><?php echo $transaksi['program_judul'] ?></td>
                                             <td>Rp.<?php echo $transaksi['nominal_pembayaran'] ?></td>
@@ -108,7 +110,7 @@
                                                             <i class="nav-icon fas fa-check"></i>
                                                         </button>
                                                     </form>
-                                                    
+
                                                     <?php $filePath = './assets/invoice_pdf/' . $transaksi['id_transaksi'] . '_' . strtolower(url_title($transaksi['pengguna_nama'])) . '.pdf'; ?>
 
                                                     <?php if (file_exists($filePath)) : ?>
@@ -121,9 +123,9 @@
                                                         </button>
                                                     <?php endif; ?>
 
-                                                    <form action="" method="POST">
+                                                    <form action="<?php echo base_url() . 'transaksi/delete/' . $transaksi['id_transaksi'] ?>" method="POST">
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="submit" class="btn btn-sm btn-danger mr-1" onclick="return confirm('Apa kamu yakin untuk menghapus artikel ini?')">
+                                                        <button type="submit" class="btn btn-sm btn-danger mr-1" onclick="return confirm('Apa kamu yakin untuk transaksi ini?')">
                                                             <i class="nav-icon fas fa-trash"></i>
                                                         </button>
                                                     </form>

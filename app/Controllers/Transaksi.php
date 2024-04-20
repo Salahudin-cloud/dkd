@@ -24,7 +24,7 @@ class Transaksi extends BaseController
         $data = [
             'transaksi_data' => $this->transaksiModel->getAllTransaksi(),
             'pager' => $this->transaksiModel->pager,
-         
+
         ];
 
 
@@ -43,7 +43,8 @@ class Transaksi extends BaseController
             'nominal_pembayaran' => $data[0]->nominal_pembayaran,
             'pengguna_nama' => $data[0]->pengguna_nama,
             'nomor_wa' => $data[0]->nomor_wa,
-            'program_judul' => $data[0]->program_judul
+            'program_judul' => $data[0]->program_judul,
+            'metode_pembayaran' => $data[0]->metode_pembayaran
         ]);
 
         // Generate PDF using the helper function
@@ -55,10 +56,41 @@ class Transaksi extends BaseController
         // Save the PDF file to the server
         file_put_contents($path, $pdf);
 
+        // update status pembayaran 
+
+        $this->transaksiModel->updateStatusPembayaranById($id);
+
         // Check if the file exists after a short delay to ensure it's written
         usleep(500000); // Wait for 0.5 seconds
 
         // Redirect to index method with file existence flag
+        return redirect()->to('transaksi');
+    }
+
+
+    public function deleteTransaksi($id)
+    {
+        $data = $this->transaksiModel->getTransaksiByid($id);
+
+
+        // check if the pdf transaksiion file exists
+        $path_pdf = './assets/invoice_pdf/' . $data[0]->id_transaksi . '_' . strtolower(url_title($data[0]->pengguna_nama)) . '.pdf';
+        $path_bukti_pembayaran = './assets/img/transaksi/' . $data[0]->bukti_transaksi;
+
+        if (file_exists($path_bukti_pembayaran)) {
+            // if exist delete the image bukti pembyaran 
+            unlink($path_bukti_pembayaran);
+        }
+
+        if (file_exists($path_pdf)) {
+            // if file exists delete the file pdf first 
+            unlink($path_pdf);
+        }
+
+        // after that delete transaksi data in database 
+        $this->transaksiModel->deleteTransaksiById($id);
+
+        // the redirect to list transaksi 
         return redirect()->to('transaksi');
     }
 }

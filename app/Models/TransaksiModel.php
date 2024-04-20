@@ -40,7 +40,8 @@ class TransaksiModel extends Model
             ->select('transaksi.*, pengguna.pengguna_nama, program.program_judul')
             ->join('pengguna', 'pengguna.pengguna_id = transaksi.id_pengguna')
             ->join('program', 'program.program_id = transaksi.id_program')
-            ->where('status_pembayaran', 'menunggu_konfirmasi')
+            ->whereIn('status_pembayaran', ['menunggu_konfirmasi', 'berhasil'])
+            ->orderBy('status_pembayaran', 'desc')
             ->orderBy('tanggal_transaksi', 'asc')
             ->paginate(5);
     }
@@ -52,6 +53,8 @@ class TransaksiModel extends Model
                 transaksi.id_transaksi, 
                 transaksi.tanggal_transaksi, 
                 transaksi.nominal_pembayaran, 
+                transaksi.metode_pembayaran,
+                transaksi.bukti_transaksi,
                 pengguna.pengguna_nama, 
                 pengguna.nomor_wa, 
                 program.program_judul
@@ -61,5 +64,22 @@ class TransaksiModel extends Model
             ->where('id_transaksi', $id)
             ->get()
             ->getResult();
+    }
+
+
+    public function updateStatusPembayaranById($id)
+    {
+        return $this->db->table('transaksi')
+            ->where('id_transaksi', $id)
+            ->update([
+                'status_pembayaran' => 'berhasil'
+            ]);
+    }
+
+    public function deleteTransaksiById($id)
+    {
+        return $this->db->table('transaksi')
+            ->where('id_transaksi', $id)
+            ->delete();
     }
 }

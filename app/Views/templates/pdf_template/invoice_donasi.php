@@ -1,7 +1,7 @@
 <?php
 $date = new DateTime($tanggal_transaksi);
 $format = $date->format('d F Y');
-
+$format_2 = $date->format('G:i:s');
 
 ?>
 <!DOCTYPE html>
@@ -63,23 +63,27 @@ $format = $date->format('d F Y');
             <p><strong>Nama Donatur :</strong> <?= $pengguna_nama ?></p>
             <p><strong>No. Whatssap :</strong> <?= $nomor_wa ?></p>
             <p><strong>Tanggal Donasi :</strong> <?= $format ?></p>
+            <p><strong>Waktu Donasi :</strong> <?= $format_2 ?></p>
         </div>
         <table class="invoice-table">
             <thead>
                 <tr>
                     <th>Nama Program</th>
+                    <th>Metode Pembayaran</th>
                     <th>Jumlah Donasi</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td><?= $program_judul ?></td>
+                    <td><?= strtoupper($metode_pembayaran) ?></td>
                     <td>Rp. <?= number_format($nominal_pembayaran, 0, ',', '.') ?></td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
                     <td><strong>Total Donasi</strong></td>
+                    <td style="border-left: none; border-right: 1px solid #ccc;"></td>
                     <td><strong>Rp. <?= number_format($nominal_pembayaran, 0, ',', '.') ?></strong></td>
                 </tr>
             </tfoot>

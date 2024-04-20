@@ -108,6 +108,8 @@ $routes->delete('programs_delete/(:any)', 'ProgramDeleteAdmin::deleteProgramAdmi
 // backend page : transaksi
 $routes->get('transaksi', 'Transaksi::index');
 $routes->post('transaksi/check/(:any)', 'Transaksi::checkTransaksi/$1');
+$routes->delete('transaksi/delete/(:any)', 'Transaksi::deleteTransaksi/$1');
+
 
 // frontend : transaksi process
 $routes->post('transaksi_process/process', 'TransaksiDonasi::index');
