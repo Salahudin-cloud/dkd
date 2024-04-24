@@ -72,7 +72,7 @@
                         <!-- Transaksi -->
                         <li class="nav-item ">
                             <a href="<?php echo site_url('direktur/transaksi') ?>" class="nav-link">
-                                <i class="fas fa-hand-holding-usd"></i>
+                                <i class="nav-icon fas fa-hand-holding-usd"></i>
                                 <p>
                                     Transaksi
                                 </p>
@@ -125,28 +125,53 @@
                             </h1>
                         </div>
                         <div class="card-body">
-                            <button class="btn btn-sm btn-success">
-                                <i class="fas fa-file-download"></i> Donload Donasi Bulan ini
-                            </button>
-                            <button class="btn btn-sm btn-success">
-                                <i class="fas fa-file-download"></i> Donload Donasi Tahun ini
-                            </button>
+                            <div class="btn-group">
+                                <form action="<?php echo site_url('direktur/transaksi/bulan_ini') ?>" method="post" class="mr-2">
+                                    <button class="btn btn-sm btn-success">
+                                        <i class="fas fa-file-download"></i> Download Donasi Bulan ini
+                                    </button>
+                                </form>
+
+
+                                <form action="<?php echo site_url('direktur/transaksi/tahun_ini') ?>" method="post">
+                                    <button class="btn btn-sm btn-success">
+                                        <i class="fas fa-file-download"></i> Download Donasi Tahun ini
+                                    </button>
+                                </form>
+                            </div>
                             <!-- Show list of category -->
                             <table class="table table-bordered table-hover mt-2">
+                                <?php
+                                $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                                $i = 1 + (5 * ($page - 1)) ?>
                                 <thead>
                                     <tr>
                                         <th style="width: 1%;">NO</th>
-                                        <th>Nomor Donasi</th>
+                                        <th>ID Transaksi</th>
+                                        <th>Tanggal Donasi</th>
+                                        <th>Metode Pembayaran </th>
                                         <th>Nama Donatur</th>
                                         <th>Nama Program</th>
                                         <th>Nominal</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    <?php foreach ($all_transaksi as $data) : ?>
+                                        <tr>
+                                            <td><?php echo $i++ ?></td>
+                                            <td><?php echo $data['id_transaksi'] ?></td>
+                                            <td><?php echo $data['tanggal_transaksi'] ?></td>
+                                            <td><?php echo strtoupper($data['metode_pembayaran']) ?></td>
+                                            <td><?php echo $data['pengguna_nama'] ?></td>
+                                            <td><?php echo $data['program_judul'] ?></td>
+                                            <td>Rp <?php echo number_format($data['nominal_pembayaran'], 0, ',', '.')  ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
-
+                            <div class="pt-2">
+                                <?php echo $pager->links('default', 'pager_admin') ?>
+                            </div>
                         </div>
                     </div>
                 </div>

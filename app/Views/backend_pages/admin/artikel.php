@@ -93,8 +93,14 @@
 
                                             <td>
                                                 <div class="btn-group " role="group" aria-label="Action buttons">
-                                                    <a href="<?php echo site_url('detail_artikel/' . $data['artikel_slug'])?>" class="btn btn-sm btn-success mr-1" target="_blank"><i class="nav-icon fas fa-eye"></i>
-                                                    </a>
+                                                    <?php if ($data['artikel_status'] === 'draft') : ?>
+                                                        <button class="btn btn-sm btn-success mr-1" target="_blank" disabled><i class="nav-icon fas fa-eye"></i>
+                                                        </button>
+                                                    <?php else : ?>
+                                                        <a href="<?php echo site_url('detail_artikel/' . $data['artikel_slug']) ?>" class="btn btn-sm btn-success mr-1" target="_blank"><i class="nav-icon fas fa-eye"></i>
+                                                        </a>
+                                                    <?php endif ?>
+
                                                     <a href="<?php echo site_url('artikel_update/' . $data['artikel_id']) ?>" class="btn btn-sm btn-warning mr-1">
                                                         <i class="nav-icon fas fa-edit"></i>
                                                     </a>

@@ -125,3 +125,8 @@ $routes->get('logout', 'LogoutAdmin::index');
 $routes->get('direktur/dashboard', 'DashboardDirektur::index');
 // direktur menu : transaksi
 $routes->get('direktur/transaksi', 'DashboardTransaksiDirektur::index');
+
+// direktur menu : button donwload 
+$routes->post('direktur/transaksi/tahun_ini', 'DashboardTransaksiDirektur::donwloadTransaksiTahunini');
+// direktur menu : button donwload per bulan 
+$routes->post('direktur/transaksi/bulan_ini', 'DashboardTransaksiDirektur::donwloadTransaksiBulanini');

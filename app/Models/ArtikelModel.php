@@ -33,7 +33,6 @@ class ArtikelModel extends Model
         return $this->table('artikel')
             ->select('artikel.*, kategori.kategori_nama')
             ->join('kategori', 'kategori.kategori_id = artikel.kategori_id')
-            ->where('artikel_status', 'publish')
             ->paginate(5);
     }
 

@@ -91,7 +91,7 @@
                                             <td><?php echo $transaksi['tanggal_transaksi'] ?></td>
                                             <td><?php echo $transaksi['pengguna_nama'] ?></td>
                                             <td><?php echo $transaksi['program_judul'] ?></td>
-                                            <td>Rp.<?php echo $transaksi['nominal_pembayaran'] ?></td>
+                                            <td>Rp <?php echo number_format($transaksi['nominal_pembayaran'], 0, ',', '.')  ?></td>
                                             <td><?php echo strtoupper($transaksi['metode_pembayaran']) ?></td>
                                             <td>
                                                 <?php if ($transaksi['status_pembayaran'] === 'menunggu_konfirmasi') : ?>
@@ -114,7 +114,7 @@
                                                     <?php $filePath = './assets/invoice_pdf/' . $transaksi['id_transaksi'] . '_' . strtolower(url_title($transaksi['pengguna_nama'])) . '.pdf'; ?>
 
                                                     <?php if (file_exists($filePath)) : ?>
-                                                        <a href="<?php echo base_url() . 'assets/invoice_pdf/' . $transaksi['id_transaksi'] . '_' . strtolower(url_title($transaksi['pengguna_nama'])) . '.pdf'; ?>" class="btn btn-sm btn-warning mr-1">
+                                                        <a target="_blank" href="<?php echo base_url() . 'assets/invoice_pdf/' . $transaksi['id_transaksi'] . '_' . strtolower(url_title($transaksi['pengguna_nama'])) . '.pdf'; ?>" class="btn btn-sm btn-warning mr-1">
                                                             <i class="nav-icon fas fa-file-download"></i>
                                                         </a>
                                                     <?php else : ?>

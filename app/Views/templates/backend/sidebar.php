@@ -63,7 +63,7 @@
                 <!-- Transaksi -->
                 <li class="nav-item ">
                     <a href="<?php echo site_url('transaksi') ?>" class="nav-link">
-                        <i class="fas fa-hand-holding-usd"></i>
+                        <i class="nav-icon fas fa-hand-holding-usd"></i>
                         <p>
                             Transaksi
                         </p>

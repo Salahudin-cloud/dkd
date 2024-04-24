@@ -14,6 +14,12 @@ class DashboardDirektur extends BaseController
     }
     public function index()
     {
-        echo view('backend_pages/direktur/dashboard');
+    
+        $data = [
+            'year' => $this->transaksiModel->getTotalDonaationsThisYear(),
+            'month' => $this->transaksiModel->getTotalDonationsThisMonth(),
+        ];
+
+        echo view('backend_pages/direktur/dashboard', $data);
     }
 }

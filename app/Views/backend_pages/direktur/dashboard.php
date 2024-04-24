@@ -69,7 +69,7 @@
                         <!-- Transaksi -->
                         <li class="nav-item ">
                             <a href="<?php echo site_url('direktur/transaksi') ?>" class="nav-link">
-                                <i class="fas fa-hand-holding-usd"></i>
+                                <i class="nav-icon fas fa-hand-holding-usd"></i>
                                 <p>
                                     Transaksi
                                 </p>
@@ -104,7 +104,7 @@
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="<?php echo base_url('dashboard') ?>">Home</a></li>
+                                <li class="breadcrumb-item"><a href="<?php echo base_url('direktur/dashboard') ?>">Home</a></li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -121,7 +121,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="small-box bg-danger">
                                 <div class="inner">
-                                    <h3>Rp <?php echo number_format(40000000, 0, ',', '.') ?></h3>
+                                    <h3>Rp <?php echo number_format($year[0]->nominal_pembayaran, 0, ',', '.') ?></h3>
                                     <p>Total Donasi Tahun Ini</p>
                                 </div>
                                 <div class="icon">
@@ -132,7 +132,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="small-box bg-success">
                                 <div class="inner">
-                                    <h3>Rp <?php echo number_format(1000000, 0, ',', '.') ?></h3>
+                                    <h3>Rp <?php echo number_format($month[0]->nominal_pembayaran, 0, ',', '.') ?></h3>
                                     <p>Total Donasi Bulan Ini</p>
                                 </div>
                                 <div class="icon">
