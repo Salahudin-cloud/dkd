@@ -95,9 +95,9 @@
                                             <td><?php echo strtoupper($transaksi['metode_pembayaran']) ?></td>
                                             <td>
                                                 <?php if ($transaksi['status_pembayaran'] === 'menunggu_konfirmasi') : ?>
-                                                    <span class="badge badge-warning"><?php echo $transaksi['status_pembayaran'] ?></span>
+                                                    <span class="badge badge-warning">Menunggu Konfirmasi</span>
                                                 <?php else :  ?>
-                                                    <span class="badge badge-success"><?php echo $transaksi['status_pembayaran'] ?></span>
+                                                    <span class="badge badge-success">Berhasil</span>
                                                 <?php endif; ?>
                                             </td>
                                             <td>

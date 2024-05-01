@@ -109,7 +109,6 @@ class ArtikelUpdateAdmin extends BaseController
             // mendapatkan input
             $data = [
                 'kategori_id' => esc($this->request->getPost('kategori_id')),
-                'artikel_tanggal' => date('Y-m-d H:i:s'),
                 'artikel_judul' => esc($this->request->getPost('artikel_judul')),
                 'artikel_slug' => esc(strtolower(url_title(json_encode($this->request->getPost('artikel_judul'))))),
                 'artikel_konten' => esc($this->request->getPost('artikel_konten')),
@@ -128,7 +127,6 @@ class ArtikelUpdateAdmin extends BaseController
         // mendapatkan input
         $data = [
             'kategori_id' => esc($this->request->getPost('kategori_id')),
-            'artikel_tanggal' => date('Y-m-d H:i:s'),
             'artikel_judul' => esc($this->request->getPost('artikel_judul')),
             'artikel_slug' => esc(strtolower(url_title(json_encode($this->request->getPost('artikel_judul'))))),
             'artikel_konten' => esc($this->request->getPost('artikel_konten')),
