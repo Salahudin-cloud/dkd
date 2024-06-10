@@ -40,7 +40,7 @@ class PenggunaModel extends Model
             ->where('username', $username)
             ->get()->getResult();
     }
-    public function addPenggunaBaru($nama, $username, $password, $no_wa)
+    public function addPenggunaBaru($nama, $username, $password, $no_wa, $alamat)
     {
         return $this->db->table('pengguna')->insert(
             [
@@ -48,7 +48,8 @@ class PenggunaModel extends Model
                 'username' => $username,
                 'password' => md5($password),
                 'nomor_wa' => $no_wa,
-                'role' => 'donatur'
+                'role' => 'donatur',
+                'alamat' => $alamat
             ]
         );
     }
@@ -67,7 +68,7 @@ class PenggunaModel extends Model
             ->getRow();
     }
 
-    public function updatePenggunaById($id, $nama, $username, $password, $no_wa, $role)
+    public function updatePenggunaById($id, $nama, $username, $password, $no_wa, $alamat, $role)
     {
         $data = [
             'pengguna_nama' => $nama,
@@ -85,6 +86,11 @@ class PenggunaModel extends Model
         if (!empty($no_wa)) {
             $data['nomor_wa'] = $no_wa;
         }
+
+        if (!empty($alamat)) {
+            $data['alamat'] = $alamat;
+        }
+
 
         return $this->db->table('pengguna')
             ->where('pengguna_id', $id)

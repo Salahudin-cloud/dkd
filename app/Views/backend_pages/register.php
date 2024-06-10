@@ -58,12 +58,15 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control"  maxlength="11" placeholder="No. Whatssap" name="no_wa" autocomplete="nope" required>
+                        <input type="text" class="form-control" maxlength="11" placeholder="No. Whatssap" name="no_wa" autocomplete="nope" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-phone"></span>
                             </div>
                         </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <textarea class="form-control" id="alamat" rows="3" placeholder="Alamat" style="resize:none" name="alamat"></textarea>
                     </div>
                     <div class="row">
                         <!-- /.col -->

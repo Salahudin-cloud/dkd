@@ -92,6 +92,10 @@
                                         <input type="text" class="form-control" id="no_wa" name="no_wa" value="" maxlength="11">
                                     </div>
                                     <div class="form-group">
+                                        <label for="alamat">Alamat</label>
+                                        <textarea class="form-control" id="alamat" rows="3" style="resize:none" name="alamat"></textarea>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="user_level">Role :</label>
                                         <select class="form-control" id="user_level" name="user_level">
                                             <option value="" selected disabled> -- Pilh Role --</option>

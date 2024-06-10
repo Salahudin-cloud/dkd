@@ -68,6 +68,7 @@
                                         <th>Name</th>
                                         <th>Username</th>
                                         <th>Nomor Whatssap</th>
+                                        <th>Alamat</th>
                                         <th>Level</th>
                                         <th style="width: 15%;">Action</th>
                                     </tr>
@@ -97,6 +98,7 @@
                                                 <td><?php echo $pengguna['pengguna_nama'] ?></td>
                                                 <td><?php echo $pengguna['username'] ?></td>
                                                 <td><?php echo $pengguna['nomor_wa'] ?></td>
+                                                <td><?php echo $pengguna['alamat'] ?></td>
                                                 <td><?php echo $pengguna['role'] ?></td>
                                                 <td>
                                                     <div class="btn-group " role="group" aria-label="Action buttons">

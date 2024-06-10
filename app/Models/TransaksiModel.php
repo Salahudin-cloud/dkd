@@ -42,7 +42,7 @@ class TransaksiModel extends Model
             ->join('program', 'program.program_id = transaksi.id_program')
             ->whereIn('status_pembayaran', ['menunggu_konfirmasi', 'berhasil'])
             ->orderBy('status_pembayaran', 'desc')
-            ->orderBy('tanggal_transaksi', 'asc')
+            ->orderBy('tanggal_transaksi', 'desc')
             ->paginate(5);
     }
 
@@ -55,7 +55,7 @@ class TransaksiModel extends Model
             ->join('program', 'program.program_id = transaksi.id_program')
             ->where('status_pembayaran', 'berhasil')
             ->orderBy('status_pembayaran', 'desc')
-            ->orderBy('tanggal_transaksi', 'asc')
+            ->orderBy('tanggal_transaksi', 'desc')
             ->paginate(5);
     }
 
@@ -70,6 +70,7 @@ class TransaksiModel extends Model
                 transaksi.bukti_transaksi,
                 pengguna.pengguna_nama, 
                 pengguna.nomor_wa, 
+                pengguna.alamat,
                 program.program_judul
                 ')
             ->join('pengguna', 'pengguna.pengguna_id = transaksi.id_pengguna')
@@ -126,7 +127,7 @@ class TransaksiModel extends Model
                 transaksi.tanggal_transaksi, 
                 transaksi.nominal_pembayaran, 
                 transaksi.metode_pembayaran,
-                pengguna.pengguna_nama, 
+                pengguna.pengguna_nama,
                 program.program_judul
                 ')
             ->join('pengguna', 'pengguna.pengguna_id = transaksi.id_pengguna')

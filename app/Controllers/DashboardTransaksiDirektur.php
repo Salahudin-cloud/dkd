@@ -34,7 +34,7 @@ class DashboardTransaksiDirektur extends BaseController
         $html = view('templates/pdf_template/laporan_pertahun', $data);
 
         // Generate PDF using the helper function
-        $pdf = generate_pdf($html, 'Laporan Transaksi Donasi Tahun' . '_' . $thisYear, false);
+        $pdf = generate_pdf($html, 'Laporan Transaksi Donasi Tahun' . '_' . $thisYear, false, 'A4', 'landscape');
 
         // Path to save the PDF file
         $path = './assets/laporan_transaksi/tahunan/' . 'Laporan_Transaksi_Donasi_Tahun' . '_' . $thisYear . '.pdf';
@@ -68,7 +68,7 @@ class DashboardTransaksiDirektur extends BaseController
         $html = view('templates/pdf_template/laporan_perBulan', $data);
 
         // Generate PDF using the helper function
-        $pdf = generate_pdf($html, 'Laporan_Transaksi_Donasi_Bulan' . '_' . $year, false);
+        $pdf = generate_pdf($html, 'Laporan_Transaksi_Donasi_Bulan' . '_' . $year, false, 'A4', 'landscape');
 
         // Path to save the PDF file
         $path = './assets/laporan_transaksi/bulanan/' . 'Laporan_Transaksi_Donasi_Bulan' . '_' . $month . '_' . $year . '.pdf';

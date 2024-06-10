@@ -24,7 +24,6 @@
         <!-- sidebar -->
         <?php include(APPPATH . 'Views/templates/backend/sidebar.php') ?>
 
-
         <div class="content-wrapper">
             <!-- navbar -->
             <div class="content-header">
@@ -96,6 +95,10 @@
                                         <i class="text-danger">Kosongkan jika tidak di ubah</i>
                                     </div>
                                     <div class="form-group">
+                                        <label for="alamat">Alamat</label>
+                                        <textarea class="form-control" id="alamat" rows="3" style="resize:none" name="alamat"><?php echo $user->alamat ?></textarea>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="user_level">Role :</label>
                                         <select class="form-control" id="user_level" name="user_level">
                                             <option value="" disabled> -- Pilih Role --</option>
@@ -117,7 +120,6 @@
 
         <!-- control siidebar -->
         <?php include(APPPATH  . 'Views/templates/backend/control_sidebar.php') ?>
-
     </div>
     <!-- reuired file js  -->
     <?php include(APPPATH  . 'Views/imports/backend/js.php') ?>

@@ -44,6 +44,7 @@ class UserManagementUpdate extends BaseController
         $role = $this->request->getPost('user_level');
         $password =  $this->request->getPost('password') ?? '';
         $no_wa = $this->request->getPost('no_wa') ?? '';
+        $alamat = $this->request->getPost('alamat') ?? '';
 
         if (!empty($username)) {
             $existingUser = $this->penggunaModel->getPenggunaByUsername($username);
@@ -60,6 +61,7 @@ class UserManagementUpdate extends BaseController
             $username,
             $password,
             $no_wa,
+            $alamat,
             $role
         );
 

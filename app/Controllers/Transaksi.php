@@ -43,6 +43,7 @@ class Transaksi extends BaseController
             'nominal_pembayaran' => $data[0]->nominal_pembayaran,
             'pengguna_nama' => $data[0]->pengguna_nama,
             'nomor_wa' => $data[0]->nomor_wa,
+            'alamat' => $data[0]->alamat,
             'program_judul' => $data[0]->program_judul,
             'metode_pembayaran' => $data[0]->metode_pembayaran
         ]);

@@ -60,10 +60,11 @@ $format_2 = $date->format('G:i:s');
         </div>
         <div class="invoice-details">
             <p><strong>No. Transaksi :</strong> <?= $id_transaksi ?></p>
-            <p><strong>Nama Donatur :</strong> <?= $pengguna_nama ?></p>
-            <p><strong>No. Whatssap :</strong> <?= $nomor_wa ?></p>
             <p><strong>Tanggal Donasi :</strong> <?= $format ?></p>
             <p><strong>Waktu Donasi :</strong> <?= $format_2 ?></p>
+            <p><strong>Nama Donatur :</strong> <?= $pengguna_nama ?></p>
+            <p><strong>No. Whatssap :</strong> <?= $nomor_wa ?></p>
+            <p><strong>Alamat :</strong> <?= $alamat ?></p>
         </div>
         <table class="invoice-table">
             <thead>

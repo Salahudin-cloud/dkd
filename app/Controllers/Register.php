@@ -19,6 +19,7 @@ class Register extends BaseController
 
     public function registerProcess()
     {
+
         $session = session();
         // menggunakan library validation 
         $validate = \Config\Services::validation();
@@ -27,7 +28,8 @@ class Register extends BaseController
             'nama' => 'required',
             'username' => 'required|alpha_numeric',
             'password' => 'required',
-            'no_wa' => 'required|max_length[11]'
+            'no_wa' => 'required|max_length[11]',
+            'alamat' => 'required'
         ]);
 
         // menjalankan rule 
@@ -42,6 +44,7 @@ class Register extends BaseController
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
         $no_wa = $this->request->getPost('no_wa');
+        $alamat = $this->request->getPost('alamat');
 
         // check if username exists 
         if (!empty($this->penggunaModel->getPenggunaByUsername($username))) {
@@ -50,7 +53,7 @@ class Register extends BaseController
         }
 
         // melaukan penambahan ke database 
-        $this->penggunaModel->addPenggunaBaru($nama, $username, $password, $no_wa);
+        $this->penggunaModel->addPenggunaBaru($nama, $username, $password, $no_wa, $alamat);
 
         return redirect()->to('/login');
     }

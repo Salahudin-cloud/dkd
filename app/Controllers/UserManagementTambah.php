@@ -49,6 +49,7 @@ class UserManagementTambah extends BaseController
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
         $no_wa = $this->request->getPost('no_wa');
+        $alamat = $this->request->getPost('alamat');
 
         // check if username exists 
         if (!empty($this->penggunaModel->getPenggunaByUsername($username))) {
@@ -57,7 +58,7 @@ class UserManagementTambah extends BaseController
         }
 
         // melaukan penambahan ke database 
-        $this->penggunaModel->addPenggunaBaru($nama, $username, $password, $no_wa);
+        $this->penggunaModel->addPenggunaBaru($nama, $username, $password, $no_wa, $alamat);
 
         return redirect()->to('/users_management');
     }
