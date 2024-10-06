@@ -46,7 +46,7 @@
                     <div class="col-md-12">
                         <div class="post-box ">
                             <div class="post-thumb text-center">
-                                <img src="<?php echo base_url() . 'assets/frontend/img/gallery/test.jpg' ?>" class="img-fluid  mt-5" alt="">
+                                <img src="<?php echo base_url() . 'assets/frontend/img/laz_dkd.jpg' ?>" class="img-fluid  mt-5" alt="" width="1000" height="666">
                             </div>
                             <div class="post-meta">
                                 <h1 class="article-title content font-weight-bold">LAZ DKD </h1>

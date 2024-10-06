@@ -4,7 +4,7 @@
     <div class="sidebar">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="<?php echo base_url() . 'assets/backend/dist/img/user2-160x160.jpg' ?>" class="img-circle elevation-2" alt="User Image">
+                <img src="<?php echo base_url() . 'assets/backend/dist/img/user2-160x160.png' ?>" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block">Admin</a>
@@ -29,7 +29,7 @@
                     <a href="<?php echo site_url('users_management') ?>" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                            User Management
+                            Pengguna 
                         </p>
                     </a>
                 </li>
@@ -66,6 +66,14 @@
                         <i class="nav-icon fas fa-hand-holding-usd"></i>
                         <p>
                             Transaksi
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a href="<?php echo site_url('transaksi_keluar') ?>" class="nav-link">
+                        <i class="nav-icon fas fa-money-bill-alt"></i>
+                        <p>
+                            Transaksi Keluar
                         </p>
                     </a>
                 </li>

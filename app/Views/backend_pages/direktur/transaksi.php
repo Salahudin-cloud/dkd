@@ -29,15 +29,6 @@
                     <a href="<?php echo site_url('direktur/dashboard') ?>" class="nav-link">Home</a>
                 </li>
             </ul>
-
-            <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                        <i class="fas fa-expand-arrows-alt"></i>
-                    </a>
-                </li>
-            </ul>
         </nav>
         <!-- /.navbar -->
 
@@ -50,10 +41,10 @@
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?php echo base_url() . 'assets/backend/dist/img/user2-160x160.jpg' ?>" class="img-circle elevation-2" alt="User Image">
+                        <img src="<?php echo base_url() . 'assets/backend/dist/img/user2-160x160.png' ?>" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Direktur</a>
+                        <a href="#" class="d-block">Keuangan</a>
                     </div>
                 </div>
 
@@ -62,7 +53,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Dashboard -->
                         <li class="nav-item ">
-                            <a href="<?php echo site_url('direktur/dashboard') ?>" class="nav-link">
+                            <a href="<?php echo site_url('keuangan/dashboard') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-home"></i>
                                 <p>
                                     Dashboard
@@ -71,7 +62,7 @@
                         </li>
                         <!-- Transaksi -->
                         <li class="nav-item ">
-                            <a href="<?php echo site_url('direktur/transaksi') ?>" class="nav-link">
+                            <a href="<?php echo site_url('keuangan/transaksi') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-hand-holding-usd"></i>
                                 <p>
                                     Transaksi
@@ -104,12 +95,6 @@
                         <div class="col-sm-6">
                             <h1 class="m-0">Transaksi</h1>
                         </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="<?php echo base_url('direktur/dashboard') ?>">Home</a></li>
-                                <li class="breadcrumb-item active"> Daftar Transaksi</li>
-                            </ol>
-                        </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
@@ -126,24 +111,15 @@
                         </div>
                         <div class="card-body">
                             <div class="btn-group">
-                                <form action="<?php echo site_url('direktur/transaksi/bulan_ini') ?>" method="post" class="mr-2">
+                                <a href="<?php echo site_url('cetak_laporan') ?>">
                                     <button class="btn btn-sm btn-success">
-                                        <i class="fas fa-file-download"></i> Download Donasi Bulan ini
+                                        <i class="fas fa-file-download"></i> cetak laporan transaksi
                                     </button>
-                                </form>
-
-
-                                <form action="<?php echo site_url('direktur/transaksi/tahun_ini') ?>" method="post">
-                                    <button class="btn btn-sm btn-success">
-                                        <i class="fas fa-file-download"></i> Download Donasi Tahun ini
-                                    </button>
-                                </form>
+                                </a>
                             </div>
                             <!-- Show list of category -->
-                            <table class="table table-bordered table-hover mt-2">
-                                <?php
-                                $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                                $i = 1 + (5 * ($page - 1)) ?>
+                            <table id="ex" class="table table-bordered table-hover mt-2">
+                                <?php $i = 1; ?>
                                 <thead>
                                     <tr>
                                         <th style="width: 1%;">NO</th>
@@ -153,6 +129,7 @@
                                         <th>Nama Donatur</th>
                                         <th>Nama Program</th>
                                         <th>Nominal</th>
+                                        <th>Informasi Transaksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -165,13 +142,11 @@
                                             <td><?php echo $data['pengguna_nama'] ?></td>
                                             <td><?php echo $data['program_judul'] ?></td>
                                             <td>Rp <?php echo number_format($data['nominal_pembayaran'], 0, ',', '.')  ?></td>
+                                            <td><?php echo $data['info_transaksi'] ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
-                            <div class="pt-2">
-                                <?php echo $pager->links('default', 'pager_admin') ?>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -186,6 +161,21 @@
     </div>
     <!-- reuired file js  -->
     <?php include(APPPATH  . 'Views/imports/backend/js.php') ?>
+
+
+    <script>
+        $(function() {
+            $('#ex').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": false,
+                "info": false,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
 </body>
 
 </html>

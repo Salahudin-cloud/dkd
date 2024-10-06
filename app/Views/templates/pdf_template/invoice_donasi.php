@@ -1,15 +1,9 @@
-<?php
-$date = new DateTime($tanggal_transaksi);
-$format = $date->format('d F Y');
-$format_2 = $date->format('G:i:s');
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Invoice Donasi</title>
     <style>
         body {
@@ -17,7 +11,8 @@ $format_2 = $date->format('G:i:s');
         }
 
         .invoice-container {
-            max-width: 800px;
+            max-width: 600px;
+            /* Lebar maksimal untuk potret */
             margin: 0 auto;
             padding: 20px;
             border: 1px solid #ccc;
@@ -28,6 +23,7 @@ $format_2 = $date->format('G:i:s');
             background-color: #f5f5f5;
             padding: 10px;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         .invoice-header h1,
@@ -57,14 +53,33 @@ $format_2 = $date->format('G:i:s');
     <div class="invoice-container">
         <div class="invoice-header">
             <h1>Invoice Donasi</h1>
+            <p>LAZ DKD</p>
         </div>
         <div class="invoice-details">
-            <p><strong>No. Transaksi :</strong> <?= $id_transaksi ?></p>
-            <p><strong>Tanggal Donasi :</strong> <?= $format ?></p>
-            <p><strong>Waktu Donasi :</strong> <?= $format_2 ?></p>
-            <p><strong>Nama Donatur :</strong> <?= $pengguna_nama ?></p>
-            <p><strong>No. Whatssap :</strong> <?= $nomor_wa ?></p>
-            <p><strong>Alamat :</strong> <?= $alamat ?></p>
+            <p>
+                <strong>No. Transaksi :</strong>
+                <?= $id_transaksi ?>
+            </p>
+            <p>
+                <strong>Tanggal Donasi :</strong>
+                <?= $tanggal_transaksi ?>
+            </p>
+            <p>
+                <strong>Validator :</strong>
+                <?= $penanggung_jawab ?>
+            </p>
+            <p>
+                <strong>Nama Donatur :</strong>
+                <?= $pengguna_nama ?>
+            </p>
+            <p>
+                <strong>No. Whatssap :</strong>
+                <?= $nomor_wa ?>
+            </p>
+            <p>
+                <strong>Alamat :</strong>
+                <?= $alamat ?>
+            </p>
         </div>
         <table class="invoice-table">
             <thead>
@@ -78,14 +93,19 @@ $format_2 = $date->format('G:i:s');
                 <tr>
                     <td><?= $program_judul ?></td>
                     <td><?= strtoupper($metode_pembayaran) ?></td>
-                    <td>Rp. <?= number_format($nominal_pembayaran, 0, ',', '.') ?></td>
+                    <td>
+                        Rp.
+                        <?= number_format($nominal_pembayaran, 0, ',', '.') ?>
+                    </td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
-                    <td><strong>Total Donasi</strong></td>
-                    <td style="border-left: none; border-right: 1px solid #ccc;"></td>
-                    <td><strong>Rp. <?= number_format($nominal_pembayaran, 0, ',', '.') ?></strong></td>
+                    <td colspan="2"><strong>Total Donasi</strong></td>
+                    <td>
+                        <strong>Rp.
+                            <?= number_format($nominal_pembayaran, 0, ',', '.') ?></strong>
+                    </td>
                 </tr>
             </tfoot>
         </table>

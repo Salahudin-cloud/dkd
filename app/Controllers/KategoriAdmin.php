@@ -19,8 +19,7 @@ class KategoriAdmin extends BaseController
             return redirect()->to('/');
         }
         $data = [
-            'kategori' => $this->kategoriModel->getAllKategoriAdmin()->paginate(10),
-            'pager' => $this->kategoriModel->pager
+            'kategori' => $this->kategoriModel->getAllKategoriAdmin(),
         ];
         return view('backend_pages/admin/kategori', $data);
     }

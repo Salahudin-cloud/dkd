@@ -109,10 +109,22 @@ $routes->delete('programs_delete/(:any)', 'ProgramDeleteAdmin::deleteProgramAdmi
 $routes->get('transaksi', 'Transaksi::index');
 $routes->post('transaksi/check/(:any)', 'Transaksi::checkTransaksi/$1');
 $routes->delete('transaksi/delete/(:any)', 'Transaksi::deleteTransaksi/$1');
+$routes->get('/transaksi_tambah', 'Transaksi::tambahTransaksi');
+$routes->post('/transaksi_tambah_process', 'Transaksi::tambahTransaksiProcess');
+
+
+//backend page : transaksi keluar 
+$routes->get('/transaksi_keluar', 'Transaksi::keluar');
+$routes->post('transaksi_keluar/process', 'Transaksi::transaksiKeluarProcess');
+
+//backend page : transaksi edit 
+$routes->get('transaksi/transaksi_edit/(:any)', 'Transaksi::editTransaksi/$1');
+$routes->post('transaksi/transaksi_edit/process', 'Transaksi::editTransaksiProcess');
 
 
 // frontend : transaksi process
 $routes->post('transaksi_process/process', 'TransaksiDonasi::index');
+
 
 
 
@@ -121,12 +133,13 @@ $routes->get('logout', 'LogoutAdmin::index');
 
 
 
-// direktur menu : dashboard 
-$routes->get('direktur/dashboard', 'DashboardDirektur::index');
-// direktur menu : transaksi
-$routes->get('direktur/transaksi', 'DashboardTransaksiDirektur::index');
 
-// direktur menu : button donwload 
-$routes->post('direktur/transaksi/tahun_ini', 'DashboardTransaksiDirektur::donwloadTransaksiTahunini');
-// direktur menu : button donwload per bulan 
-$routes->post('direktur/transaksi/bulan_ini', 'DashboardTransaksiDirektur::donwloadTransaksiBulanini');
+// keuangan  menu : dashboard 
+$routes->get('keuangan/dashboard', 'DashboardDirektur::index');
+// keuangan menu : transaksi
+$routes->get('keuangan/transaksi', 'DashboardTransaksiDirektur::index');
+
+// keuangan menu : button donwload 
+$routes->get('cetak_laporan', 'DashboardTransaksiDirektur::cetakLaporan');
+
+$routes->post('cetak_laporan/process', 'DashboardTransaksiDirektur::cetakLaporanProcess');

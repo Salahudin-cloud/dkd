@@ -62,7 +62,8 @@
                                     <h1 class=" content font-weight-bold"><?php echo $data->program_judul ?></h1>
                                 </div>
                                 <div class="content text-justify">
-                                    <?php echo $data->program_detail ?>
+                                    <?= $data->program_detail; ?>
+                       
                                     <div class="mt-3">
                                         <?php if ((session()->get('role') === 'donatur') && (session()->get('isLogin'))) : ?>
                                             <!-- modal button -->

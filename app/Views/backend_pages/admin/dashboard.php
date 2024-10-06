@@ -34,11 +34,6 @@
                         <div class="col-sm-6">
                             <h1 class="m-0">Dashboard</h1>
                         </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="<?php echo base_url('dashboard') ?>">Home</a></li>
-                            </ol>
-                        </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
@@ -76,7 +71,7 @@
                             <div class="small-box bg-warning">
                                 <div class="inner">
                                     <h3><?php echo $jumlah_pengguna; ?></h3>
-                                    <p>Users</p>
+                                    <p>Pengguna</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fa fa-users"></i>

@@ -19,13 +19,18 @@ class TransaksiModel extends Model
         'bukti_transaksi'
     ];
 
-    public function getLastTransactionNumber()
+    public function getLastTransactionNumber($prefix)
     {
-        $query = $this->select('id_transaksi')
+        $query = $this->like('id_transaksi', $prefix, 'after')
             ->orderBy('id_transaksi', 'DESC')
             ->first();
 
-        return $query ? (int) substr($query['id_transaksi'], -1) : 0;
+        if ($query) {
+            $lastNumber = substr($query['id_transaksi'], strlen($prefix));
+            return (int) $lastNumber;
+        } else {
+            return 0;
+        }
     }
 
     public function addTransaksi($data)
@@ -36,27 +41,29 @@ class TransaksiModel extends Model
 
     public function getAllTransaksi()
     {
-        return $this->table('transaksi')
+        return $this->db->table('transaksi')
             ->select('transaksi.*, pengguna.pengguna_nama, program.program_judul')
             ->join('pengguna', 'pengguna.pengguna_id = transaksi.id_pengguna')
             ->join('program', 'program.program_id = transaksi.id_program')
             ->whereIn('status_pembayaran', ['menunggu_konfirmasi', 'berhasil'])
             ->orderBy('status_pembayaran', 'desc')
             ->orderBy('tanggal_transaksi', 'desc')
-            ->paginate(5);
+            ->get()
+            ->getResultArray();
     }
 
 
     public function getAllTransaksii()
     {
-        return $this->table('transaksi')
+        return $this->db->table('transaksi')
             ->select('transaksi.*, pengguna.pengguna_nama, program.program_judul')
             ->join('pengguna', 'pengguna.pengguna_id = transaksi.id_pengguna')
             ->join('program', 'program.program_id = transaksi.id_program')
             ->where('status_pembayaran', 'berhasil')
             ->orderBy('status_pembayaran', 'desc')
             ->orderBy('tanggal_transaksi', 'desc')
-            ->paginate(5);
+            ->get()
+            ->getResultArray();
     }
 
     public function getTransaksiByid($id)
@@ -97,26 +104,37 @@ class TransaksiModel extends Model
             ->delete();
     }
 
-    public function getTotalDonaationsThisYear()
+    public function getTotalDonationsThisYear()
     {
-        $thisYear = date('Y');
-        return $this->db->table('transaksi')
+
+        // Menghitung total donasi yang berhasil
+        $totalDonations = $this->db->table('transaksi')
             ->selectSum('nominal_pembayaran')
-            ->where('YEAR(tanggal_transaksi)', $thisYear)
             ->where('status_pembayaran', 'berhasil')
-            ->get()->getResult();
+            ->where('info_transaksi !=', 'dana keluar')
+            ->get()->getRow()->nominal_pembayaran;
+
+        // Menghitung total dana keluar
+        $totalFundsOut = $this->db->table('transaksi')
+            ->selectSum('nominal_pembayaran')
+            ->where('info_transaksi', 'dana keluar')
+            ->get()->getRow()->nominal_pembayaran;
+
+        // Mengurangi total donasi dengan total dana keluar
+        $totalNetDonations = $totalDonations - $totalFundsOut;
+
+        return $totalNetDonations;
     }
 
 
     public function getTotalDonationsThisMonth()
     {
-        $thisMonth = date('m');
         return $this->db->table('transaksi')
             ->selectSum('nominal_pembayaran')
-            ->where('MONTH(tanggal_transaksi)', $thisMonth)
-            ->where('status_pembayaran', 'berhasil')
-            ->get()->getResult();
+            ->where('info_transaksi', 'dana keluar')
+            ->get()->getRow()->nominal_pembayaran;
     }
+
 
     public function getTransaksiThisYear()
     {
@@ -154,5 +172,39 @@ class TransaksiModel extends Model
             ->where('MONTH(tanggal_transaksi)', $thisMonth)
             ->where('status_pembayaran', 'berhasil')
             ->get()->getResult();
+    }
+
+    public function getTransaksiByDate($dari, $sampai)
+    {
+        // Convert $dari and $sampai to date format (YYYY-MM-DD)
+        $dariDate = date('Y-m-d', strtotime($dari));
+        $sampaiDate = date('Y-m-d', strtotime($sampai));
+
+        // echo $dariDate;
+        // echo "<br>";
+        // echo $sampaiDate;
+        // exit;
+
+        return $this->db->table('transaksi')
+            ->select('transaksi.*, pengguna.pengguna_nama, program.program_judul')
+            ->join('pengguna', 'pengguna.pengguna_id = transaksi.id_pengguna')
+            ->join('program', 'program.program_id = transaksi.id_program')
+            ->where("DATE(tanggal_transaksi) >= '$dariDate'")
+            ->where("DATE(tanggal_transaksi) <= '$sampaiDate'")
+            ->where('status_pembayaran', 'berhasil')
+            ->orderBy('status_pembayaran', 'desc')
+            ->orderBy('tanggal_transaksi', 'desc')
+            ->get()->getResult();
+    }
+
+
+    public function updateTransaksi($id, $nominal)
+    {
+
+        return $this->db->table('transaksi')
+            ->where('id_transaksi', $id)
+            ->update([
+                'nominal_pembayaran' => $nominal
+            ]);
     }
 }

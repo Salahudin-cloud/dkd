@@ -54,7 +54,8 @@
                                     <li><a href="<?php echo base_url() . 'artikel/' . $artikel_data->kategori_slug ?>"><i class="fa fa-tag"></i><?php echo $artikel_data->kategori_nama ?></a></li>
                                 </ul>
                                 <div class="text-justify">
-                                    <?php echo $artikel_data->artikel_konten ?>
+                                    <!-- <?php echo $artikel_data->artikel_konten ?> -->
+                                    <?= htmlspecialchars_decode($artikel_data->artikel_konten, ENT_QUOTES); ?>
                                 </div>
                             </div>
                         </div>

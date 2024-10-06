@@ -27,7 +27,9 @@ class ProgramModel extends Model
 
     public function getSemuaProgramAdmin()
     {
-        return $this->table('program')->paginate(5);
+        return $this->db->table('program')
+        ->get()
+        ->getResultArray();
     }
     public function countAllProgram()
     {
@@ -99,5 +101,11 @@ class ProgramModel extends Model
             ->get()->getResult();
     }
 
-
+    public function getDefaultProgram()
+    {
+        return $this->db->table('program')
+            ->select('*')
+            ->where('program_id', 12)
+             ->get()->getResult();
+    }
 }

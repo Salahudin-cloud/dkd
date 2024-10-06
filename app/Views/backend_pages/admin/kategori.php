@@ -33,12 +33,6 @@
                         <div class="col-sm-6">
                             <h1 class="m-0">Kategori</h1>
                         </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="<?php echo base_url('dashboard') ?>">Home</a></li>
-                                <li class="breadcrumb-item active">Daftar Kategori</li>
-                            </ol>
-                        </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
@@ -60,7 +54,7 @@
                                 </button>
                             </a>
                             <!-- Show list of category -->
-                            <table class="table table-bordered table-hover mt-2">
+                            <table id="ex" class="table table-bordered table-hover mt-2">
                                 <thead>
                                     <tr>
                                         <th style="width: 1%;">NO</th>
@@ -70,8 +64,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                                    $i = 1 + (10 * ($page - 1)) ?>
+                                    <?php $i = 1 ?>
                                     <?php foreach ($kategori as $data) : ?>
                                         <tr>
                                             <td><?php echo $i++ ?></td>
@@ -92,9 +85,6 @@
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
-                            <div class="pt-2">
-                                <?php echo $pager->links('default', 'pager_admin') ?>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -109,6 +99,21 @@
     </div>
     <!-- reuired file js  -->
     <?php include(APPPATH  . 'Views/imports/backend/js.php') ?>
+
+
+    <script>
+        $(function() {
+            $('#ex').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": true,
+                "ordering": false,
+                "info": false,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
 </body>
 
 </html>

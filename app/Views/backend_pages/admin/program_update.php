@@ -134,14 +134,8 @@
             var initialValue = <?php echo json_encode($program->program_detail); ?>;
             $('#_content').summernote({
                 height: 300,
-                toolbar: [
-                    ['style', ['bold', 'italic', 'underline', 'clear']],
-                    ['font', ['strikethrough']],
-                    ['color', ['forecolor', 'backcolor']],
-                    ['para', ['ul', 'ol']],
-                    ['insert', ['link']],
-                    ['view', ['fullscreen', 'codeview']]
-                ],
+                fontSizes: ['8', '9', '10', '11', '12', '14', '18', '24', '36', '48', '64', '82', '150'],
+
                 callbacks: {
                     onChange: function(contents) {
                         // Update nilai input tersembunyi dengan isi editor Summernote

@@ -136,14 +136,6 @@
             var initialValue = <?php echo json_encode($artikel->artikel_konten); ?>;
             $('#_content').summernote({
                 height: 300,
-                toolbar: [
-                    ['style', ['bold', 'italic', 'underline', 'clear']],
-                    ['font', ['strikethrough']],
-                    ['color', ['forecolor', 'backcolor']],
-                    ['para', ['ul', 'ol']],
-                    ['insert', ['link']],
-                    ['view', ['fullscreen', 'codeview']]
-                ],
                 callbacks: {
                     onChange: function(contents) {
                         // Update nilai input tersembunyi dengan isi editor Summernote

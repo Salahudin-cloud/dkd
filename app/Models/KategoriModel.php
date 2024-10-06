@@ -19,7 +19,9 @@ class KategoriModel extends Model
     // get all kategori 
     public function getAllKategoriAdmin()
     {
-        return $this->table('kategori');
+        return $this->db->table('kategori')
+        ->get()
+        ->getResultArray();
     }
 
     public function getAllKategori()

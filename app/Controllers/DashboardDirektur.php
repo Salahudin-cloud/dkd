@@ -14,11 +14,17 @@ class DashboardDirektur extends BaseController
     }
     public function index()
     {
+        // check status login
+        $session = session();
+        if (!$session->get('isLogin')) {
+            return redirect()->to('/login');
+        }
     
         $data = [
-            'year' => $this->transaksiModel->getTotalDonaationsThisYear(),
-            'month' => $this->transaksiModel->getTotalDonationsThisMonth(),
+            'total' => $this->transaksiModel->getTotalDonationsThisYear(),
+            'keluar' => $this->transaksiModel->getTotalDonationsThisMonth(),
         ];
+
 
         echo view('backend_pages/direktur/dashboard', $data);
     }

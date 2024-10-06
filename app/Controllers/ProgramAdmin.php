@@ -23,7 +23,6 @@ class ProgramAdmin extends BaseController
         // get all program 
         $data = [
             'program' => $this->programModel->getSemuaProgramAdmin(),
-            'pager' => $this->programModel->pager
         ];
         return view('backend_pages/admin/program', $data);
     }

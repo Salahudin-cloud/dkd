@@ -33,12 +33,6 @@
                         <div class="col-sm-6">
                             <h1 class="m-0">Transaksi</h1>
                         </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="<?php echo base_url('dashboard') ?>">Home</a></li>
-                                <li class="breadcrumb-item active"> Daftar Transaksi</li>
-                            </ol>
-                        </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
@@ -64,7 +58,13 @@
                                 </div>
                             </div>
                             <!-- Show list of category -->
-                            <table class="table table-bordered table-hover mt-2">
+                            <!-- button add artikel -->
+                            <a href="<?php echo site_url('transaksi_tambah') ?>">
+                                <button class="btn btn-sm btn-success">
+                                    <i class="fas fa-plus"></i> Tambah Transaksi
+                                </button>
+                            </a>
+                            <table id="ex" class="table table-bordered table-hover mt-2">
                                 <thead>
                                     <tr>
                                         <th style="width: 1%;">NO</th>
@@ -81,8 +81,8 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                                    $i = 1 + (5 * ($page - 1)) ?>
+
+                                    $i = 1; ?>
                                     <?php foreach ($transaksi_data as $transaksi) : ?>
 
                                         <tr>
@@ -101,7 +101,11 @@
                                                 <?php endif; ?>
                                             </td>
                                             <td>
-                                                <img width="100%" class="img-responsive view-image" data-toggle="modal" data-target="#imageModal" data-image="<?php echo base_url() . 'assets/img/transaksi/' . $transaksi['bukti_transaksi']; ?>" src="<?php echo base_url() . 'assets/img/transaksi/' . $transaksi['bukti_transaksi']; ?>">
+                                                <?php if ($transaksi['bukti_transaksi'] == 'diisi_oleh_admin.png') : ?>
+                                                    <p>diisi_oleh_admin.png</p>
+                                                <?php else : ?>
+                                                    <img width="100%" class="img-responsive view-image" data-toggle="modal" data-target="#imageModal" data-image="<?php echo base_url() . 'assets/img/transaksi/' . $transaksi['bukti_transaksi']; ?>" src="<?php echo base_url() . 'assets/img/transaksi/' . $transaksi['bukti_transaksi']; ?>">
+                                                <?php endif ?>
                                             </td>
                                             <td>
                                                 <div class="btn-group " role="group" aria-label="Action buttons">
@@ -122,7 +126,9 @@
                                                             <i class="nav-icon fas fa-file-download"></i>
                                                         </button>
                                                     <?php endif; ?>
-
+                                                    <a href="<?php echo base_url() . 'transaksi/transaksi_edit/' .  $transaksi['id_transaksi'] ?>" class="btn btn-sm btn-primary mr-1">
+                                                        <i class="nav-icon fas fa-edit"></i>
+                                                    </a>
                                                     <form action="<?php echo base_url() . 'transaksi/delete/' . $transaksi['id_transaksi'] ?>" method="POST">
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <button type="submit" class="btn btn-sm btn-danger mr-1" onclick="return confirm('Apa kamu yakin untuk transaksi ini?')">
@@ -135,9 +141,6 @@
                                     <?php endforeach ?>
                                 </tbody>
                             </table>
-                            <div class="pt-2">
-                                <?php echo $pager->links('default', 'pager_admin') ?>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -158,6 +161,17 @@
             $('.view-image').click(function() {
                 var imageUrl = $(this).data('image');
                 $('#modalImage').attr('src', imageUrl);
+            });
+        });
+        $(function() {
+            $('#ex').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": true,
+                "ordering": false,
+                "info": false,
+                "autoWidth": false,
+                "responsive": true,
             });
         });
     </script>

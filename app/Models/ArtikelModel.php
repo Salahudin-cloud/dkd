@@ -26,14 +26,16 @@ class ArtikelModel extends Model
             ->select('artikel.*, kategori.*')
             ->join('kategori', 'kategori.kategori_id = artikel.kategori_id')
             ->where('artikel_status', 'publish')
+            ->orderBy('artikel_tanggal', 'desc')
             ->paginate(3);
     }
     public function getSemuaArtikelAdmin()
     {
-        return $this->table('artikel')
+        return $this->db->table('artikel')
             ->select('artikel.*, kategori.kategori_nama')
             ->join('kategori', 'kategori.kategori_id = artikel.kategori_id')
-            ->paginate(5);
+            ->get()
+            ->getResultArray();
     }
 
     public function getAllLatestArtikel()

@@ -32,12 +32,6 @@
                         <div class="col-sm-6">
                             <h1 class="m-0">Program</h1>
                         </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="<?php echo site_url('dashboard') ?>">Home</a></li>
-                                <li class="breadcrumb-item active">Daftar Program</li>
-                            </ol>
-                        </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
@@ -48,7 +42,7 @@
                     <div class="card card-dark">
                         <div class="card-header">
                             <h1 class="card-title ">
-                                <i class="fas fa-layer-flag" style="font-size: 1.5rem;"></i>
+                                <i class=" fas fa-flag" style="font-size: 1.5rem;"></i>
                                 <strong style="font-size: 1.5rem;"> Daftar Program</strong>
                             </h1>
                         </div>
@@ -60,7 +54,7 @@
                                 </button>
                             </a>
                             <!-- Show list of artikel -->
-                            <table class="table table-bordered table-hover mt-2">
+                            <table id="ex" class="table table-bordered table-hover mt-2">
                                 <thead>
                                     <tr>
                                         <th style="width: 1%;">NO</th>
@@ -74,8 +68,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                                    $i = 1 + (5 * ($page - 1)) ?>
+                                    $i = 1; ?>
                                     <?php foreach ($program as $data) : ?>
                                         <tr>
                                             <td><?php echo $i++; ?></td>
@@ -92,8 +85,6 @@
                                             </td>
                                             <td>
                                                 <div class="btn-group " role="group" aria-label="Action buttons">
-                                                    <a href="<?php echo site_url('detail_program/' . $data['program_slug']) ?>" class="btn btn-sm btn-success mr-1" target="_blank"><i class="nav-icon fas fa-eye"></i>
-                                                    </a>
                                                     <a href="<?php echo site_url('programs_update/' . $data['program_id']) ?>" class="btn btn-sm btn-warning mr-1">
                                                         <i class="nav-icon fas fa-edit"></i>
                                                     </a>
@@ -109,9 +100,6 @@
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
-                            <div class="pt-2">
-                                <?php echo $pager->links('default', 'pager_admin') ?>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -127,6 +115,20 @@
     </div>
     <!-- reuired file js  -->
     <?php include(APPPATH  . 'Views/imports/backend/js.php') ?>
+
+    <script>
+        $(function() {
+            $('#ex').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": true,
+                "ordering": false,
+                "info": false,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
 </body>
 
 </html>

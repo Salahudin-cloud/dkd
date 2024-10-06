@@ -56,8 +56,10 @@ class PenggunaModel extends Model
 
     public function getSemuaPengguna()
     {
-        return $this->table('pengguna')
-            ->paginate(10);
+        return $this->db->table('pengguna')
+        ->where('role',  'donatur')
+        ->get()
+        ->getResultArray();
     }
 
     public function getPenggunaById($id)
@@ -102,5 +104,14 @@ class PenggunaModel extends Model
         return $this->db->table('pengguna')
             ->where('pengguna_id', $id)
             ->delete();
+    }
+
+    public function getAllDonatur()
+    {
+        return $this->db->table('pengguna')
+            ->select('*')
+            ->where('role', 'donatur')
+            ->get()
+            ->getResultObject();
     }
 }

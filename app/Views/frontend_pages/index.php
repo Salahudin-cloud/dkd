@@ -44,7 +44,7 @@
 
                                     <!-- Hero-btn -->
                                     <div class="hero__btn">
-                                        <a href="industries.html" class="btn hero-btn mb-10" data-animation="fadeInLeft" data-delay=".8s">Donasi</a>
+                                        <a href="<?php echo site_url('program') ?>" class="btn hero-btn mb-10" data-animation="fadeInLeft" data-delay=".8s">Donasi</a>
                                         <a href="industries.html" class="cal-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">
                                             <i class="flaticon-null"></i>
                                             <p>+62 888 999 10</p>
@@ -173,16 +173,16 @@
                                 dalam menciptakan perubahan itu.
                             </p>
                         </div>
-                        <a href="about.php" class="btn">Tentang Kami</a>
+                        <a href="<?php echo site_url('tentang') ?>" class="btn">Tentang Kami</a>
                     </div>
                     <div class="col-lg-6 col-md-12">
                         <!-- about-img -->
                         <div class="about-img">
-                            <div class="about-font-img d-none d-lg-block">
+                            <!-- <div class="about-font-img d-none d-lg-block">
                                 <img src="<?php echo base_url() . 'assets/frontend/img/gallery/about2.png' ?>" alt="" />
-                            </div>
+                            </div> -->
                             <div class="about-back-img">
-                                <img src="<?php echo base_url() . 'assets/frontend/img/gallery/about1.png' ?>" alt="" />
+                                <img src="<?php echo base_url() . 'assets/frontend/img/gallery/about2.png' ?>" alt="" />
                             </div>
                         </div>
                     </div>
@@ -205,7 +205,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="single-team mb-30">
                             <div class="team-img">
-                                <img src="<?php echo base_url() . 'assets/frontend/img/gallery/team1.png' ?>" alt="" />
+                                <img src="<?php echo base_url() . 'assets/frontend/img/gallery/team.png' ?>" alt="" />
                                 <!-- Blog Social -->
                                 <ul class="team-social">
                                     <li>
@@ -228,7 +228,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="single-team mb-30">
                             <div class="team-img">
-                                <img src="<?php echo base_url() . 'assets/frontend/img/gallery/team2.png' ?>" alt="" />
+                                <img src="<?php echo base_url() . 'assets/frontend/img/gallery/team.png' ?>" alt="" />
                                 <!-- Blog Social -->
                                 <ul class="team-social">
                                     <li>
@@ -251,7 +251,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="single-team mb-30">
                             <div class="team-img">
-                                <img src="<?php echo base_url() . 'assets/frontend/img/gallery/team3.png' ?>" alt="" />
+                                <img src="<?php echo base_url() . 'assets/frontend/img/gallery/team.png' ?>" alt="" />
                                 <!-- Blog Social -->
                                 <ul class="team-social">
                                     <li>
@@ -274,7 +274,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="single-team mb-30">
                             <div class="team-img">
-                                <img src="<?php echo base_url() . 'assets/frontend/img/gallery/team4.png' ?>" alt="" />
+                                <img src="<?php echo base_url() . 'assets/frontend/img/gallery/team.png' ?>" alt="" />
                                 <!-- Blog Social -->
                                 <ul class="team-social">
                                     <li>
@@ -309,7 +309,7 @@
                             </div>
                         </div>
                         <div class="col-xl-2 col-lg-3 col-md-4">
-                            <a href="" class="btn white-btn f-right sm-left">Gabung</a>
+                            <a href="<?php echo site_url('login') ?>" class="btn white-btn f-right sm-left">Gabung</a>
                         </div>
                     </div>
                 </div>

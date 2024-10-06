@@ -21,7 +21,6 @@ class UserManagementAdmin extends BaseController
         }
 
         $data['users'] = $this->penggunaModel->getSemuaPengguna();
-        $data['pager'] = $this->penggunaModel->pager;
 
 
 

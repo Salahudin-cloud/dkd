@@ -25,6 +25,23 @@
 <script src="<?php echo base_url() . 'assets/backend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js' ?>"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url() . 'assets/backend/dist/js/adminlte.js' ?>"></script>
+
+
+<script src="<?php echo base_url() . 'assets/backend/plugins/select2/js/select2.full.min.js' ?>"></script>
+
+<!-- DataTables  & Plugins -->
+<script src="<?php echo  base_url()  .  'assets/backend/plugins/datatables/jquery.dataTables.min.js'  ?>"></script>
+<script src="<?php echo  base_url()  .  'assets/backend/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js'  ?>"></script>
+<script src="<?php echo  base_url()  .  'assets/backend/plugins/datatables-responsive/js/dataTables.responsive.min.js'  ?>"></script>
+<script src="<?php echo  base_url()  .  'assets/backend/plugins/datatables-responsive/js/responsive.bootstrap4.min.js'  ?>"></script>
+<script src="<?php echo  base_url()  .  'assets/backend/plugins/datatables-buttons/js/dataTables.buttons.min.js'  ?>"></script>
+<script src="<?php echo  base_url()  .  'assets/backend/plugins/datatables-buttons/js/buttons.bootstrap4.min.js'  ?>"></script>
+<script src="<?php echo  base_url()  .  'assets/backend/plugins/datatables-buttons/js/buttons.html5.min.js'  ?>"></script>
+<script src="<?php echo  base_url()  .  'assets/backend/plugins/datatables-buttons/js/buttons.print.min.js'  ?>"></script>
+<script src="<?php echo  base_url()  .  'assets/backend/plugins/datatables-buttons/js/buttons.colVis.min.js'  ?>"></script>
+<!-- AdminLTE App -->
+
+
 <script>
     document.getElementById("waktu").innerHTML = new Date().getFullYear();
 </script>

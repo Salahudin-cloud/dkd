@@ -17,6 +17,7 @@ class App extends BaseConfig
      *    http://example.com/
      */
     public string $baseURL = 'http://localhost/dkd/public/';
+    // public string $baseURL = 'https://999a-125-160-104-55.ngrok-free.app/dkd/public/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

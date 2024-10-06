@@ -28,15 +28,6 @@
                     <a href="<?php echo site_url('direktur/dashboard') ?>" class="nav-link">Home</a>
                 </li>
             </ul>
-
-            <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                        <i class="fas fa-expand-arrows-alt"></i>
-                    </a>
-                </li>
-            </ul>
         </nav>
 
 
@@ -47,10 +38,10 @@
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?php echo base_url() . 'assets/backend/dist/img/user2-160x160.jpg' ?>" class="img-circle elevation-2" alt="User Image">
+                        <img src="<?php echo base_url() . 'assets/backend/dist/img/user2-160x160.png' ?>" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Direktur</a>
+                        <a href="#" class="d-block">Keuangan</a>
                     </div>
                 </div>
 
@@ -59,7 +50,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Dashboard -->
                         <li class="nav-item ">
-                            <a href="<?php echo site_url('direktur/dashboard') ?>" class="nav-link">
+                            <a href="<?php echo site_url('keuangan/dashboard') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-home"></i>
                                 <p>
                                     Dashboard
@@ -68,7 +59,7 @@
                         </li>
                         <!-- Transaksi -->
                         <li class="nav-item ">
-                            <a href="<?php echo site_url('direktur/transaksi') ?>" class="nav-link">
+                            <a href="<?php echo site_url('keuangan/transaksi') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-hand-holding-usd"></i>
                                 <p>
                                     Transaksi
@@ -102,11 +93,7 @@
                         <div class="col-sm-6">
                             <h1 class="m-0">Dashboard</h1>
                         </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="<?php echo base_url('direktur/dashboard') ?>">Home</a></li>
-                            </ol>
-                        </div><!-- /.col -->
+
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
@@ -119,10 +106,10 @@
                     <!-- Box info -->
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="small-box bg-danger">
+                            <div class="small-box bg-success">
                                 <div class="inner">
-                                    <h3>Rp <?php echo number_format($year[0]->nominal_pembayaran, 0, ',', '.') ?></h3>
-                                    <p>Total Donasi Tahun Ini</p>
+                                    <h3>Rp <?php echo number_format($total, 0, ',', '.') ?></h3>
+                                    <p>Total Donasi Masuk</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fas fa-wallet"></i>
@@ -130,13 +117,13 @@
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="small-box bg-success">
+                            <div class="small-box bg-danger">
                                 <div class="inner">
-                                    <h3>Rp <?php echo number_format($month[0]->nominal_pembayaran, 0, ',', '.') ?></h3>
-                                    <p>Total Donasi Bulan Ini</p>
+                                    <h3>Rp <?php echo number_format($keluar, 0, ',', '.') ?></h3>
+                                    <p>Total Donasi Keluar</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fas fa-money-bill"></i>
+                                    <i class="fas fa-money-bill-wave"></i>
                                 </div>
                             </div>
                         </div>
